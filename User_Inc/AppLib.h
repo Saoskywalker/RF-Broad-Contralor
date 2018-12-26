@@ -39,7 +39,7 @@ extern u8 nextPage;
 extern u8 requestPage;
 extern const Button btnChinse;
 extern const Button btnEnglish;
-extern u8 WorkIntensity;
+extern u8 WorkIntensity, WorkMode;
 
 //music code
 #define	MSC_BUTTON  0

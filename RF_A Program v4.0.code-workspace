@@ -10,5 +10,7 @@
 			"adc.h": "c",
 			"stm32f10x.h": "c"
 		}
-	}
+	},
+	"workbench.editor.enablePreview": false,
+	"workbench.editor.enablePreviewFromQuickOpen": false
 }
