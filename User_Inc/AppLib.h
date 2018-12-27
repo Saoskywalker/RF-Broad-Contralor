@@ -42,7 +42,7 @@ extern const Button btnEnglish;
 extern u8 WorkIntensity, WorkMode;
 
 //music code
-#define	MSC_BUTTON  0
+#define	MSC_BUTTON  127
 #define	MSC_START   2
 #define	MSC_STOP    3
 #define	MSC_ALERT   4
@@ -143,7 +143,7 @@ static __inline void DisplayIntensity(u8 i)
 /*****Display Mode********/
 static __inline void DisplayMode(u8 i)
 {
-	dwDisChar(DW_SIZE_48, 532, 538, '@'+i);
+	dwDisChar(DW_SIZE_32, 537, 537, '@'+i);
 }
 ///////////////////////////////
 

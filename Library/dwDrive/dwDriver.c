@@ -430,11 +430,11 @@ void dwReceiveByte(u8 byte){
 
 //Display time: 00:00
 void funDisTime(u16 timing){
-	dwDisNum(DW_SIZE_48, 184,    536,timing/600);
-	dwDisNum(DW_SIZE_48, 184+24, 536,timing/60%10);
-	dwDisChar(DW_SIZE_48,184+48, 536,':');
-	dwDisNum(DW_SIZE_48, 184+72, 536,timing%60/10);
-	dwDisNum(DW_SIZE_48, 184+96, 536,timing%10);
+	dwDisNum(DW_SIZE_32, 185,    537,timing/600);
+	dwDisNum(DW_SIZE_32, 185+16, 537,timing/60%10);
+	dwDisChar(DW_SIZE_32,185+32, 537,':');
+	dwDisNum(DW_SIZE_32, 185+48, 537,timing%60/10);
+	dwDisNum(DW_SIZE_32, 185+64, 537,timing%10);
 }
 
 void funDisTime_Cool(u16 timing){

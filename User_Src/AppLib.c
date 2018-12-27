@@ -18,12 +18,12 @@ const Button btnExplain = {PIC_MENUS_P, 644, 6, 776, 63};
 const Button btnStart = {PIC_MENUS_P, 696, 523, 754, 580};
 const Button btnPause = {PIC_MENUS_P, 523, 511, 583, 568};
 const Button btnBack = {PIC_MENUS_P, 17, 13, 60, 55};
-const Button btnTimeUp = {PIC_MENUS_P, 116, 532, 159, 577};
-const Button btnTimeDown = {PIC_MENUS_P, 290, 532, 334, 577};
-const Button btnIntensityUp = {PIC_MENUS_P, 446, 438, 516, 504};
-const Button btnIntensityDown = {PIC_MENUS_P, 619, 438, 689, 504};
-const Button btnModeUp = {PIC_MENUS_P, 434, 534, 475, 576};
-const Button btnModeDown = {PIC_MENUS_P, 610, 534, 651, 575};
+const Button btnTimeDown = {PIC_MENUS_P, 116, 532, 159, 577};
+const Button btnTimeUp = {PIC_MENUS_P, 290, 532, 334, 577};
+const Button btnIntensityDown = {PIC_MENUS_P, 446, 438, 516, 504};
+const Button btnIntensityUp = {PIC_MENUS_P, 619, 438, 689, 504};
+const Button btnModeDown = {PIC_MENUS_P, 434, 534, 475, 576};
+const Button btnModeUp = {PIC_MENUS_P, 610, 534, 651, 575};
 //const Button btnIntensityUp_FaceRF    = {PIC_MENUS_P,  405,421,474,489};
 //const Button btnIntensityDown_FaceRF    = {PIC_MENUS_P,  633,420,705,489};
 //const Button btnIntensityUp_BodyRF    = {PIC_MENUS_P,  405,421,474,489};
@@ -41,18 +41,18 @@ const Button btnO2_O = {PIC_MENUS, 689, 7, 788, 55};
 const Button btnStart_O = {PIC_MENUS, 696, 523, 754, 580};
 const Button btnPause_O = {PIC_MENUS, 523, 511, 583, 568};
 const Button btnBack_O = {PIC_MENUS, 17, 13, 60, 55};
-const Button btnTimeUp_O = {PIC_MENUS, 116, 532, 159, 577};
-const Button btnTimeDown_O = {PIC_MENUS, 290, 532, 334, 577};
+const Button btnTimeDown_O = {PIC_MENUS, 116, 532, 159, 577};
+const Button btnTimeUp_O = {PIC_MENUS, 290, 532, 334, 577};
 //const Button btnIntensityUp_FaceRF_O    = {PIC_MENUS,  405,421,474,489};
 //const Button btnIntensityDown_FaceRF_O    = {PIC_MENUS,  633,420,705,489};
 //const Button btnIntensityUp_BodyRF_O    = {PIC_MENUS,  405,421,474,489};
 //const Button btnIntensityDown_BodyRF_O    = {PIC_MENUS,  633,420,705,489};
 //const Button btnIntensityUp_EyeRF_O    = {PIC_MENUS,  405,421,474,489};
 //const Button btnIntensityDown_EyeRF_O    = {PIC_MENUS,  633,420,705,489};
-const Button btnIntensityUp_O = {PIC_MENUS, 446, 438, 516, 504};
-const Button btnIntensityDown_O = {PIC_MENUS, 619, 438, 689, 504};
-const Button btnModeUp_O = {PIC_MENUS, 434, 534, 475, 576};
-const Button btnModeDown_O = {PIC_MENUS, 610, 534, 651, 575};
+const Button btnIntensityDown_O = {PIC_MENUS, 446, 438, 516, 504};
+const Button btnIntensityUp_O = {PIC_MENUS, 619, 438, 689, 504};
+const Button btnModeDown_O = {PIC_MENUS, 434, 534, 475, 576};
+const Button btnModeUp_O = {PIC_MENUS, 610, 534, 651, 575};
 const Button btnTimeUp_O_Cool = {PIC_FUN_BUT_Cool, 701, 277, 752, 328};
 const Button btnTimeDown_O_Cool = {PIC_FUN_BUT_Cool, 462, 276, 513, 329};
 const Button btnExplainExit_O = {PIC_EXPLAIN, 24, 17, 96, 82};
@@ -136,7 +136,7 @@ void menuExplainPres(void)
 /*Start button*/
 void StartPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	dwPlayMusic(MSC_START, 1);
 	switch (nextPage)
 	{
 	case FUNCTION_O2:
@@ -258,7 +258,7 @@ void IntensityUpPres(void)
 		{
 			WorkIntensity++;
 		}
-		DisplayIntensity(WorkIntensity + 50); //+50 because photos serial offsets
+		DisplayIntensity(WorkIntensity + 20); //+20 because photos serial offsets
 	}
 	else
 	{
@@ -291,7 +291,7 @@ void IntensityDownPres(void)
 		{
 			WorkIntensity--;
 		}
-		DisplayIntensity(WorkIntensity + 50); //+50 because photos serial offsets
+		DisplayIntensity(WorkIntensity + 20); //+20 because photos serial offsets
 	}
 	else
 	{
@@ -317,13 +317,13 @@ void IntensityDownFree(void)
 void ModeUpPres(void)
 {
 	dwPlayMusic(MSC_BUTTON, 1);
-	dwDisButton(&btnModeDown, 1, btnModeDown.xs, btnModeDown.ys);
+	dwDisButton(&btnModeUp, 1, btnModeUp.xs, btnModeUp.ys);
 
 	if (WorkMode < 4)
 	{
 		WorkMode++;
 	}
-	DisplayMode(WorkMode + '@');
+	DisplayMode(WorkMode);
 }
 
 void ModeUpFree(void)
@@ -340,7 +340,7 @@ void ModeDownPres(void)
 	{
 		WorkMode--;
 	}
-	DisplayMode(WorkMode + '@');
+	DisplayMode(WorkMode);
 }
 
 void ModeDownFree(void)
@@ -481,9 +481,9 @@ void PageEyeRF(void)
 	Comm.onoff = RF_OFF;
 	BitAppCon.menuExit = 0;
 
+	dwDisPicWithL(PIC_EYE_RF);
 	funDisTime(WorkTime);
 	DisplayIntensity(WorkIntensity);
-	dwDisPicWithL(PIC_EYE_RF);
 
 	dwCancelKey();
 	dwListenKey(menuFaceRFPres, 0, &btnFaceRF);
@@ -548,9 +548,9 @@ void PageFaceRF(void)
 	Comm.onoff = RF_OFF;
 	BitAppCon.menuExit = 0;
 
+	dwDisPicWithL(PIC_FACE_RF);
 	funDisTime(WorkTime);
 	DisplayIntensity(WorkIntensity);
-	dwDisPicWithL(PIC_FACE_RF);
 
 	dwCancelKey();
 	dwListenKey(menuFaceRFPres, 0, &btnFaceRF);
@@ -615,14 +615,15 @@ void PageBodyRF(void)
 	Comm.onoff = RF_OFF;
 	BitAppCon.menuExit = 0;
 
+	dwDisPicWithL(PIC_BODY_RF);
 	funDisTime(WorkTime);
 	DisplayIntensity(WorkIntensity);
-	dwDisPicWithL(PIC_BODY_RF);
 
 	dwCancelKey();
 	dwListenKey(menuFaceRFPres, 0, &btnFaceRF);
 	dwListenKey(menuBodyRFPres, 0, &btnBodyRF);
 	dwListenKey(menuEyeRFPres, 0, &btnEyeRF);
+	dwListenKey(menuO2Pres, 0, &btnO2);
 	dwListenKey(StartPres, 0, &btnStart);
 	//dwListenKey(PausePres, PauseFree, &btnPause);
 	dwListenKey(BackPres, BackFree, &btnBack);
@@ -671,37 +672,82 @@ void PageBodyRF(void)
 	dwHandler();
 }
 
+//Temperature Process
+const u16 TemperatureTable[] = {0, 2300, 2400, 2500, 2600, 
+								2700, 2800, 2900, 3000};
+u16 IceTemperature = 0;
+void TemperatureProcess(void)
+{
+	static u8 errorFlag = 0;
+	//NTC ERROR
+	if(IceTemperature>=4000||IceTemperature<=500)
+	{
+		if(errorFlag==0)
+		{
+			errorFlag = 1;
+			COOL_ON_PIN = 0;
+			dwPlayMusic(MSC_ALERT, 1);
+		}			
+	}
+	else
+	{
+		errorFlag = 0;
+		if(IceTemperature<=TemperatureTable[WorkIntensity]-16)
+		{
+			COOL_ON_PIN = 1;
+		}
+		if(IceTemperature>=TemperatureTable[WorkIntensity])
+		{
+			COOL_ON_PIN = 0;
+		}
+	}
+}
+
 void PageO2(void)
 {
 	WorkTime = 1800;
 	WorkIntensity = 1;
+	WorkMode = 1;
 	BitAppCon.menuExit = 0;
 
 	dwDisPicWithL(PIC_O2);
 	funDisTime(WorkTime);
-	dwDisChar(DW_SIZE_48, 581 + 12, 349, WorkIntensity + '@');
+	DisplayIntensity(WorkIntensity+20);	//+20 because photos serial offsets
+	DisplayMode(WorkMode);
 
 	dwCancelKey();
-	dwListenKey(StartPres, StartFree, &btnStart);
-	dwListenKey(PausePres, PauseFree, &btnPause);
+	dwListenKey(menuFaceRFPres, 0, &btnFaceRF);
+	dwListenKey(menuBodyRFPres, 0, &btnBodyRF);
+	dwListenKey(menuEyeRFPres, 0, &btnEyeRF);
+	dwListenKey(menuO2Pres, 0, &btnO2);
+	dwListenKey(StartPres, 0, &btnStart);
+	//dwListenKey(PausePres, PauseFree, &btnPause);
 	dwListenKey(BackPres, BackFree, &btnBack);
 	dwListenKey(TimeUpPres, TimeUpFree, &btnTimeUp);
 	dwListenKey(TimeDownPres, TimeDownFree, &btnTimeDown);
 	dwListenKey(IntensityUpPres, IntensityUpFree, &btnIntensityUp);
 	dwListenKey(IntensityDownPres, IntensityDownFree, &btnIntensityDown);
+	dwListenKey(ModeUpPres, ModeUpFree, &btnModeUp);
+	dwListenKey(ModeDownPres, ModeDownFree, &btnModeDown);
 
 	while (!BitAppCon.menuExit)
 	{
 		dwHandler();
+		if (nextPage != FUNCTION_O2)
+		{
+			BitAppCon.menuExit = 1;
+			BitAppCon.WorkFlag = 0;
+		}
 		WorkTimeDeal();
 		if (BitAppCon.WorkFlag)
 		{
-			LED_PIN = 1;
+			IceTemperature = Get_Adc_Average(ADC_Channel_4,6);	
+			TemperatureProcess();
 			PUMP_PIN = 1;
 		}
 		else
 		{
-			LED_PIN = 0;
+			COOL_ON_PIN = 0;	//close hate
 			Valve_PIN = 0;
 			PUMP_PIN = 0;
 		}
@@ -710,6 +756,7 @@ void PageO2(void)
 		if (BitAppCon.ms200)
 		{
 			BitAppCon.ms200 = 0;
+			//printf("T:%d\n", IceTemperature);
 			CommSendFlag = 1;
 			MainBoardSend();
 		}

@@ -56,7 +56,7 @@ void TIM3_IRQHandler(void)   //TIM3ÖÐ¶Ï 1ms
 //		DEBUG_TIME_PIN = ~DEBUG_TIME_PIN;
 //			#endif
 		if(nextPage==FUNCTION_O2)
-			O2PWM(WorkIntensity, BitAppCon.WorkFlag);
+			O2PWM(WorkMode, BitAppCon.WorkFlag);
 			
 		if(++Flag200msCnt>=200)	//200ms, use for uart1 sending
 		{

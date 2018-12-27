@@ -6,6 +6,7 @@ Function: 3 channel strength RF
 History:2018.8.3: Debug completed
 		2018.12.26: change version to vertical RF
 		add NTC(PA4 AIN4), sound pin became pump pin(delay_us 500)
+		BUTTON music cancel, develop success
 **********************************************************************/
 
 //#define DEBUG
@@ -28,7 +29,7 @@ int main()
 	delay_init();
 	uart_init(9600);			 //Main Board
 	uart2_init(115200);			 //DW Display
-	TIM4_PWM_Init(7200, 0);		 //100Khz.
+	TIM4_PWM_Init(7200, 0);		 //10Khz.
 	TIM_SetCompare3(TIM4, 1600); //2.2v
 	screenCheck();
 	TIM3_Int_Init(999, 70); //1ms
