@@ -1,12 +1,12 @@
 /**********************************************************************
 Name: Internal Lipolysis Instrument(display contral)
-Version: v1.0 Released(changed from BJ-铂澜迪v1.0)
+Version: v1.0 Released(changed from BJ-锟斤拷锟斤拷锟斤拷v1.0)
 Editor: Aysi
 Function: 3 channel strength RF
 History:2018.8.3: Debug completed
 		2018.12.26: change version to vertical RF
 		add NTC(PA4 AIN4), sound pin became pump pin(delay_us 500)
-		BUTTON music cancel, develop success
+		 develop success
 **********************************************************************/
 
 //#define DEBUG
@@ -30,15 +30,15 @@ int main()
 	uart_init(9600);			 //Main Board
 	uart2_init(115200);			 //DW Display
 	TIM4_PWM_Init(7200, 0);		 //10Khz.
-	TIM_SetCompare3(TIM4, 1600); //2.2v
+	TIM_SetCompare3(TIM4, 3000); //4.6v
 	screenCheck();
+	dwPlayVol(0xFF);
 	TIM3_Int_Init(999, 70); //1ms
 	Adc_Init();
-
 	delay_ms(1000);
 	delay_ms(1000);
-	delay_ms(1000);
-	nextPage = FUNCTION_EYE;
+	delay_ms(250);
+	nextPage = FUNCTION_RESTART;
 	dwSetColor(DW_COL_RED, DW_COL_WHITE);
 	dwStopMusic();
 
@@ -49,7 +49,7 @@ int main()
 		dwSetLanguage(LANGUAGE_CHINESE);
 
 	//#ifndef DEBUG
-	//	IWDG_Init(4,625);    //与分频数为64,重载值为625,溢出时间为1s
+	//	IWDG_Init(4,625);    //与分频数为64,重载值为625,溢出时间为1s	
 	//#endif
 	while (1)
 	{
@@ -65,6 +65,11 @@ int main()
 		//		delay_ms(500);
 		switch (nextPage)
 		{
+		case FUNCTION_RESTART:
+		{
+			PageRestartAnimation();
+			break;
+		}
 		case FUNCTION_LANGUAGE:
 		{
 			PageLanguage();
@@ -120,7 +125,7 @@ void screenCheck(void)
 	for (i = 0; i < 10; i++)
 	{
 		dwSendByte(0xAA);
-		dwSendByte(0x00); // 发送握手指令
+		dwSendByte(0x00);  // 发送握手指令
 		dwSendOver();
 		delay_ms(5);
 		if (dwQueryCmd() == 0x74)

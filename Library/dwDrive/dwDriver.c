@@ -334,7 +334,7 @@ void dwPlayMusic(u8 id, u8 num){
 	dwSendByte(0x30);
 	dwSendByte(id);
 	dwSendByte(num);
-	dwSendByte(0xFF);   // 最大音量播放
+	dwSendByte(0xA0); 	//音量0x00~0xff
 	dwSendOver();
 }
 
@@ -345,6 +345,14 @@ void dwStopMusic(void){
 	dwSendByte(0);
 	dwSendByte(0);
 	dwSendByte(0);   
+	dwSendOver();
+}
+
+//调节音量
+void dwPlayVol(u8 i){
+	dwSendByte(0xAA);
+	dwSendByte(0x32);
+	dwSendByte(i);
 	dwSendOver();
 }
 

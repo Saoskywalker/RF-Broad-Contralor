@@ -42,7 +42,7 @@ extern const Button btnEnglish;
 extern u8 WorkIntensity, WorkMode;
 
 //music code
-#define	MSC_BUTTON  127
+#define	MSC_BUTTON  0
 #define	MSC_START   2
 #define	MSC_STOP    3
 #define	MSC_ALERT   4
@@ -56,6 +56,7 @@ extern u8 WorkIntensity, WorkMode;
 #define FUNCTION_SELECT 5
 #define FUNCTION_LANGUAGE 6
 #define FUNCTION_EYE 7
+#define FUNCTION_RESTART 8
 
 //lll
 typedef struct
@@ -80,6 +81,7 @@ void PageCool(void);
 void PageO2(void);
 void PageExplain(void);
 void PageEyeRF(void);
+void PageRestartAnimation(void);
 
 //Main board Communicate
 #define RF_OFF 0x00

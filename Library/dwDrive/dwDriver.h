@@ -149,6 +149,9 @@ void dwPlayMusic(u8 id, u8 num);
 // 停止音乐
 void dwStopMusic(void);
 
+//调节音量
+void dwPlayVol(u8 i);
+
 //需被放入串口接收中断函数
 /*******收到屏幕的数据外理********/
 void dwReceiveByte(u8 byte);

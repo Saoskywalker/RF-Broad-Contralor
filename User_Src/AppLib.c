@@ -7,56 +7,57 @@ u16 CoolIntensity[] = {0, 1700, 1800, 1900, 2000, 2175, 2275, 2375, 2475, 2550, 
 u8 ExplainNum = 0;
 
 //Botton press effect
-const Button btnChinse = {PIC_LANGUAGE_P, 181, 223, 343, 325};
-const Button btnEnglish = {PIC_LANGUAGE_P, 455, 223, 620, 325};
-const Button btnFaceRF = {PIC_MENUS_P, 444, 7, 543, 55};
-const Button btnBodyRF = {PIC_MENUS_P, 565, 7, 664, 55};
-const Button btnEyeRF = {PIC_MENUS_P, 320, 7, 420, 55};
-const Button btnO2 = {PIC_MENUS_P, 689, 7, 788, 55};
-const Button btnCOOL = {PIC_MENUS_P, 619, 469, 767, 571};
-const Button btnExplain = {PIC_MENUS_P, 644, 6, 776, 63};
-const Button btnStart = {PIC_MENUS_P, 696, 523, 754, 580};
-const Button btnPause = {PIC_MENUS_P, 523, 511, 583, 568};
-const Button btnBack = {PIC_MENUS_P, 17, 13, 60, 55};
-const Button btnTimeDown = {PIC_MENUS_P, 116, 532, 159, 577};
-const Button btnTimeUp = {PIC_MENUS_P, 290, 532, 334, 577};
-const Button btnIntensityDown = {PIC_MENUS_P, 446, 438, 516, 504};
-const Button btnIntensityUp = {PIC_MENUS_P, 619, 438, 689, 504};
-const Button btnModeDown = {PIC_MENUS_P, 434, 534, 475, 576};
-const Button btnModeUp = {PIC_MENUS_P, 610, 534, 651, 575};
-//const Button btnIntensityUp_FaceRF    = {PIC_MENUS_P,  405,421,474,489};
-//const Button btnIntensityDown_FaceRF    = {PIC_MENUS_P,  633,420,705,489};
-//const Button btnIntensityUp_BodyRF    = {PIC_MENUS_P,  405,421,474,489};
-//const Button btnIntensityDown_BodyRF    = {PIC_MENUS_P,  633,420,705,489};
-//const Button btnIntensityUp_EyeRF    = {PIC_MENUS_P,  405,421,474,489};
-//const Button btnIntensityDown_EyeRF    = {PIC_MENUS_P,  633,420,705,489};
-const Button btnTimeUp_Cool = {PIC_FUN_BUT_P_Cool, 701, 277, 752, 328};
-const Button btnTimeDown_Cool = {PIC_FUN_BUT_P_Cool, 462, 276, 513, 329};
+static const Button btnEnter  = {PIC_MENUS_P, 0, 0, 799, 599};
+static const Button btnChinse = {PIC_LANGUAGE_P, 181, 223, 343, 325};
+static const Button btnEnglish = {PIC_LANGUAGE_P, 455, 223, 620, 325};
+static const Button btnFaceRF = {PIC_MENUS_P, 444, 7, 543, 55};
+static const Button btnBodyRF = {PIC_MENUS_P, 565, 7, 664, 55};
+static const Button btnEyeRF = {PIC_MENUS_P, 320, 7, 420, 55};
+static const Button btnO2 = {PIC_MENUS_P, 689, 7, 788, 55};
+static const Button btnCOOL = {PIC_MENUS_P, 619, 469, 767, 571};
+static const Button btnExplain = {PIC_MENUS_P, 644, 6, 776, 63};
+static const Button btnStart = {PIC_MENUS_P, 696, 523, 754, 580};
+static const Button btnPause = {PIC_MENUS_P, 523, 511, 583, 568};
+static const Button btnBack = {PIC_MENUS_P, 17, 13, 60, 55};
+static const Button btnTimeDown = {PIC_MENUS_P, 116, 532, 159, 577};
+static const Button btnTimeUp = {PIC_MENUS_P, 290, 532, 334, 577};
+static const Button btnIntensityDown = {PIC_MENUS_P, 446, 438, 516, 504};
+static const Button btnIntensityUp = {PIC_MENUS_P, 619, 438, 689, 504};
+static const Button btnModeDown = {PIC_MENUS_P, 434, 534, 475, 576};
+static const Button btnModeUp = {PIC_MENUS_P, 610, 534, 651, 575};
+//static const Button btnIntensityUp_FaceRF    = {PIC_MENUS_P,  405,421,474,489};
+//static const Button btnIntensityDown_FaceRF    = {PIC_MENUS_P,  633,420,705,489};
+//static const Button btnIntensityUp_BodyRF    = {PIC_MENUS_P,  405,421,474,489};
+//static const Button btnIntensityDown_BodyRF    = {PIC_MENUS_P,  633,420,705,489};
+//static const Button btnIntensityUp_EyeRF    = {PIC_MENUS_P,  405,421,474,489};
+//static const Button btnIntensityDown_EyeRF    = {PIC_MENUS_P,  633,420,705,489};
+static const Button btnTimeUp_Cool = {PIC_FUN_BUT_P_Cool, 701, 277, 752, 328};
+static const Button btnTimeDown_Cool = {PIC_FUN_BUT_P_Cool, 462, 276, 513, 329};
 
 //Botton original effect
-const Button btnFaceRF_O = {PIC_MENUS, 444, 7, 543, 55};
-const Button btnBodyRF_O = {PIC_MENUS, 565, 7, 664, 55};
-const Button btnEyeRF_O = {PIC_MENUS, 320, 7, 420, 55};
-const Button btnO2_O = {PIC_MENUS, 689, 7, 788, 55};
-const Button btnStart_O = {PIC_MENUS, 696, 523, 754, 580};
-const Button btnPause_O = {PIC_MENUS, 523, 511, 583, 568};
-const Button btnBack_O = {PIC_MENUS, 17, 13, 60, 55};
-const Button btnTimeDown_O = {PIC_MENUS, 116, 532, 159, 577};
-const Button btnTimeUp_O = {PIC_MENUS, 290, 532, 334, 577};
-//const Button btnIntensityUp_FaceRF_O    = {PIC_MENUS,  405,421,474,489};
-//const Button btnIntensityDown_FaceRF_O    = {PIC_MENUS,  633,420,705,489};
-//const Button btnIntensityUp_BodyRF_O    = {PIC_MENUS,  405,421,474,489};
-//const Button btnIntensityDown_BodyRF_O    = {PIC_MENUS,  633,420,705,489};
-//const Button btnIntensityUp_EyeRF_O    = {PIC_MENUS,  405,421,474,489};
-//const Button btnIntensityDown_EyeRF_O    = {PIC_MENUS,  633,420,705,489};
-const Button btnIntensityDown_O = {PIC_MENUS, 446, 438, 516, 504};
-const Button btnIntensityUp_O = {PIC_MENUS, 619, 438, 689, 504};
-const Button btnModeDown_O = {PIC_MENUS, 434, 534, 475, 576};
-const Button btnModeUp_O = {PIC_MENUS, 610, 534, 651, 575};
-const Button btnTimeUp_O_Cool = {PIC_FUN_BUT_Cool, 701, 277, 752, 328};
-const Button btnTimeDown_O_Cool = {PIC_FUN_BUT_Cool, 462, 276, 513, 329};
-const Button btnExplainExit_O = {PIC_EXPLAIN, 24, 17, 96, 82};
-const Button btnExplainNext_O = {PIC_EXPLAIN, 358, 510, 444, 589};
+// static const Button btnFaceRF_O = {PIC_MENUS, 444, 7, 543, 55};
+// static const Button btnBodyRF_O = {PIC_MENUS, 565, 7, 664, 55};
+// static const Button btnEyeRF_O = {PIC_MENUS, 320, 7, 420, 55};
+// static const Button btnO2_O = {PIC_MENUS, 689, 7, 788, 55};
+static const Button btnStart_O = {PIC_MENUS, 696, 523, 754, 580};
+// static const Button btnPause_O = {PIC_MENUS, 523, 511, 583, 568};
+// static const Button btnBack_O = {PIC_MENUS, 17, 13, 60, 55};
+static const Button btnTimeDown_O = {PIC_MENUS, 116, 532, 159, 577};
+static const Button btnTimeUp_O = {PIC_MENUS, 290, 532, 334, 577};
+//static const Button btnIntensityUp_FaceRF_O    = {PIC_MENUS,  405,421,474,489};
+//static const Button btnIntensityDown_FaceRF_O    = {PIC_MENUS,  633,420,705,489};
+//static const Button btnIntensityUp_BodyRF_O    = {PIC_MENUS,  405,421,474,489};
+//static const Button btnIntensityDown_BodyRF_O    = {PIC_MENUS,  633,420,705,489};
+//static const Button btnIntensityUp_EyeRF_O    = {PIC_MENUS,  405,421,474,489};
+//static const Button btnIntensityDown_EyeRF_O    = {PIC_MENUS,  633,420,705,489};
+static const Button btnIntensityDown_O = {PIC_MENUS, 446, 438, 516, 504};
+static const Button btnIntensityUp_O = {PIC_MENUS, 619, 438, 689, 504};
+static const Button btnModeDown_O = {PIC_MENUS, 434, 534, 475, 576};
+static const Button btnModeUp_O = {PIC_MENUS, 610, 534, 651, 575};
+static const Button btnTimeUp_O_Cool = {PIC_FUN_BUT_Cool, 701, 277, 752, 328};
+static const Button btnTimeDown_O_Cool = {PIC_FUN_BUT_Cool, 462, 276, 513, 329};
+static const Button btnExplainExit_O = {PIC_EXPLAIN, 24, 17, 96, 82};
+static const Button btnExplainNext_O = {PIC_EXPLAIN, 358, 510, 444, 589};
 
 u8 CommSendFlag = 0;									  //Send Main Board Buffer or not
 _Comm Comm = {FRAME_HEAD, RF_FACE, 1, RF_OFF, FRAME_END}; //Send Main Board Buffer
@@ -91,38 +92,73 @@ void menuEnglishPres(void)
 /*Menu select*/
 void menuEyeRFPres(void)
 {
-	nextPage = FUNCTION_EYE;
-	dwPlayMusic(MSC_BUTTON, 1);
-	dwDisButton(&btnEyeRF, 1, btnEyeRF.xs, btnEyeRF.ys);
+	if(BitAppCon.WorkFlag)
+	{
+		dwPlayMusic(MSC_ERROR, 1);
+	}
+	else
+	{
+		nextPage = FUNCTION_EYE;
+		dwPlayMusic(MSC_BUTTON, 1);
+		dwDisButton(&btnEyeRF, 1, btnEyeRF.xs, btnEyeRF.ys);
+	}
 }
 
 void menuFaceRFPres(void)
 {
-	nextPage = FUNCTION_FACE;
-	dwPlayMusic(MSC_BUTTON, 1);
-	dwDisButton(&btnFaceRF, 1, btnFaceRF.xs, btnFaceRF.ys);
+	if(BitAppCon.WorkFlag)
+	{
+		dwPlayMusic(MSC_ERROR, 1);
+	}
+	else
+	{
+		nextPage = FUNCTION_FACE;
+		dwPlayMusic(MSC_BUTTON, 1);
+		dwDisButton(&btnFaceRF, 1, btnFaceRF.xs, btnFaceRF.ys);
+	}
 }
 
 void menuBodyRFPres(void)
 {
-	nextPage = FUNCTION_BODY;
-	dwPlayMusic(MSC_BUTTON, 1);
-	dwDisButton(&btnBodyRF, 1, btnBodyRF.xs, btnBodyRF.ys);
+	if(BitAppCon.WorkFlag)
+	{
+		dwPlayMusic(MSC_ERROR, 1);
+	}
+	else
+	{
+		nextPage = FUNCTION_BODY;
+		dwPlayMusic(MSC_BUTTON, 1);
+		dwDisButton(&btnBodyRF, 1, btnBodyRF.xs, btnBodyRF.ys);
+	}
 }
 
 void menuO2Pres(void)
 {
-	nextPage = FUNCTION_O2;
-	dwPlayMusic(MSC_BUTTON, 1);
-	dwDisButton(&btnO2, 1, btnO2.xs, btnO2.ys);
+	if(BitAppCon.WorkFlag)
+	{
+		dwPlayMusic(MSC_ERROR, 1);
+	}
+	else
+	{
+		nextPage = FUNCTION_O2;
+		dwPlayMusic(MSC_BUTTON, 1);
+		dwDisButton(&btnO2, 1, btnO2.xs, btnO2.ys);
+	}
 }
 
 void menuCoolPres(void)
 {
-	BitAppCon.menuExit = 1;
-	nextPage = FUNCTION_COOL;
-	dwPlayMusic(MSC_BUTTON, 1);
-	dwDisButton(&btnCOOL, 1, btnCOOL.xs, btnCOOL.ys);
+	if(BitAppCon.WorkFlag)
+	{
+		dwPlayMusic(MSC_ERROR, 1);
+	}
+	else
+	{
+		BitAppCon.menuExit = 1;
+		nextPage = FUNCTION_COOL;
+		dwPlayMusic(MSC_BUTTON, 1);
+		dwDisButton(&btnCOOL, 1, btnCOOL.xs, btnCOOL.ys);
+	}
 }
 
 void menuExplainPres(void)
@@ -204,13 +240,27 @@ void PauseFree(void)
 /*Back button*/
 void BackPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
-	dwDisButton(&btnBack, 1, btnBack.xs, btnBack.ys);
+	if(BitAppCon.WorkFlag)
+	{
+		dwPlayMusic(MSC_ERROR, 1);
+	}
+	else
+	{
+		dwPlayMusic(MSC_BUTTON, 1);
+		dwDisButton(&btnBack, 1, btnBack.xs, btnBack.ys);
+	}
 }
 
 void BackFree(void)
 {
-	nextPage = FUNCTION_LANGUAGE;
+	if(BitAppCon.WorkFlag)
+	{
+		dwPlayMusic(MSC_ERROR, 1);
+	}
+	else
+	{
+		nextPage = FUNCTION_LANGUAGE;
+	}
 }
 
 /*Time button*/
@@ -380,6 +430,15 @@ void ExplainNextFree(void)
 	}
 }
 
+static void EnterPres(void)
+{
+	BitAppCon.menuExit = 1;
+	nextPage = FUNCTION_EYE;
+	dwPlayMusic(MSC_BUTTON, 1);
+	//dwDisButton(&btnEnter, 0, btnEnter.xs, btnEnter.ys);
+	//dwSetBL(0x40);	//change display light
+}
+
 /*uart1 send to main board*/
 void MainBoardSend(void)
 {
@@ -392,6 +451,23 @@ void MainBoardSend(void)
 		uasrt1SendByte(Comm.onoff);
 		uasrt1SendByte(Comm.end);
 	}
+}
+
+//Power up 
+void PageRestartAnimation(void)
+{		
+	dwDisPicNoL(0);
+	BitAppCon.menuExit = 0;
+	dwCancelKey();
+	dwListenKey(EnterPres, 0, &btnEnter);
+
+	while (!BitAppCon.menuExit)
+	{
+		dwHandler();
+	}
+	
+	dwWaitRelease();
+	dwHandler();
 }
 
 void PageLanguage(void)
@@ -673,19 +749,20 @@ void PageBodyRF(void)
 }
 
 //Temperature Process
-const u16 TemperatureTable[] = {0, 2300, 2400, 2500, 2600, 
-								2700, 2800, 2900, 3000};
+const u16 TemperatureTable[] = {0, 2700, 2800, 2900, 3000,
+								3100, 3300, 3500, 3600};
 u16 IceTemperature = 0;
 void TemperatureProcess(void)
 {
 	static u8 errorFlag = 0;
 	//NTC ERROR
-	if(IceTemperature>=4000||IceTemperature<=500)
+	if(IceTemperature>=4000||IceTemperature<=100)
 	{
 		if(errorFlag==0)
 		{
 			errorFlag = 1;
-			COOL_ON_PIN = 0;
+			//COOL_ON_PIN = 0;
+			BACK1_PIN = 0;
 			dwPlayMusic(MSC_ALERT, 1);
 		}			
 	}
@@ -694,11 +771,13 @@ void TemperatureProcess(void)
 		errorFlag = 0;
 		if(IceTemperature<=TemperatureTable[WorkIntensity]-16)
 		{
-			COOL_ON_PIN = 1;
+			//COOL_ON_PIN = 1;
+			BACK1_PIN = 1;
 		}
 		if(IceTemperature>=TemperatureTable[WorkIntensity])
 		{
-			COOL_ON_PIN = 0;
+			//COOL_ON_PIN = 0;
+			BACK1_PIN = 0;
 		}
 	}
 }
@@ -747,7 +826,8 @@ void PageO2(void)
 		}
 		else
 		{
-			COOL_ON_PIN = 0;	//close hate
+			//COOL_ON_PIN = 0;	//close hate
+			BACK1_PIN = 0;
 			Valve_PIN = 0;
 			PUMP_PIN = 0;
 		}
@@ -756,7 +836,7 @@ void PageO2(void)
 		if (BitAppCon.ms200)
 		{
 			BitAppCon.ms200 = 0;
-			//printf("T:%d\n", IceTemperature);
+			// printf("T:%d\n", IceTemperature);
 			CommSendFlag = 1;
 			MainBoardSend();
 		}
