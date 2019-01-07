@@ -752,15 +752,15 @@ void PageBodyRF(void)
 const u16 TemperatureTable[] = {0, 2700, 2800, 2900, 3000,
 								3100, 3300, 3500, 3600};
 u16 IceTemperature = 0;
+static u8 NtcErrorFlag = 0;
 void TemperatureProcess(void)
 {
-	static u8 errorFlag = 0;
 	//NTC ERROR
 	if(IceTemperature>=4000||IceTemperature<=100)
 	{
-		if(errorFlag==0)
+		if(NtcErrorFlag==0)
 		{
-			errorFlag = 1;
+			NtcErrorFlag = 1;
 			//COOL_ON_PIN = 0;
 			BACK1_PIN = 0;
 			dwPlayMusic(MSC_ALERT, 1);
@@ -768,7 +768,7 @@ void TemperatureProcess(void)
 	}
 	else
 	{
-		errorFlag = 0;
+		NtcErrorFlag = 0;
 		if(IceTemperature<=TemperatureTable[WorkIntensity]-16)
 		{
 			//COOL_ON_PIN = 1;
@@ -830,6 +830,7 @@ void PageO2(void)
 			BACK1_PIN = 0;
 			Valve_PIN = 0;
 			PUMP_PIN = 0;
+			NtcErrorFlag = 0;
 		}
 
 		//UART1 times send datas to main board
