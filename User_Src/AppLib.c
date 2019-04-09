@@ -620,12 +620,12 @@ void PageEyeRF(void)
 				BitAppCon.WorkSecFlag = 0;
 				CommSendFlag = 1;
 			}
-			else if((buff1[0] == 0xAA)&&BitAppCon.WorkFlag) //PRESS
+			else if((buff1[0] == 0xA0)&&BitAppCon.WorkFlag) //PRESS
 			{
 				BitAppCon.WorkSecFlag = 1;
 				dwPlayMusic(MSC_BUTTON, 1);
 			}
-			else if((buff1[0] == 0x55)&&BitAppCon.WorkFlag) //RELEASE
+			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
 				BitAppCon.WorkSecFlag = 0;
 				dwPlayMusic(MSC_BUTTON, 1);
@@ -699,12 +699,12 @@ void PageFaceRF(void)
 				BitAppCon.WorkSecFlag = 0;
 				CommSendFlag = 1;
 			}
-			else if((buff1[0] == 0xAA)&&BitAppCon.WorkFlag) //PRESS
+			else if((buff1[0] == 0xA0)&&BitAppCon.WorkFlag) //PRESS
 			{
 				BitAppCon.WorkSecFlag = 1;
 				dwPlayMusic(MSC_BUTTON, 1);
 			}
-			else if((buff1[0] == 0x55)&&BitAppCon.WorkFlag) //RELEASE
+			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
 				BitAppCon.WorkSecFlag = 0;
 				dwPlayMusic(MSC_BUTTON, 1);
@@ -778,12 +778,12 @@ void PageBodyRF(void)
 				BitAppCon.WorkSecFlag = 0;
 				CommSendFlag = 1;
 			}
-			else if((buff1[0] == 0xAA)&&BitAppCon.WorkFlag) //PRESS
+			else if((buff1[0] == 0xA0)&&BitAppCon.WorkFlag) //PRESS
 			{
 				BitAppCon.WorkSecFlag = 1;
 				dwPlayMusic(MSC_BUTTON, 1);
 			}
-			else if((buff1[0] == 0x55)&&BitAppCon.WorkFlag) //RELEASE
+			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
 				BitAppCon.WorkSecFlag = 0;
 				dwPlayMusic(MSC_BUTTON, 1);
