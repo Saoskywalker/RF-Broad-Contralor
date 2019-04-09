@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Demo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Demo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Apr 09 14:36:33 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Apr 09 15:15:47 2019
 <BR><P>
 <H3>Maximum Stack Usage =        160 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -933,13 +933,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[a0]"></a>PageLanguage</STRONG> (Thumb, 104 bytes, Stack size 8 bytes, applib.o(i.PageLanguage))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = PageLanguage &rArr; dwDisPicNoL &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
+<P><STRONG><a name="[a0]"></a>PageLanguage</STRONG> (Thumb, 160 bytes, Stack size 8 bytes, applib.o(i.PageLanguage))
+<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = PageLanguage &rArr; dwDisChar &rArr; dwDisString &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenKey
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandler
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisChar
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
 </UL>
@@ -1433,6 +1434,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
+<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
 </UL>
 
 <P><STRONG><a name="[9b]"></a>dwDisNum</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, dwdriver.o(i.dwDisNum))

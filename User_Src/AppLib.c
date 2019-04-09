@@ -479,6 +479,12 @@ void PageLanguage(void)
 	BitAppCon.menuExit = 0;
 	dwDisPicNoL(PIC_LANGUAGE);
 
+	//display version
+	dwDisChar(DW_SIZE_12, 2, 585, 'V');
+	dwDisChar(DW_SIZE_12, 8, 585, '4');
+	dwDisChar(DW_SIZE_12, 14, 585, '.');
+	dwDisChar(DW_SIZE_12, 20, 585, '1');
+
 	dwCancelKey();
 	dwListenKey(menuChinsePres, 0, &btnChinse);
 	dwListenKey(menuEnglishPres, 0, &btnEnglish);
