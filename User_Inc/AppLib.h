@@ -66,8 +66,8 @@ typedef struct
   unsigned char Flag1s       : 1;
   unsigned char WorkFlag     : 1;
   unsigned char ms200        : 1;
-  unsigned char ms6       	 : 1;
-  unsigned char ms7      	   : 1;
+  unsigned char WorkSecFlag  : 1;
+  unsigned char ms7      	 : 1;
   unsigned char ms8       	 : 1;
 }_BitAppCon;
 

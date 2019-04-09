@@ -28,8 +28,8 @@ void Adc_Init(void)
 
 	RCC_ADCCLKConfig(RCC_PCLK2_Div6); //设置ADC分频因子6 72M/6=12,ADC最大时间不能超过14M
 
-	//PA4 作为模拟通道输入引脚
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
+	//PA7 作为模拟通道输入引脚
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_7;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN; //模拟输入引脚
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
@@ -59,15 +59,13 @@ void Adc_Init(void)
 
 	ADC_Cmd(ADC1, ENABLE);		//使能指定的ADC1
 	ADC_ResetCalibration(ADC1); //使能复位校准
-	while (ADC_GetResetCalibrationStatus(ADC1))
-		;						//等待复位校准结束
+	while (ADC_GetResetCalibrationStatus(ADC1));		//等待复位校准结束
 	ADC_StartCalibration(ADC1); //开启AD校准
-	while (ADC_GetCalibrationStatus(ADC1))
-		;   //等待校准结束
+	while (ADC_GetCalibrationStatus(ADC1));   //等待校准结束
 			//	ADC_SoftwareStartConvCmd(ADC1, ENABLE);		//使能指定的ADC1的软件转换启动功能
 }
 //获得ADC值
-//ch:通道值 0~3
+//ch:通道值 
 u16 Get_Adc(u8 ch)
 {
 	//设置指定ADC的规则组通道，一个序列，采样时间

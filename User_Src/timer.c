@@ -66,7 +66,7 @@ void TIM3_IRQHandler(void)   //TIM3ÖÐ¶Ï 1ms
 		
 		BeeFunction();
 		
-		if((BitAppCon.WorkFlag==1)&&(++Flag1sCnt>=1000))	//1s
+		if((BitAppCon.WorkSecFlag==1)&&(++Flag1sCnt>=1000))	//1s
 		{
 			Flag1sCnt = 0;
 			BitAppCon.Flag1s = 1;

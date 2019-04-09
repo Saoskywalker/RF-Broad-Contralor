@@ -8,8 +8,8 @@ u8 ExplainNum = 0;
 
 //Botton press effect
 static const Button btnEnter  = {PIC_MENUS_P, 0, 0, 799, 599};
-static const Button btnChinse = {PIC_LANGUAGE_P, 181, 223, 343, 325};
-static const Button btnEnglish = {PIC_LANGUAGE_P, 455, 223, 620, 325};
+static const Button btnChinse = {PIC_LANGUAGE_P, 245, 250, 370, 356};
+static const Button btnEnglish = {PIC_LANGUAGE_P, 436, 250, 560, 356};
 static const Button btnFaceRF = {PIC_MENUS_P, 444, 7, 543, 55};
 static const Button btnBodyRF = {PIC_MENUS_P, 565, 7, 664, 55};
 static const Button btnEyeRF = {PIC_MENUS_P, 320, 7, 420, 55};
@@ -180,11 +180,13 @@ void StartPres(void)
 		if (BitAppCon.WorkFlag)
 		{
 			BitAppCon.WorkFlag = 0;
+			BitAppCon.WorkSecFlag = 0;
 			dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 		}
 		else
 		{
 			BitAppCon.WorkFlag = 1;
+			BitAppCon.WorkSecFlag = 1;
 			dwDisButton(&btnStart, 1, btnStart.xs, btnStart.ys);
 			if (WorkTime == 0)
 			{
@@ -199,6 +201,7 @@ void StartPres(void)
 		{
 			Comm.onoff = RF_OFF;
 			BitAppCon.WorkFlag = 0;
+			BitAppCon.WorkSecFlag = 0;
 			CommSendFlag = 1;
 			dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 		}
@@ -234,6 +237,7 @@ void PauseFree(void)
 {
 	//	Comm.onoff = RF_OFF;
 	BitAppCon.WorkFlag = 0;
+	BitAppCon.WorkSecFlag = 0;
 	//	CommSendFlag = 1;
 }
 
@@ -524,7 +528,7 @@ void PageMenu(void)
 
 void WorkTimeDeal(void)
 {
-	if (BitAppCon.WorkFlag)
+	if (BitAppCon.WorkSecFlag)
 	{
 		if (BitAppCon.Flag1s)
 		{
@@ -538,7 +542,7 @@ void WorkTimeDeal(void)
 				dwPlayMusic(MSC_STOP, 1);
 				WorkTime = 1800;
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
-				BitAppCon.WorkFlag = 0;
+				BitAppCon.WorkSecFlag = 0;
 				Comm.onoff = RF_OFF;
 				CommSendFlag = 1;
 			}
@@ -584,6 +588,7 @@ void PageEyeRF(void)
 			BitAppCon.menuExit = 1;
 			Comm.onoff = RF_OFF;
 			BitAppCon.WorkFlag = 0;
+			BitAppCon.WorkSecFlag = 0;
 		}
 
 		WorkTimeDeal();
@@ -606,7 +611,18 @@ void PageEyeRF(void)
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 				Comm.onoff = RF_OFF;
 				BitAppCon.WorkFlag = 0;
+				BitAppCon.WorkSecFlag = 0;
 				CommSendFlag = 1;
+			}
+			else if((buff1[0] == 0xAA)&&BitAppCon.WorkFlag) //PRESS
+			{
+				BitAppCon.WorkSecFlag = 1;
+				dwPlayMusic(MSC_BUTTON, 1);
+			}
+			else if((buff1[0] == 0x55)&&BitAppCon.WorkFlag) //RELEASE
+			{
+				BitAppCon.WorkSecFlag = 0;
+				dwPlayMusic(MSC_BUTTON, 1);
 			}
 		}
 	}
@@ -651,6 +667,7 @@ void PageFaceRF(void)
 			BitAppCon.menuExit = 1;
 			Comm.onoff = RF_OFF;
 			BitAppCon.WorkFlag = 0;
+			BitAppCon.WorkSecFlag = 0;
 		}
 
 		WorkTimeDeal();
@@ -673,7 +690,18 @@ void PageFaceRF(void)
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 				Comm.onoff = RF_OFF;
 				BitAppCon.WorkFlag = 0;
+				BitAppCon.WorkSecFlag = 0;
 				CommSendFlag = 1;
+			}
+			else if((buff1[0] == 0xAA)&&BitAppCon.WorkFlag) //PRESS
+			{
+				BitAppCon.WorkSecFlag = 1;
+				dwPlayMusic(MSC_BUTTON, 1);
+			}
+			else if((buff1[0] == 0x55)&&BitAppCon.WorkFlag) //RELEASE
+			{
+				BitAppCon.WorkSecFlag = 0;
+				dwPlayMusic(MSC_BUTTON, 1);
 			}
 		}
 	}
@@ -718,6 +746,7 @@ void PageBodyRF(void)
 			BitAppCon.menuExit = 1;
 			Comm.onoff = RF_OFF;
 			BitAppCon.WorkFlag = 0;
+			BitAppCon.WorkSecFlag = 0;
 		}
 
 		WorkTimeDeal();
@@ -740,7 +769,18 @@ void PageBodyRF(void)
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 				Comm.onoff = RF_OFF;
 				BitAppCon.WorkFlag = 0;
+				BitAppCon.WorkSecFlag = 0;
 				CommSendFlag = 1;
+			}
+			else if((buff1[0] == 0xAA)&&BitAppCon.WorkFlag) //PRESS
+			{
+				BitAppCon.WorkSecFlag = 1;
+				dwPlayMusic(MSC_BUTTON, 1);
+			}
+			else if((buff1[0] == 0x55)&&BitAppCon.WorkFlag) //RELEASE
+			{
+				BitAppCon.WorkSecFlag = 0;
+				dwPlayMusic(MSC_BUTTON, 1);
 			}
 		}
 	}
@@ -755,19 +795,26 @@ u16 IceTemperature = 0;
 static u8 NtcErrorFlag = 0;
 void TemperatureProcess(void)
 {
+	static u16 i = 0;
+	
 	//NTC ERROR
 	if(IceTemperature>=4000||IceTemperature<=100)
 	{
-		if(NtcErrorFlag==0)
+		if(++i>=10000)
 		{
-			NtcErrorFlag = 1;
-			//COOL_ON_PIN = 0;
-			BACK1_PIN = 0;
-			dwPlayMusic(MSC_ALERT, 1);
-		}			
+			i = 10000;
+			if(NtcErrorFlag==0)
+			{
+				NtcErrorFlag = 1;
+				//COOL_ON_PIN = 0;
+				BACK1_PIN = 0;
+				dwPlayMusic(MSC_ALERT, 1);
+			}			
+		}
 	}
 	else
 	{
+		i = 0;
 		NtcErrorFlag = 0;
 		if(IceTemperature<=TemperatureTable[WorkIntensity]-16)
 		{
@@ -816,11 +863,12 @@ void PageO2(void)
 		{
 			BitAppCon.menuExit = 1;
 			BitAppCon.WorkFlag = 0;
+			BitAppCon.WorkSecFlag = 0;
 		}
 		WorkTimeDeal();
 		if (BitAppCon.WorkFlag)
 		{
-			IceTemperature = Get_Adc_Average(ADC_Channel_4,6);	
+			IceTemperature = Get_Adc_Average(ADC_Channel_7,6);	
 			TemperatureProcess();
 			PUMP_PIN = 1;
 		}
@@ -893,7 +941,7 @@ void PageCool(void)
 	dwListenKey(TimeDownPres, TimeDownFree, &btnTimeDown);
 	dwListenKey(IntensityUpPres, IntensityUpFree, &btnIntensityUp);
 	dwListenKey(IntensityDownPres, IntensityDownFree, &btnIntensityDown);
-	dwWaitRelease();
+
 	while (!BitAppCon.menuExit)
 	{
 		dwHandler();

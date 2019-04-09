@@ -7,6 +7,9 @@ History:2018.8.3: Debug completed
 		2018.12.26: change version to vertical RF
 		add NTC(PA4 AIN4), sound pin became pump pin(delay_us 500)
 		 develop success
+		 2019.2.25: NTC error dithering elimination
+		 2019.3.13; NTC changed PA7, PA4 use to sound pin
+		 2019.4.9: Add WorkSecFlag use for RF(2 WorkFlag)
 **********************************************************************/
 
 //#define DEBUG
@@ -25,7 +28,7 @@ int main()
 	u16 i = 0;
 
 	LED_Init();
-	NVIC_Configuration(); //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
+	NVIC_Configuration(); //nvic set 2:2
 	delay_init();
 	uart_init(9600);			 //Main Board
 	uart2_init(115200);			 //DW Display
@@ -49,7 +52,7 @@ int main()
 		dwSetLanguage(LANGUAGE_CHINESE);
 
 	//#ifndef DEBUG
-	//	IWDG_Init(4,625);    //与分频数为64,重载值为625,溢出时间为1s	
+	//	IWDG_Init(4,625);    //psc 64,reload 625,voertime 1s	
 	//#endif
 	while (1)
 	{
@@ -139,7 +142,7 @@ void screenCheck(void)
 	{ // 失败
 		while (1)
 		{
-			PUMP_PIN = ~PUMP_PIN;
+			SOUND_PIN = ~SOUND_PIN;
 			delay_ms(500);
 		}
 	}
