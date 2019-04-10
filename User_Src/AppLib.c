@@ -549,6 +549,7 @@ void WorkTimeDeal(void)
 				WorkTime = 1800;
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 				BitAppCon.WorkSecFlag = 0;
+				BitAppCon.WorkFlag = 0;
 				Comm.onoff = RF_OFF;
 				CommSendFlag = 1;
 			}
