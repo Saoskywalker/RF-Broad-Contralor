@@ -19,18 +19,21 @@
 #define Valve_PIN PBout(0)
 
 //Picture Code
-#define PIC_LANGUAGE 6
+#define PIC_LANGUAGE 5
 #define PIC_LANGUAGE_P 5
-#define PIC_MENUS 14
+#define PIC_MENUS 11
 #define PIC_MENUS_P 17
 #define PIC_EXPLAIN 13
-#define PIC_FACE_RF 12
-#define PIC_BODY_RF 13
-#define PIC_EYE_RF 11
-#define PIC_O2 14
+#define PIC_FACE_RF 13
+#define PIC_BODY_RF 14
+#define PIC_EYE_RF 12
+#define PIC_O2 15
 #define PIC_COOL 6
-#define PIC_FUN_BUT_P 9
-#define PIC_FUN_BUT 10
+#define PIC_FUN_BUT 12
+#define PIC_FUN_BUT_P 18
+#define PIC_FUN_BUT_O2 15
+#define PIC_FUN_BUT_P_O2 19
+#define PIC_FUN_BUT_Cool 5
 #define PIC_FUN_BUT_P_Cool 12
 #define PIC_FUN_BUT_Cool 5
 #define PIC_INTENSITY 30
@@ -114,38 +117,34 @@ void O2PWM(u8 i, u8 Work);
 /****BEE Module******/
 extern u8 BeeMod, BeeTime;
 void BeeFunction(void);
-/* 
-static __inline void dwPlayMusic(u8 id, u8 num)
-{
-	BeeMod = id;
-	BeeTime = num;
-}
 
-static __inline void dwStopMusic(void)
-{
-	BeeTime = 0;
-}
- */
-//#define INLINE_MUSIC_CANNEL()	{BeeTime = 0;}
-//#define INLINE_MUSIC_BUTTON() {BeeMod = 0; BeeTime = 1;}
-//#define INLINE_MUSIC_START() {BeeMod = 1; BeeTime = 1;}
-//#define INLINE_MUSIC_STOP() {BeeMod = 2; BeeTime = 3;}
-//#define INLINE_MUSIC_ERROR() {BeeMod = 0; BeeTime = 7;}
-//#define INLINE_MUSIC_SCR_ADJ() {BeeMod = 1; BeeTime = 2;}
+#define INLINE_MUSIC_CANNEL()	{BeeTime = 0;}
+#define INLINE_MUSIC_BUTTON() {BeeMod = 0; BeeTime = 1;}
+#define INLINE_MUSIC_START() {BeeMod = 1; BeeTime = 1;}
+#define INLINE_MUSIC_STOP() {BeeMod = 2; BeeTime = 3;}
+#define INLINE_MUSIC_ERROR() {BeeMod = 0; BeeTime = 7;}
 //////////////////////////
 
 /*****Display Intensity********/
 static __inline void DisplayIntensity(u8 i)
 {
-	dwCutPic(PIC_INTENSITY+i, 448, 143, 687, 384, 448, 143);
-	// dwDisNum(DW_SIZE_48, 528,    219,i/10);
-	// dwDisNum(DW_SIZE_48, 528+24, 219,i%10);
+	//dwCutPic(PIC_INTENSITY+i, 448, 143, 687, 384, 448, 143);
+	if(nextPage==FUNCTION_O2)
+	{
+		dwDisNum(DW_SIZE_48, 586, 367, i/10);
+		dwDisNum(DW_SIZE_48, 586+24, 367, i%10);
+	}
+	else
+	{
+		dwDisNum(DW_SIZE_48, 586, 347, i/10);
+		dwDisNum(DW_SIZE_48, 586+24, 347, i%10);
+	}	
 }
 
 /*****Display Mode********/
 static __inline void DisplayMode(u8 i)
 {
-	dwDisChar(DW_SIZE_32, 537, 537, '@'+i);
+	dwDisChar(DW_SIZE_48, 277, 367, '@'+i);
 }
 ///////////////////////////////
 

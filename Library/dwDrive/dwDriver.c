@@ -1,5 +1,4 @@
-#include "dwDriver.h"
-#include "usart.h"
+#include "AppLib.h"
 
 u8 dataBuff[10];
 u16  locaX, locaY;
@@ -28,8 +27,8 @@ void dwSetLanguage(u8 lang){
 		language = LANGUAGE_CHINESE;
 	}else if(lang == LANGUAGE_ENGLISH){
 		language = LANGUAGE_ENGLISH;
-	}else if(lang == LANGUAGE_ESPANOL){
-		language = LANGUAGE_ESPANOL;
+	}else if(lang == LANGUAGE_KOREAN){
+		language = LANGUAGE_KOREAN;
 	}	
 }
 
@@ -437,18 +436,22 @@ void dwReceiveByte(u8 byte){
 }
 
 //Display time: 00:00
-void funDisTime(u16 timing){
-	dwDisNum(DW_SIZE_32, 185,    537,timing/600);
-	dwDisNum(DW_SIZE_32, 185+16, 537,timing/60%10);
-	dwDisChar(DW_SIZE_32,185+32, 537,':');
-	dwDisNum(DW_SIZE_32, 185+48, 537,timing%60/10);
-	dwDisNum(DW_SIZE_32, 185+64, 537,timing%10);
-}
-
-void funDisTime_Cool(u16 timing){
-	dwDisNum(DW_SIZE_48, 550,    279,timing/600);
-	dwDisNum(DW_SIZE_48, 550+24, 279,timing/60%10);
-	dwDisChar(DW_SIZE_48,550+48, 279,':');
-	dwDisNum(DW_SIZE_48, 550+72, 279,timing%60/10);
-	dwDisNum(DW_SIZE_48, 550+96, 279,timing%10);
+void funDisTime(u16 timing)
+{
+	if (nextPage == FUNCTION_O2)
+	{
+		dwDisNum(DW_SIZE_48, 392, 248, timing / 600);
+		dwDisNum(DW_SIZE_48, 392 + 24, 248, timing / 60 % 10);
+		dwDisChar(DW_SIZE_48, 392 + 48, 248, ':');
+		dwDisNum(DW_SIZE_48, 392 + 72, 248, timing % 60 / 10);
+		dwDisNum(DW_SIZE_48, 392 + 96, 248, timing % 10);
+	}
+	else
+	{
+		dwDisNum(DW_SIZE_48, 230, 347, timing / 600);
+		dwDisNum(DW_SIZE_48, 230 + 24, 347, timing / 60 % 10);
+		dwDisChar(DW_SIZE_48, 230 + 48, 347, ':');
+		dwDisNum(DW_SIZE_48, 230 + 72, 347, timing % 60 / 10);
+		dwDisNum(DW_SIZE_48, 230 + 96, 347, timing % 10);
+	}
 }

@@ -5,7 +5,7 @@
 
 #define LANGUAGE_CHINESE     10
 #define LANGUAGE_ENGLISH     0
-#define LANGUAGE_ESPANOL     70
+#define LANGUAGE_KOREAN     20
 
 #define DW_COL_RED		0xF800
 #define DW_COL_GREEN	0x07E0
@@ -157,7 +157,5 @@ void dwPlayVol(u8 i);
 void dwReceiveByte(u8 byte);
 
 void funDisTime(u16 timing);
-void funDisTime_Cool(u16 timing);
-
 
 #endif

@@ -1,22 +1,15 @@
 /**********************************************************************
-Name: Internal Lipolysis Instrument(display contral)
-Version: v1.0 Released(changed from BJ-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½v1.0)
+Name: Internal Lipolysis Instrument mini(display contral)
+Version: v5.0 Released(changed from Ö¬Á¢ÊÝÁ¢Ê½ v4.1)
 Editor: Aysi
-Function: 3 channel strength RF
-History:2018.8.3: Debug completed
-		2018.12.26: change version to vertical RF
-		add NTC(PA4 AIN4), sound pin became pump pin(delay_us 500)
-		 develop success
-		 2019.2.25: NTC error dithering elimination
-		 2019.3.13; NTC changed PA7, PA4 use to sound pin
-		 2019.4.9: Add WorkSecFlag use for RF(2 WorkFlag)
+Function: 3 channel strength RF + air heat
+History:2019.4.30:changed
 **********************************************************************/
 
 //#define DEBUG
 #include "stm32f10x.h"
 #include "led.h"
 #include "delay.h"
-//#include "key.h"
 #include "sys.h"
 #include "timer.h"
 #include "AppLib.h"
@@ -38,17 +31,20 @@ int main()
 	dwPlayVol(0xFF);
 	TIM3_Int_Init(999, 70); //1ms
 	Adc_Init();
-	delay_ms(1000);
-	delay_ms(1000);
-	delay_ms(250);
-	nextPage = FUNCTION_RESTART;
+	INLINE_MUSIC_START();
+	// delay_ms(1000);
+	// delay_ms(1000);
+	// delay_ms(250);
+	nextPage = FUNCTION_SELECT;
 	dwSetColor(DW_COL_RED, DW_COL_WHITE);
-	dwStopMusic();
+	// INLINE_MUSIC_CANNEL();
 
 	STMFLASH_Read(FLASH_SAVE_ADDR, &i, 1); //read language config ago
-	if (i)
+	if (i==123)
 		dwSetLanguage(LANGUAGE_ENGLISH);
-	else
+	else if(i==150)
+		dwSetLanguage(LANGUAGE_KOREAN);
+	else 
 		dwSetLanguage(LANGUAGE_CHINESE);
 
 	//#ifndef DEBUG
