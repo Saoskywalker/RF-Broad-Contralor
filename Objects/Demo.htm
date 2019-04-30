@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Demo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Demo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed Apr 10 09:30:59 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon Apr 15 11:45:22 2019
 <BR><P>
 <H3>Maximum Stack Usage =        160 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -702,8 +702,8 @@ Global Symbols
 <P><STRONG><a name="[89]"></a>Get_Adc_Average</STRONG> (Thumb, 46 bytes, Stack size 24 bytes, adc.o(i.Get_Adc_Average))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = Get_Adc_Average &rArr; Get_Adc &rArr; ADC_RegularChannelConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Adc
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<BR>[Calls]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
+<LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Adc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
 </UL>
@@ -725,9 +725,9 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>IntensityDownPres</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, applib.o(i.IntensityDownPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = IntensityDownPres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Address Reference Count : 5]<UL><LI> applib.o(i.PageBodyRF)
 <LI> applib.o(i.PageCool)
@@ -749,9 +749,9 @@ Global Symbols
 <P><STRONG><a name="[46]"></a>IntensityUpPres</STRONG> (Thumb, 128 bytes, Stack size 8 bytes, applib.o(i.IntensityUpPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = IntensityUpPres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Address Reference Count : 5]<UL><LI> applib.o(i.PageBodyRF)
 <LI> applib.o(i.PageCool)
@@ -797,9 +797,9 @@ Global Symbols
 <P><STRONG><a name="[55]"></a>ModeDownPres</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, applib.o(i.ModeDownPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = ModeDownPres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> applib.o(i.PageO2)
 </UL>
@@ -813,9 +813,9 @@ Global Symbols
 <P><STRONG><a name="[53]"></a>ModeUpPres</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, applib.o(i.ModeUpPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = ModeUpPres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> applib.o(i.PageO2)
 </UL>
@@ -851,7 +851,8 @@ Global Symbols
 <P><STRONG><a name="[92]"></a>PageBodyRF</STRONG> (Thumb, 466 bytes, Stack size 8 bytes, applib.o(i.PageBodyRF))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageBodyRF &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenKey
@@ -861,7 +862,6 @@ Global Symbols
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -869,7 +869,9 @@ Global Symbols
 <P><STRONG><a name="[99]"></a>PageCool</STRONG> (Thumb, 316 bytes, Stack size 8 bytes, applib.o(i.PageCool))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageCool &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<BR>[Calls]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetColor
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare3
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenKey
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandler
@@ -879,8 +881,6 @@ Global Symbols
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetColor
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetCompare3
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -900,7 +900,8 @@ Global Symbols
 <P><STRONG><a name="[9e]"></a>PageEyeRF</STRONG> (Thumb, 464 bytes, Stack size 8 bytes, applib.o(i.PageEyeRF))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageEyeRF &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenKey
@@ -910,7 +911,6 @@ Global Symbols
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -918,7 +918,8 @@ Global Symbols
 <P><STRONG><a name="[9f]"></a>PageFaceRF</STRONG> (Thumb, 464 bytes, Stack size 8 bytes, applib.o(i.PageFaceRF))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageFaceRF &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenKey
@@ -928,7 +929,6 @@ Global Symbols
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -963,7 +963,9 @@ Global Symbols
 <P><STRONG><a name="[a3]"></a>PageO2</STRONG> (Thumb, 352 bytes, Stack size 8 bytes, applib.o(i.PageO2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageO2 &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
+<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenKey
 <LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandler
@@ -973,8 +975,6 @@ Global Symbols
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TemperatureProcess
 <LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -1043,8 +1043,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_ReadHalfWord
 </UL>
-<BR>[Called By]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_Write
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_Write
 </UL>
 
 <P><STRONG><a name="[a7]"></a>STMFLASH_ReadHalfWord</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stmflash.o(i.STMFLASH_ReadHalfWord))
@@ -1379,9 +1379,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendOver
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
+<BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPicL
+<LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
 </UL>
 
 <P><STRONG><a name="[c8]"></a>dwCutPicL</STRONG> (Thumb, 46 bytes, Stack size 48 bytes, dwdriver.o(i.dwCutPicL))
@@ -1395,10 +1395,14 @@ Global Symbols
 <P><STRONG><a name="[77]"></a>dwDisButton</STRONG> (Thumb, 52 bytes, Stack size 32 bytes, dwdriver.o(i.dwDisButton))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
-<LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPicL
+<BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPicL
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuO2Pres
+<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageCool
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuO2Pres
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuFaceRFPres
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuEyeRFPres
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuEnglishPres
@@ -1421,10 +1425,6 @@ Global Symbols
 <LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntensityDownPres
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntensityDownFree
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BackPres
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageCool
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 </UL>
 
 <P><STRONG><a name="[7b]"></a>dwDisChar</STRONG> (Thumb, 32 bytes, Stack size 24 bytes, dwdriver.o(i.dwDisChar))
@@ -1432,9 +1432,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
+<BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 </UL>
 
 <P><STRONG><a name="[9b]"></a>dwDisNum</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, dwdriver.o(i.dwDisNum))
@@ -1442,8 +1442,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageCool
+<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageCool
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 </UL>
 
 <P><STRONG><a name="[a1]"></a>dwDisPicNoL</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dwdriver.o(i.dwDisPicNoL))
@@ -1452,9 +1452,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendOver
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
-<LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<BR>[Called By]<UL><LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
 </UL>
 
 <P><STRONG><a name="[7f]"></a>dwDisPicWithL</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, dwdriver.o(i.dwDisPicWithL))
@@ -1462,14 +1462,14 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
 </UL>
-<BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExplainNextFree
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageExplain
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageCool
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExplainNextFree
 </UL>
 
 <P><STRONG><a name="[c9]"></a>dwDisString</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, dwdriver.o(i.dwDisString))
@@ -1527,7 +1527,11 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendOver
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuO2Pres
+<BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterPres
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuO2Pres
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuFaceRFPres
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuEyeRFPres
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuEnglishPres
@@ -1548,10 +1552,6 @@ Global Symbols
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ExplainExitPres
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BackPres
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BackFree
-<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterPres
-<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 </UL>
 
 <P><STRONG><a name="[cd]"></a>dwPlayVol</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dwdriver.o(i.dwPlayVol))
@@ -1564,8 +1564,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[cc]"></a>dwQueryCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dwdriver.o(i.dwQueryCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandler
-<LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;screenCheck
+<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;screenCheck
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandler
 </UL>
 
 <P><STRONG><a name="[bf]"></a>dwReceiveByte</STRONG> (Thumb, 286 bytes, Stack size 0 bytes, dwdriver.o(i.dwReceiveByte))
@@ -1577,15 +1577,15 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uasrt2SendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwStopMusic
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwStopMusic
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetColor
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendOver
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayVol
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;screenCheck
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisString
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
 </UL>
 
 <P><STRONG><a name="[c7]"></a>dwSendOver</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dwdriver.o(i.dwSendOver))
@@ -1593,14 +1593,14 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
-<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
-<LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwStopMusic
+<BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwStopMusic
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetColor
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayVol
 <LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;screenCheck
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisString
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
+<LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
+<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
 </UL>
 
 <P><STRONG><a name="[9a]"></a>dwSetColor</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, dwdriver.o(i.dwSetColor))
@@ -1614,9 +1614,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d3]"></a>dwSetLanguage</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, dwdriver.o(i.dwSetLanguage))
-<BR><BR>[Called By]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuEnglishPres
+<BR><BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuEnglishPres
 <LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;menuChinsePres
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[cf]"></a>dwStopMusic</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, dwdriver.o(i.dwStopMusic))
@@ -1646,14 +1646,14 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisNum
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
-<LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimeUpPres
-<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimeDownPres
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageCool
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimeUpPres
+<LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimeDownPres
 </UL>
 
 <P><STRONG><a name="[61]"></a>main</STRONG> (Thumb, 236 bytes, Stack size 8 bytes, main.o(i.main))
@@ -1703,10 +1703,10 @@ Global Symbols
 <P><STRONG><a name="[4f]"></a>menuChinsePres</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, applib.o(i.menuChinsePres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = menuChinsePres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetLanguage
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_Write
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetLanguage
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> applib.o(i.PageLanguage)
 </UL>
@@ -1721,10 +1721,10 @@ Global Symbols
 <P><STRONG><a name="[50]"></a>menuEnglishPres</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, applib.o(i.menuEnglishPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = menuEnglishPres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
+<BR>[Calls]<UL><LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetLanguage
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwPlayMusic
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_Write
-<LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetLanguage
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> applib.o(i.PageLanguage)
 </UL>
@@ -1843,12 +1843,12 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
 </UL>
-<BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntensityUpPres
-<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntensityDownPres
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntensityUpPres
+<LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntensityDownPres
 </UL>
 
 <P><STRONG><a name="[7a]"></a>DisplayMode</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, applib.o(i.DisplayMode))
@@ -1856,9 +1856,9 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ModeUpPres
+<BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ModeUpPres
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ModeDownPres
-<LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
 </UL>
 
 <P><STRONG><a name="[56]"></a>EnterPres</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, applib.o(i.EnterPres))

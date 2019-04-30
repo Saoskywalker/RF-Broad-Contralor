@@ -481,9 +481,9 @@ void PageLanguage(void)
 
 	//display version
 	dwDisChar(DW_SIZE_12, 2, 585, 'V');
-	dwDisChar(DW_SIZE_12, 8, 585, '4');
+	dwDisChar(DW_SIZE_12, 8, 585, '2');
 	dwDisChar(DW_SIZE_12, 14, 585, '.');
-	dwDisChar(DW_SIZE_12, 20, 585, '1');
+	dwDisChar(DW_SIZE_12, 20, 585, '0');
 
 	dwCancelKey();
 	dwListenKey(menuChinsePres, 0, &btnChinse);

@@ -10,6 +10,7 @@ History:2018.8.3: Debug completed
 		 2019.2.25: NTC error dithering elimination
 		 2019.3.13; NTC changed PA7, PA4 use to sound pin
 		 2019.4.9: Add WorkSecFlag use for RF(2 WorkFlag)
+		 2019.4.15: RF work way changed
 **********************************************************************/
 
 //#define DEBUG
