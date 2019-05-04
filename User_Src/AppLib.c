@@ -625,8 +625,11 @@ void PageEyeRF(void)
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
-				BitAppCon.WorkSecFlag = 0;
-				INLINE_MUSIC_BUTTON();
+				if(BitAppCon.WorkSecFlag)
+				{
+					BitAppCon.WorkSecFlag = 0;
+					INLINE_MUSIC_BUTTON();
+				}	
 			}
 		}
 	}
@@ -705,8 +708,11 @@ void PageFaceRF(void)
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
-				BitAppCon.WorkSecFlag = 0;
-				INLINE_MUSIC_BUTTON();
+				if(BitAppCon.WorkSecFlag)
+				{
+					BitAppCon.WorkSecFlag = 0;
+					INLINE_MUSIC_BUTTON();
+				}	
 			}
 		}
 	}
@@ -785,8 +791,11 @@ void PageBodyRF(void)
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
-				BitAppCon.WorkSecFlag = 0;
-				INLINE_MUSIC_BUTTON();
+				if(BitAppCon.WorkSecFlag)
+				{
+					BitAppCon.WorkSecFlag = 0;
+					INLINE_MUSIC_BUTTON();
+				}				
 			}
 		}
 	}
