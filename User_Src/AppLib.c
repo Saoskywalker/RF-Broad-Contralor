@@ -628,8 +628,11 @@ void PageEyeRF(void)
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
-				BitAppCon.WorkSecFlag = 0;
-				dwPlayMusic(MSC_BUTTON, 1);
+				if(BitAppCon.WorkSecFlag)
+				{
+					BitAppCon.WorkSecFlag = 0;
+					dwPlayMusic(MSC_BUTTON, 1);
+				}
 			}
 		}
 	}
@@ -707,8 +710,11 @@ void PageFaceRF(void)
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
-				BitAppCon.WorkSecFlag = 0;
-				dwPlayMusic(MSC_BUTTON, 1);
+				if(BitAppCon.WorkSecFlag)
+				{
+					BitAppCon.WorkSecFlag = 0;
+					dwPlayMusic(MSC_BUTTON, 1);
+				}
 			}
 		}
 	}
@@ -786,8 +792,11 @@ void PageBodyRF(void)
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
-				BitAppCon.WorkSecFlag = 0;
-				dwPlayMusic(MSC_BUTTON, 1);
+				if(BitAppCon.WorkSecFlag)
+				{
+					BitAppCon.WorkSecFlag = 0;
+					dwPlayMusic(MSC_BUTTON, 1);
+				}
 			}
 		}
 	}
