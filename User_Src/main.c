@@ -1,6 +1,6 @@
 /**********************************************************************
 Name: Internal Lipolysis Instrument(display contral)
-Version: v1.0 Released(changed from BJ-������v1.0)
+Version: v2.3 Released
 Editor: Aysi
 Function: 3 channel strength RF
 History:2018.8.3: Debug completed
@@ -11,6 +11,7 @@ History:2018.8.3: Debug completed
 		 2019.3.13; NTC changed PA7, PA4 use to sound pin
 		 2019.4.9: Add WorkSecFlag use for RF(2 WorkFlag)
 		 2019.4.15: RF work way changed
+		 2019.5.23: NTC current changed(Changed AD value)
 **********************************************************************/
 
 //#define DEBUG
