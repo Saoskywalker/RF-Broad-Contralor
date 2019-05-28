@@ -31,10 +31,11 @@ int main()
 	dwPlayVol(0xFF);
 	TIM3_Int_Init(999, 70); //1ms
 	Adc_Init();
+
+	delay_ms(1000);
+	delay_ms(1000);
+	delay_ms(250);
 	INLINE_MUSIC_START();
-	// delay_ms(1000);
-	// delay_ms(1000);
-	// delay_ms(250);
 	nextPage = FUNCTION_SELECT;
 	dwSetColor(DW_COL_RED, DW_COL_WHITE);
 	// INLINE_MUSIC_CANNEL();

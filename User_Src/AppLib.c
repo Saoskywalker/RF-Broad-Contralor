@@ -498,7 +498,7 @@ void PageLanguage(void)
 	dwDisChar(DW_SIZE_12, 2, 585, 'V');
 	dwDisChar(DW_SIZE_12, 8, 585, '2');
 	dwDisChar(DW_SIZE_12, 14, 585, '.');
-	dwDisChar(DW_SIZE_12, 20, 585, '0');
+	dwDisChar(DW_SIZE_12, 20, 585, '3');
 
 	dwCancelKey();
 	dwListenKey(menuChinsePres, 0, &btnChinse);
@@ -804,8 +804,8 @@ void PageBodyRF(void)
 }
 
 //Temperature Process
-const u16 TemperatureTable[] = {0, 2700, 2800, 2900, 3000,
-								3100, 3300, 3500, 3600};
+const u16 TemperatureTable[] = {0, 1396, 1296, 1196, 1096,
+								996, 796, 596, 498};
 u16 IceTemperature = 0;
 static u8 NtcErrorFlag = 0;
 void TemperatureProcess(void)
@@ -823,7 +823,7 @@ void TemperatureProcess(void)
 				NtcErrorFlag = 1;
 				//COOL_ON_PIN = 0;
 				BACK1_PIN = 0;
-				INLINE_MUSIC_ERROR();
+				dwPlayMusic(MSC_ALERT, 1);
 			}			
 		}
 	}
@@ -831,12 +831,12 @@ void TemperatureProcess(void)
 	{
 		i = 0;
 		NtcErrorFlag = 0;
-		if(IceTemperature<=TemperatureTable[WorkIntensity]-16)
+		if(IceTemperature>=TemperatureTable[WorkIntensity]+16)
 		{
 			//COOL_ON_PIN = 1;
 			BACK1_PIN = 1;
 		}
-		if(IceTemperature>=TemperatureTable[WorkIntensity])
+		if(IceTemperature<=TemperatureTable[WorkIntensity])
 		{
 			//COOL_ON_PIN = 0;
 			BACK1_PIN = 0;
