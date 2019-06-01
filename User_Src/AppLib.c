@@ -823,7 +823,7 @@ void TemperatureProcess(void)
 				NtcErrorFlag = 1;
 				//COOL_ON_PIN = 0;
 				BACK1_PIN = 0;
-				dwPlayMusic(MSC_ALERT, 1);
+				INLINE_MUSIC_ERROR();
 			}			
 		}
 	}
