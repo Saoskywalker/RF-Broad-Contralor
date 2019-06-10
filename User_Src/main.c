@@ -3,7 +3,7 @@ Name: Internal Lipolysis Instrument mini(display contral)
 Version: v5.0 Released(changed from Ö¬Á¢ÊÝÁ¢Ê½ v4.1)
 Editor: Aysi
 Function: 3 channel strength RF + air heat
-History:2019.4.30:changed
+History:2019.4.30:changed, 3 language, 8 inch display
 **********************************************************************/
 
 //#define DEBUG
