@@ -830,8 +830,13 @@ void TemperatureProcess(void)
 	}
 	else
 	{
-		i = 0;
-		NtcErrorFlag = 0;
+		if (i>=25)
+			i -= 25;
+		else
+			i = 0;
+		if(i==0)
+			NtcErrorFlag = 0;
+
 		if(IceTemperature>=TemperatureTable[WorkIntensity]+16)
 		{
 			//COOL_ON_PIN = 1;
