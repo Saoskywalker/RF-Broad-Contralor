@@ -18,7 +18,6 @@ History:2018.8.3: Debug completed
 #include "stm32f10x.h"
 #include "led.h"
 #include "delay.h"
-//#include "key.h"
 #include "sys.h"
 #include "timer.h"
 #include "AppLib.h"
@@ -40,12 +39,8 @@ int main()
 	dwPlayVol(0xFF);
 	TIM3_Int_Init(999, 70); //1ms
 	Adc_Init();
-	delay_ms(1000);
-	delay_ms(1000);
-	delay_ms(250);
 	nextPage = FUNCTION_RESTART;
 	dwSetColor(DW_COL_RED, DW_COL_WHITE);
-	dwStopMusic();
 
 	STMFLASH_Read(FLASH_SAVE_ADDR, &i, 1); //read language config ago
 	if (i)
@@ -58,16 +53,6 @@ int main()
 	//#endif
 	while (1)
 	{
-		//#ifndef DEBUG
-		//		IWDG_ReloadCounter();//feed wdt
-		//#endif
-		//		printf("kkk");
-		//		USART_SendData(USART2, 0XCC);
-		//		USART_SendData(USART2, 0XCC);
-		//	 GPIO_SetBits(GPIOA,GPIO_Pin_4);
-		//		delay_ms(500);
-		//		PAout(4) = ~PAout(4);
-		//		delay_ms(500);
 		switch (nextPage)
 		{
 		case FUNCTION_RESTART:

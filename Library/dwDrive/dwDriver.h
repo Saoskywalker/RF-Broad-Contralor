@@ -13,6 +13,8 @@
 #define DW_COL_WHITE	0xFFFF
 #define DW_COL_BLACK	0x0000
 
+#define DW_KEY_PRESSED	0x79   // 触控按下
+#define DW_KEY_RELEASE	0x78   // 触控松手
 #define DW_CMD_PRESSED	0x73   // 按下
 #define DW_CMD_RELEASE	0x72   // 松手
 #define DW_CMD_DONE     0xE4   // 校正完成
@@ -48,6 +50,7 @@ typedef struct{
 	void(*pressHandle)(void);
 	void(*freeHandle)(void);
 	Button* button;
+	u16 command;
 }DwKeyListen;
 
 extern u16  locaX, locaY;
@@ -55,9 +58,10 @@ extern u8   dataBuff[10];
 extern u8 language; 
 extern DwKeyListen dwKeyListen[30];
 
-void dwListenKey(void(*press)(void), void(*free)(void), const Button* btn);
-u8  dwGetKey(void);
-void dwHandler(void);
+void dwListenCoord(void(*press)(void), void(*free)(void), const Button* btn);
+void dwHandlerCoord(void);
+void dwListenButton(void(*press)(void), void(*free)(void), u16 Command);
+void dwHandlerButton(void);
 
 // param lang: LANGUAGE_CHINESE or LANGUAGE_ENGLISH
 void dwSetLanguage(u8 lang);
@@ -137,9 +141,6 @@ void dwWaitPress(void);
  // 0x72  松手
  // 0xE4  触控校正完成
  u8 dwQueryCmd(void);
-
- /**将坐标数据转换成int 型**/
-void dwConvertLocation(void);
 
 void dwCancelKey(void);
 

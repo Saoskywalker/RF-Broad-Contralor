@@ -33,8 +33,23 @@ void dwSetLanguage(u8 lang){
 	}	
 }
 
+/*******************about key********************/
+void dwCancelKey(void){
+	keyNum = 0;
+}
+
+//****************坐标模式*****************
+void dwListenCoord(void(*press)(void), void(*free)(void), const Button* btn){
+	if(keyNum < 30){
+		dwKeyListen[keyNum].pressHandle = press;
+		dwKeyListen[keyNum].freeHandle = free;
+		dwKeyListen[keyNum].button = (Button*)btn;
+		keyNum++;
+	}
+}
+
 /**将坐标数据转换成int 型**/
-void dwConvertLocation(void){
+static void dwConvertLocation(void){
 	locaX = 0;
 	locaX = dataBuff[1];
 	locaX <<= 8;
@@ -46,23 +61,7 @@ void dwConvertLocation(void){
 	locaY += dataBuff[4];
 }
 
-/***************************************/
-void dwListenKey(void(*press)(void), void(*free)(void), const Button* btn){
-	if(keyNum < 30){
-		dwKeyListen[keyNum].pressHandle = press;
-		dwKeyListen[keyNum].freeHandle = free;
-		dwKeyListen[keyNum].button = (Button*)btn;
-		keyNum++;
-	}
-}
-
-void dwCancelKey(void){
-	keyNum = 0;
-}
-
-
-/************************************/
-u8  dwGetKey(void){
+static u8 dwGetKey(void){
 	u8 i;
 	dwConvertLocation();
 	for(i=0; i<keyNum; i++){	
@@ -74,8 +73,7 @@ u8  dwGetKey(void){
 	return i;
 }
 
-///*****************************************/
-void dwHandler(void){
+void dwHandlerCoord(void){
 	static u8 keyFlag = 0;
 	static u8 i;
 
@@ -102,6 +100,56 @@ void dwHandler(void){
 	}
 }
 
+//***************触控模式***********************
+void dwListenButton(void(*press)(void), void(*free)(void), u16 Command){
+	if(keyNum < 30){
+		dwKeyListen[keyNum].pressHandle = press;
+		dwKeyListen[keyNum].freeHandle = free;
+		dwKeyListen[keyNum].command = Command;
+		keyNum++;
+	}
+}
+
+void dwHandlerButton(void){
+	static u8 keyFlag = 0;
+	static u8 i;
+	u16 cmd = 0;
+
+	// 按下处理
+	if ((dwQueryCmd() == DW_KEY_PRESSED) && (keyFlag == 0))
+	{
+		keyFlag = 1;
+
+		cmd = ((u16)dataBuff[1]<<8)+dataBuff[2];
+		for (i = 0; i < keyNum; i++)
+		{
+			if (cmd == dwKeyListen[i].command)
+				break;
+		}
+
+		if (i < keyNum)
+		{ // 有效按键
+			if (dwKeyListen[i].pressHandle != 0)
+			{ // 不为空
+				dwKeyListen[i].pressHandle();
+			}
+		}
+	}
+
+	// 松手处理
+	if ((dwQueryCmd() == DW_KEY_RELEASE) && (keyFlag == 1))
+	{
+		keyFlag = 0;
+		//		if((i < keyNum)&&(i==dwGetKey())){ // 有效按键
+		if ((i < keyNum))
+		{ // 有效按键
+			if (dwKeyListen[i].freeHandle != 0)
+			{ // 不为空
+				dwKeyListen[i].freeHandle();
+			}
+		}
+	}
+}
 
 /*******帧结束符*********/
 void dwSendOver(void){
@@ -382,6 +430,12 @@ void dwReceiveByte(u8 byte){
 			}else if(byte == 0x00){  // 握手成功
 				count = 0;
 				dataBuff[0] = 0x74; 
+			}else if(byte == 0X79){  //触控模式按下
+				count = 4;
+				tep = byte;
+			}else if(byte == 0X78){  //触控模式松开
+				count = 4;
+				tep = byte;
 			}
 			else{
 				count = 0;
