@@ -5,5 +5,8 @@
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "files.exclude": {
         "**/Objects": true
+    },
+    "files.associations": {
+        "applib.h": "c"
     }
 }

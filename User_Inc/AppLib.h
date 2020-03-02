@@ -17,13 +17,15 @@
 #define PUMP_PIN PBout(3)
 #define BACK1_PIN PBout(1)
 #define Valve_PIN PBout(0)
+#define BIOS_PIN PBout(7)
+#define BIOA_PIN PBout(6)
+#define HEAT_PIN PBout(9)
 
 //Picture Code
 #define PIC_LANGUAGE 6
 #define PIC_LANGUAGE_P 5
-#define PIC_MENUS 14
-#define PIC_MENUS_P 17
-#define PIC_EXPLAIN 13
+#define PIC_MENUS 12
+#define PIC_MENUS_P 22
 #define PIC_FACE_RF 12
 #define PIC_BODY_RF 13
 #define PIC_EYE_RF 11
@@ -48,15 +50,40 @@ extern u8 WorkIntensity, WorkMode;
 #define	MSC_ALERT   4
 #define	MSC_ERROR   5
 
+//key code
+#define FACE_KEY 0X0010
+#define SUCK_MIDDLE_KEY 0X0011
+#define BODY_KEY 0X0012
+#define SUCK_BIG_KEY 0X0013
+#define BIO1_KEY 0X0014
+#define START_KEY 0X0021
+#define STOP_KEY 0X0020
+#define TIME_UP_KEY 0X0031
+#define TIME_DOWN_KEY 0X0032
+#define INT_UP_KEY 0X0033
+#define INT_DOWN_KEY 0X0034
+#define SUCK_UP_KEY 0X0035
+#define SUCK_DOWN_KEY 0X0036
+#define RELEASE_UP_KEY 0X0037
+#define RELEASE _DOWN_KEY 0X0038
+#define MODE_UP_KEY 0X0039
+#define MODE_DOWN_KEY 0X003A
+#define ENGLISH_KEY 0X0042
+#define CHINESE_KEY 0X0041
+#define ENTER_KEY 0X0043
+#define SET_KEY 0X0044
+
+//FUNCTION NUM
 #define FUNCTION_EXPLAIN 0
 #define FUNCTION_FACE 1
 #define FUNCTION_BODY 2
 #define FUNCTION_O2 3
-#define FUNCTION_COOL 4
+#define FUNCTION_O2_BIG 4
 #define FUNCTION_SELECT 5
 #define FUNCTION_LANGUAGE 6
 #define FUNCTION_EYE 7
 #define FUNCTION_RESTART 8
+#define FUNCTION_BIO1 9
 
 //lll
 typedef struct
@@ -79,7 +106,8 @@ void PageFaceRF(void);
 void PageBodyRF(void);
 void PageCool(void);
 void PageO2(void);
-void PageExplain(void);
+void PageO2Big(void);
+void PageBIO1(void);
 void PageEyeRF(void);
 void PageRestartAnimation(void);
 
@@ -114,6 +142,10 @@ void O2PWM(u8 i, u8 Work);
 /****BEE Module******/
 extern u8 BeeMod, BeeTime;
 void BeeFunction(void);
+
+void BIO1PWM(u8 i, u8 Work);
+void BIO1Power(u8 i, u8 Work);
+
 /* 
 static __inline void dwPlayMusic(u8 id, u8 num)
 {
@@ -135,17 +167,17 @@ static __inline void dwStopMusic(void)
 //////////////////////////
 
 /*****Display Intensity********/
-static __inline void DisplayIntensity(u8 i)
+static __inline void DisplayIntensity(u8 i, u16 x, u16 y)
 {
-	dwCutPic(PIC_INTENSITY+i, 448, 143, 687, 384, 448, 143);
-	// dwDisNum(DW_SIZE_48, 528,    219,i/10);
-	// dwDisNum(DW_SIZE_48, 528+24, 219,i%10);
+	// dwCutPic(PIC_INTENSITY+i, 448, 143, 687, 384, 448, 143);
+	dwDisNum(DW_SIZE_48, x, y, i / 10);
+	dwDisNum(DW_SIZE_48, x + 24, y, i % 10);
 }
 
 /*****Display Mode********/
-static __inline void DisplayMode(u8 i)
+static __inline void DisplayMode(u8 i, u16 x, u16 y)
 {
-	dwDisChar(DW_SIZE_32, 537, 537, '@'+i);
+	dwDisChar(DW_SIZE_48, x, y, '@'+i);
 }
 ///////////////////////////////
 

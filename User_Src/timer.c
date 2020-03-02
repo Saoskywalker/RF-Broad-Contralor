@@ -45,28 +45,38 @@ void TIM3_Int_Init(u16 arr,u16 psc)
 	TIM_Cmd(TIM3, ENABLE);  //使能TIMx					 
 }
 //定时器3中断服务程序
-void TIM3_IRQHandler(void)   //TIM3中断 1ms
+void TIM3_IRQHandler(void)   //TIM3中断 1us
 {
-	static u16 Flag1sCnt = 0, Flag200msCnt = 0;
+	static u16 Flag1sCnt = 0, Flag200msCnt = 0, Flag1msCnt = 0;
 	
 	if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET)  //检查TIM3更新中断发生与否
 	{
 		TIM_ClearITPendingBit(TIM3, TIM_IT_Update);  //清除TIMx更新中断标志 
 //			#ifdef DEBUG
-//		DEBUG_TIME_PIN = ~DEBUG_TIME_PIN;
+		// DEBUG_TIME_PIN = ~DEBUG_TIME_PIN;
 //			#endif
-		if(nextPage==FUNCTION_O2)
-			O2PWM(WorkMode, BitAppCon.WorkFlag);
+
+		if (nextPage == FUNCTION_O2)
+		{
+			BIO1PWM(WorkMode, BitAppCon.WorkFlag);
+			BIO1Power(WorkIntensity, BitAppCon.WorkFlag);
+		}
 			
-		if(++Flag200msCnt>=200)	//200ms, use for uart1 sending
+		if(++Flag200msCnt>=2000)	//200ms, use for uart1 sending
 		{
 			Flag200msCnt = 0;
 			BitAppCon.ms200 = 1;
 		}
 		
-		BeeFunction();
-		
-		if((BitAppCon.WorkSecFlag==1)&&(++Flag1sCnt>=1000))	//1s
+		if(++Flag1msCnt>=10)
+		{
+			Flag1msCnt = 0;
+			BeeFunction();
+			if (nextPage == FUNCTION_O2)
+				O2PWM(WorkMode, BitAppCon.WorkFlag);
+		}
+
+		if((BitAppCon.WorkSecFlag==1)&&(++Flag1sCnt>=10000))	//1s
 		{
 			Flag1sCnt = 0;
 			BitAppCon.Flag1s = 1;

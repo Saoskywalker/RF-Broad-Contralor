@@ -157,8 +157,6 @@ void dwPlayVol(u8 i);
 /*******收到屏幕的数据外理********/
 void dwReceiveByte(u8 byte);
 
-void funDisTime(u16 timing);
-void funDisTime_Cool(u16 timing);
-
+void funDisTime(u16 timing, u16 x, u16 y);
 
 #endif

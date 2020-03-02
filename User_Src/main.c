@@ -37,10 +37,10 @@ int main()
 	TIM_SetCompare3(TIM4, 3000); //4.6v
 	screenCheck();
 	dwPlayVol(0xFF);
-	TIM3_Int_Init(999, 70); //1ms
+	TIM3_Int_Init(99, 70); //100us
 	Adc_Init();
 	nextPage = FUNCTION_RESTART;
-	dwSetColor(DW_COL_RED, DW_COL_WHITE);
+	dwSetColor(DW_COL_GREEN, DW_COL_WHITE);
 
 	STMFLASH_Read(FLASH_SAVE_ADDR, &i, 1); //read language config ago
 	if (i)
@@ -65,11 +65,6 @@ int main()
 			PageLanguage();
 			break;
 		}
-		case FUNCTION_EXPLAIN:
-		{
-			PageExplain();
-			break;
-		}
 		case FUNCTION_FACE:
 		{
 			PageFaceRF();
@@ -80,14 +75,19 @@ int main()
 			PageBodyRF();
 			break;
 		}
+		case FUNCTION_BIO1:
+		{
+			PageBIO1();
+			break;
+		}
 		case FUNCTION_O2:
 		{
 			PageO2();
 			break;
 		}
-		case FUNCTION_COOL:
+		case FUNCTION_O2_BIG:
 		{
-			PageCool();
+			PageO2Big();
 			break;
 		}
 		case FUNCTION_SELECT:

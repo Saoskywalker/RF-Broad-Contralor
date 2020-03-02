@@ -120,7 +120,7 @@ void dwHandlerButton(void){
 	{
 		keyFlag = 1;
 
-		cmd = ((u16)dataBuff[1]<<8)+dataBuff[2];
+		cmd = ((u16)dataBuff[3]<<8)+dataBuff[4];
 		for (i = 0; i < keyNum; i++)
 		{
 			if (cmd == dwKeyListen[i].command)
@@ -346,12 +346,12 @@ void dwSound(u8 duration){  // duration*10ms
 
  /*****等待松手*****/
 void dwWaitRelease(void){
-	while(dataBuff[0] != 0x72);
+	while(dataBuff[0] != 0x72 && dataBuff[0] != 0x78);
 }
 
  /*****等待按下*****/
 void dwWaitPress(void){
-	while(dataBuff[0] != 0x73);
+	while(dataBuff[0] != 0x73 && dataBuff[0] != 0x79);
 }
 
 /***查询按键状态****/
@@ -491,18 +491,10 @@ void dwReceiveByte(u8 byte){
 }
 
 //Display time: 00:00
-void funDisTime(u16 timing){
-	dwDisNum(DW_SIZE_32, 185,    537,timing/600);
-	dwDisNum(DW_SIZE_32, 185+16, 537,timing/60%10);
-	dwDisChar(DW_SIZE_32,185+32, 537,':');
-	dwDisNum(DW_SIZE_32, 185+48, 537,timing%60/10);
-	dwDisNum(DW_SIZE_32, 185+64, 537,timing%10);
-}
-
-void funDisTime_Cool(u16 timing){
-	dwDisNum(DW_SIZE_48, 550,    279,timing/600);
-	dwDisNum(DW_SIZE_48, 550+24, 279,timing/60%10);
-	dwDisChar(DW_SIZE_48,550+48, 279,':');
-	dwDisNum(DW_SIZE_48, 550+72, 279,timing%60/10);
-	dwDisNum(DW_SIZE_48, 550+96, 279,timing%10);
+void funDisTime(u16 timing, u16 x, u16 y){
+	dwDisNum(DW_SIZE_48, x,    y,timing/600);
+	dwDisNum(DW_SIZE_48, x+24, y,timing/60%10);
+	//dwDisChar(DW_SIZE_48,x+48, y,':');
+	dwDisNum(DW_SIZE_48, x+72, y,timing%60/10);
+	dwDisNum(DW_SIZE_48, x+96, y,timing%10);
 }
