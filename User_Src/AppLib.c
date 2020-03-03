@@ -8,15 +8,18 @@ u8 requestPage = 0;
 //Botton press effect
 static const Button btnStart = {PIC_MENUS_P, 676, 133, 786, 214};
 static const Button btnPause = {PIC_MENUS_P, 674, 282, 783, 364};
+static const Button btnMute = {1, 714, 10, 773, 69};
 
 //Botton original effect
 static const Button btnStart_O = {PIC_MENUS, 676, 133, 786, 214};
 static const Button btnPause_O = {PIC_MENUS, 674, 282, 783, 364};
+static const Button btnMute_O = {2, 714, 10, 773, 69};
 
 u8 CommSendFlag = 0;									  //Send Main Board Buffer or not
 _Comm Comm = {FRAME_HEAD, RF_FACE, 1, RF_OFF, FRAME_END}; //Send Main Board Buffer
 u16 WorkTime = 0;
-u8 WorkIntensity = 0, WorkMode = 0;
+u8 WorkIntensity = 0, WorkMode = 0, muteFlag = 0;
+u16 WorkSuckTime = 0, WorkReleaseTime = 0;
 u16 TimeX, TimeY, IntensityX, IntensityY, ModeX, ModeY, SuckX, SuckY, ReleaseX, ReleaseY;
 
 /*language select*/
@@ -45,11 +48,11 @@ static void menuEnglishPres(void)
 /*Menu select*/
 static void menuEyeRFPres(void)
 {
-	if(BitAppCon.WorkFlag)
-	{
-		dwPlayMusic(MSC_ERROR, 1);
-	}
-	else
+	// if(BitAppCon.WorkFlag)
+	// {
+	// 	dwPlayMusic(MSC_ERROR, 1);
+	// }
+	// else
 	{
 		nextPage = FUNCTION_EYE;
 		dwPlayMusic(MSC_BUTTON, 1);
@@ -58,11 +61,11 @@ static void menuEyeRFPres(void)
 
 static void menuFaceRFPres(void)
 {
-	if(BitAppCon.WorkFlag)
-	{
-		dwPlayMusic(MSC_ERROR, 1);
-	}
-	else
+	// if(BitAppCon.WorkFlag)
+	// {
+	// 	dwPlayMusic(MSC_ERROR, 1);
+	// }
+	// else
 	{
 		nextPage = FUNCTION_FACE;
 		dwPlayMusic(MSC_BUTTON, 1);
@@ -71,11 +74,11 @@ static void menuFaceRFPres(void)
 
 static void menuBodyRFPres(void)
 {
-	if(BitAppCon.WorkFlag)
-	{
-		dwPlayMusic(MSC_ERROR, 1);
-	}
-	else
+	// if(BitAppCon.WorkFlag)
+	// {
+	// 	dwPlayMusic(MSC_ERROR, 1);
+	// }
+	// else
 	{
 		nextPage = FUNCTION_BODY;
 		dwPlayMusic(MSC_BUTTON, 1);
@@ -84,11 +87,11 @@ static void menuBodyRFPres(void)
 
 static void menuO2Pres(void)
 {
-	if(BitAppCon.WorkFlag)
-	{
-		dwPlayMusic(MSC_ERROR, 1);
-	}
-	else
+	// if(BitAppCon.WorkFlag)
+	// {
+	// 	dwPlayMusic(MSC_ERROR, 1);
+	// }
+	// else
 	{
 		nextPage = FUNCTION_O2;
 		dwPlayMusic(MSC_BUTTON, 1);
@@ -97,11 +100,11 @@ static void menuO2Pres(void)
 
 static void menuO2BigPres(void)
 {
-	if(BitAppCon.WorkFlag)
-	{
-		dwPlayMusic(MSC_ERROR, 1);
-	}
-	else
+	// if(BitAppCon.WorkFlag)
+	// {
+	// 	dwPlayMusic(MSC_ERROR, 1);
+	// }
+	// else
 	{
 		nextPage = FUNCTION_O2_BIG;
 		dwPlayMusic(MSC_BUTTON, 1);
@@ -110,11 +113,11 @@ static void menuO2BigPres(void)
 
 static void menuBIO1Pres(void)
 {
-	if(BitAppCon.WorkFlag)
-	{
-		dwPlayMusic(MSC_ERROR, 1);
-	}
-	else
+	// if(BitAppCon.WorkFlag)
+	// {
+	// 	dwPlayMusic(MSC_ERROR, 1);
+	// }
+	// else
 	{
 		nextPage = FUNCTION_BIO1;
 		dwPlayMusic(MSC_BUTTON, 1);
@@ -124,11 +127,11 @@ static void menuBIO1Pres(void)
 /*Back button*/
 static void BackPres(void)
 {
-	if(BitAppCon.WorkFlag)
-	{
-		dwPlayMusic(MSC_ERROR, 1);
-	}
-	else
+	// if(BitAppCon.WorkFlag)
+	// {
+	// 	dwPlayMusic(MSC_ERROR, 1);
+	// }
+	// else
 	{
 		dwPlayMusic(MSC_BUTTON, 1);
 		nextPage = FUNCTION_LANGUAGE;
@@ -258,6 +261,39 @@ static void IntensityDownPres(void)
 	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
 }
 
+/*SUCK RELEASE TIME BUTTON*/
+static void SuckTimeUpPres(void)
+{
+	dwPlayMusic(MSC_BUTTON, 1);
+	if (WorkSuckTime < 3000)
+		WorkSuckTime+=100;
+	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
+}
+
+static void SuckTimeDownPres(void)
+{
+	dwPlayMusic(MSC_BUTTON, 1);
+	if (WorkSuckTime > 100)
+		WorkSuckTime-=100;
+	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
+}
+
+static void ReleaseTimeUpPres(void)
+{
+	dwPlayMusic(MSC_BUTTON, 1);
+	if (WorkReleaseTime < 3000)
+		WorkReleaseTime+=100;
+	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
+}
+
+static void ReleaseTimeDownPres(void)
+{
+	dwPlayMusic(MSC_BUTTON, 1);
+	if (WorkReleaseTime > 100)
+		WorkReleaseTime-=100;
+	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
+}
+
 /*mode button*/
 static void ModeUpPres(void)
 {
@@ -287,6 +323,19 @@ static void EnterPres(void)
 	BitAppCon.menuExit = 1;
 	nextPage = FUNCTION_SELECT;
 	dwPlayMusic(MSC_BUTTON, 1);
+}
+
+static void mutePres(void)
+{
+	u16 i = 0;
+	dwPlayMusic(MSC_BUTTON, 1);
+	muteFlag = !muteFlag;
+	i = muteFlag;
+	STMFLASH_Write(FLASH_SAVE_ADDR+2, &i, 1);
+	if(muteFlag)
+		dwDisButton(&btnMute_O, 0, btnMute_O.xs, btnMute_O.ys);
+	else
+		dwDisButton(&btnMute, 0, btnMute.xs, btnMute.ys);
 }
 
 /*uart1 send to main board*/
@@ -341,9 +390,15 @@ void PageLanguage(void)
 	dwDisChar(DW_SIZE_12, 14, 585, '.');
 	dwDisChar(DW_SIZE_12, 20, 585, '3');
 
+	if(muteFlag)
+		dwDisButton(&btnMute_O, 0, btnMute_O.xs, btnMute_O.ys);
+	else
+		dwDisButton(&btnMute, 0, btnMute.xs, btnMute.ys);
+
 	dwCancelKey();
 	dwListenButton(menuChinsePres, 0, CHINESE_KEY);
 	dwListenButton(menuEnglishPres, 0, ENGLISH_KEY);
+	dwListenButton(mutePres, 0, MUTE_KEY);
 	while (!BitAppCon.menuExit)
 	{
 		dwHandlerButton();
@@ -688,11 +743,11 @@ void PageBIO1(void)
 	WorkMode = 1;
 	BitAppCon.menuExit = 0;
 	TimeX = 272; 
-	TimeY = 258;
+	TimeY = 287;
 	IntensityX = 300;
-	IntensityY = 187;
+	IntensityY = 142;
 	ModeX = 319;
-	ModeY = 218;
+	ModeY = 211;
 
 	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 	funDisTime(WorkTime, TimeX, TimeY);
@@ -786,21 +841,27 @@ void TemperatureProcess(void)
 
 void PageO2(void)
 {
+	BACK1_PIN = 0; //change channel
 	WorkTime = 1800;
 	WorkIntensity = 1;
 	WorkMode = 1;
+	WorkReleaseTime = 1000;
+	WorkSuckTime = 1000;
 	BitAppCon.menuExit = 0;
-	TimeX = 288; 
-	TimeY = 295;
+	TimeX = 272; 
+	TimeY = 309;
 	IntensityX = 300;
-	IntensityY = 149;
-	ModeX = 319;
-	ModeY = 218;
+	IntensityY = 234;
+	ReleaseX = 293;
+	ReleaseY = 165;
+	SuckX = 293;
+	SuckY = 93;
 
 	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 	funDisTime(WorkTime, TimeX, TimeY);
 	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
-	DisplayMode(WorkMode, ModeX, ModeY);
+	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
+	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
 
 	dwCancelKey();
 	dwListenButton(menuFaceRFPres, 0, FACE_KEY);
@@ -814,6 +875,10 @@ void PageO2(void)
 	dwListenButton(TimeDownPres, 0, TIME_DOWN_KEY);
 	dwListenButton(IntensityUpPres, 0, INT_UP_KEY);
 	dwListenButton(IntensityDownPres, 0, INT_DOWN_KEY);
+	dwListenButton(ReleaseTimeUpPres, 0, RELEASE_UP_KEY);
+	dwListenButton(ReleaseTimeDownPres, 0, RELEASE_DOWN_KEY);
+	dwListenButton(SuckTimeUpPres, 0, SUCK_UP_KEY);
+	dwListenButton(SuckTimeDownPres, 0, SUCK_DOWN_KEY);
 
 	while (!BitAppCon.menuExit)
 	{
@@ -833,7 +898,86 @@ void PageO2(void)
 		}
 		else
 		{
-			//COOL_ON_PIN = 0;	//close hate
+			BACK1_PIN = 0;
+			HEAT_PIN = 0;
+			Valve_PIN = 0;
+			PUMP_PIN = 0;
+			NtcErrorFlag = 0;
+		}
+
+		//UART1 times send datas to main board
+		if (BitAppCon.ms200)
+		{
+			BitAppCon.ms200 = 0;
+			// printf("T:%d\n", IceTemperature);
+			CommSendFlag = 1;
+			MainBoardSend();
+		}
+	}
+	dwWaitRelease();
+	dwHandlerButton();
+}
+
+void PageO2Big(void)
+{
+	BACK1_PIN = 1; //change channel
+	WorkTime = 1800;
+	WorkIntensity = 1;
+	WorkMode = 1;
+	WorkReleaseTime = 1000;
+	WorkSuckTime = 1000;
+	BitAppCon.menuExit = 0;
+	TimeX = 272; 
+	TimeY = 309;
+	IntensityX = 300;
+	IntensityY = 234;
+	ReleaseX = 293;
+	ReleaseY = 165;
+	SuckX = 293;
+	SuckY = 93;
+
+	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
+	funDisTime(WorkTime, TimeX, TimeY);
+	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
+	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
+	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
+
+	dwCancelKey();
+	dwListenButton(menuFaceRFPres, 0, FACE_KEY);
+	dwListenButton(menuBodyRFPres, 0, BODY_KEY);
+	dwListenButton(menuO2Pres, 0, SUCK_MIDDLE_KEY);
+	dwListenButton(menuO2BigPres, 0, SUCK_BIG_KEY);
+	dwListenButton(menuBIO1Pres, 0, BIO1_KEY);
+	dwListenButton(StartPres, 0, START_KEY);
+	dwListenButton(PausePres, 0, STOP_KEY);
+	dwListenButton(TimeUpPres, 0, TIME_UP_KEY);
+	dwListenButton(TimeDownPres, 0, TIME_DOWN_KEY);
+	dwListenButton(IntensityUpPres, 0, INT_UP_KEY);
+	dwListenButton(IntensityDownPres, 0, INT_DOWN_KEY);
+	dwListenButton(ReleaseTimeUpPres, 0, RELEASE_UP_KEY);
+	dwListenButton(ReleaseTimeDownPres, 0, RELEASE_DOWN_KEY);
+	dwListenButton(SuckTimeUpPres, 0, SUCK_UP_KEY);
+	dwListenButton(SuckTimeDownPres, 0, SUCK_DOWN_KEY);
+
+	while (!BitAppCon.menuExit)
+	{
+		dwHandlerButton();
+		if (nextPage != FUNCTION_O2_BIG)
+		{
+			BitAppCon.menuExit = 1;
+			BitAppCon.WorkFlag = 0;
+			BitAppCon.WorkSecFlag = 0;
+		}
+		WorkTimeDeal();
+		if (BitAppCon.WorkFlag)
+		{
+			IceTemperature = Get_Adc_Average(ADC_Channel_7,6);	
+			TemperatureProcess();
+			PUMP_PIN = 1;
+		}
+		else
+		{
+			BACK1_PIN = 0;
 			HEAT_PIN = 0;
 			Valve_PIN = 0;
 			PUMP_PIN = 0;
@@ -857,7 +1001,7 @@ void PageO2(void)
 const u16 O2ModPeriod[] = {0, 2000, 4000, 4000, 1000, 5000};
 const u16 O2ModCompare[] = {0, 1000, 2000, 3000, 1000, 250};
 
-void O2PWM(u8 i, u8 Work)
+/* void O2PWM(u8 i, u8 Work)
 {
 	static u16 O2TimeCnt = 0;
 	static u8 O2ModRenew = 0;
@@ -879,44 +1023,34 @@ void O2PWM(u8 i, u8 Work)
 		O2TimeCnt = 0;
 		Valve_PIN = 0;
 	}
-}
+} */
 
-void PageO2Big(void)
+void O2PWM(u16 suck, u16 release, u8 Work)
 {
-	WorkTime = 1800;
-	WorkIntensity = 1;
-	WorkMode = 1;
-	BitAppCon.menuExit = 0;
-	TimeX = 288; 
-	TimeY = 295;
-	IntensityX = 300;
-	IntensityY = 149;
-	ModeX = 319;
-	ModeY = 218;
+	static u16 O2TimeCnt = 0;
 
-	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
-	funDisTime(WorkTime, TimeX, TimeY);
-	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
-	DisplayMode(WorkMode, ModeX, ModeY);
-
-	dwCancelKey();
-	dwListenButton(menuFaceRFPres, 0, FACE_KEY);
-	dwListenButton(menuBodyRFPres, 0, BODY_KEY);
-	dwListenButton(menuO2Pres, 0, SUCK_MIDDLE_KEY);
-	dwListenButton(menuO2BigPres, 0, SUCK_BIG_KEY);
-	dwListenButton(menuBIO1Pres, 0, BIO1_KEY);
-	dwListenButton(StartPres, 0, START_KEY);
-	dwListenButton(PausePres, 0, STOP_KEY);
-	dwListenButton(TimeUpPres, 0, TIME_UP_KEY);
-	dwListenButton(TimeDownPres, 0, TIME_DOWN_KEY);
-	dwListenButton(IntensityUpPres, 0, INT_UP_KEY);
-	dwListenButton(IntensityDownPres, 0, INT_DOWN_KEY);
+	if (Work)
+	{
+		if (++O2TimeCnt >= suck+release)
+		{
+			O2TimeCnt = 0;
+		}
+		if (O2TimeCnt < suck)
+			Valve_PIN = 0;
+		else
+			Valve_PIN = 1;
+	}
+	else
+	{
+		O2TimeCnt = 0;
+		Valve_PIN = 0;
+	}
 }
 
 //BIO1 PWM
 const u16 BIO1IntensityTable[] = {0, 36, 38, 40, 42, 44, 46, 48, 50};
-const u16 BIO1ModPeriod[] = {0, 11, 330, 400, 900};
-const u16 BIO1ModCompare[] = {0, 3, 2, 240, 500};
+const u16 BIO1ModPeriod[] = {0, 11, 330, 400, 500};
+const u16 BIO1ModCompare[] = {0, 3, 2, 240, 100};
 void BIO1PWM(u8 i, u8 Work)
 {
 	static u16 BIO1TimeCnt = 0;

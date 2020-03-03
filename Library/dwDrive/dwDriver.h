@@ -3,8 +3,8 @@
 
 #include "myDefine.h"
 
-#define LANGUAGE_CHINESE     10
-#define LANGUAGE_ENGLISH     0
+#define LANGUAGE_CHINESE     0
+#define LANGUAGE_ENGLISH     20
 #define LANGUAGE_ESPANOL     70
 
 #define DW_COL_RED		0xF800

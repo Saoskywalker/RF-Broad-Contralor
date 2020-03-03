@@ -20,6 +20,7 @@
 #define BIOS_PIN PBout(7)
 #define BIOA_PIN PBout(6)
 #define HEAT_PIN PBout(9)
+#define RDoDE_PIN PBout(12)
 
 //Picture Code
 #define PIC_LANGUAGE 6
@@ -41,7 +42,8 @@ extern u8 nextPage;
 extern u8 requestPage;
 extern const Button btnChinse;
 extern const Button btnEnglish;
-extern u8 WorkIntensity, WorkMode;
+extern u8 WorkIntensity, WorkMode, muteFlag;
+extern u16 WorkSuckTime, WorkReleaseTime;
 
 //music code
 #define	MSC_BUTTON  0
@@ -65,13 +67,14 @@ extern u8 WorkIntensity, WorkMode;
 #define SUCK_UP_KEY 0X0035
 #define SUCK_DOWN_KEY 0X0036
 #define RELEASE_UP_KEY 0X0037
-#define RELEASE _DOWN_KEY 0X0038
+#define RELEASE_DOWN_KEY 0X0038
 #define MODE_UP_KEY 0X0039
 #define MODE_DOWN_KEY 0X003A
 #define ENGLISH_KEY 0X0042
 #define CHINESE_KEY 0X0041
 #define ENTER_KEY 0X0043
 #define SET_KEY 0X0044
+#define MUTE_KEY 0X0045
 
 //FUNCTION NUM
 #define FUNCTION_EXPLAIN 0
@@ -137,7 +140,7 @@ extern _Comm Comm;
 
 extern u8 buff1[5];
 void commRx1Handler(u8 byte);
-void O2PWM(u8 i, u8 Work);
+void O2PWM(u16 suck, u16 release, u8 Work);
 
 /****BEE Module******/
 extern u8 BeeMod, BeeTime;
@@ -178,6 +181,15 @@ static __inline void DisplayIntensity(u8 i, u16 x, u16 y)
 static __inline void DisplayMode(u8 i, u16 x, u16 y)
 {
 	dwDisChar(DW_SIZE_48, x, y, '@'+i);
+}
+
+/*****Display suck or release time********/
+static __inline void DisplayO2Time(u16 j, u16 x, u16 y)
+{
+	u8 i = j/100;
+	dwDisNum(DW_SIZE_48, x, y, i / 10);
+	dwDisChar(DW_SIZE_48, x + 24, y, '.');
+	dwDisNum(DW_SIZE_48, x + 48, y, i % 10);
 }
 ///////////////////////////////
 

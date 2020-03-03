@@ -27,11 +27,17 @@ Project File Date:  12/26/2018
 <h2>Output:</h2>
 *** Using Compiler 'V5.05 update 1 (build 106)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
-compiling timer.c...
+compiling main.c...
+compiling AppLib.c...
+User_Src\AppLib.c(49): warning:  #177-D: function "menuEyeRFPres" was declared but never referenced
+  static void menuEyeRFPres(void)
+User_Src\AppLib.c(321): warning:  #177-D: function "EnterPres" was declared but never referenced
+  static void EnterPres(void)
+User_Src\AppLib.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=13608 RO-data=408 RW-data=136 ZI-data=3152  
+Program Size: Code=14604 RO-data=428 RW-data=140 ZI-data=3148  
 FromELF: creating hex file...
-".\Objects\Demo.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\Demo.axf" - 0 Error(s), 2 Warning(s).
 </pre>
 </body>
 </html>

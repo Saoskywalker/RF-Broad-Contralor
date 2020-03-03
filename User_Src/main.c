@@ -26,13 +26,14 @@ void screenCheck(void);
 
 int main()
 {
-	u16 i = 0;
+	u16 i = 0, j = 0;
 
 	LED_Init();
 	NVIC_Configuration(); //nvic set 2:2
 	delay_init();
 	uart_init(9600);			 //Main Board
 	uart2_init(115200);			 //DW Display
+	uart3_init(9600);
 	TIM4_PWM_Init(7200, 0);		 //10Khz.
 	TIM_SetCompare3(TIM4, 3000); //4.6v
 	screenCheck();
@@ -42,6 +43,8 @@ int main()
 	nextPage = FUNCTION_RESTART;
 	dwSetColor(DW_COL_GREEN, DW_COL_WHITE);
 
+	STMFLASH_Read(FLASH_SAVE_ADDR+2, &j, 1); //mute state
+	muteFlag = j;
 	STMFLASH_Read(FLASH_SAVE_ADDR, &i, 1); //read language config ago
 	if (i)
 		dwSetLanguage(LANGUAGE_ENGLISH);
@@ -111,8 +114,8 @@ int main()
 void screenCheck(void)
 {
 	u8 i;
-	//Check communicate with DW Display, continue 2s
-	for (i = 0; i < 10; i++)
+	//Check communicate with DW Display, continue 5s
+	for (i = 0; i < 25; i++)
 	{
 		dwSendByte(0xAA);
 		dwSendByte(0x00);  // ·¢ËÍÎÕÊÖÖ¸Áî

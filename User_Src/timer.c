@@ -56,7 +56,7 @@ void TIM3_IRQHandler(void)   //TIM3ÖÐ¶Ï 1us
 		// DEBUG_TIME_PIN = ~DEBUG_TIME_PIN;
 //			#endif
 
-		if (nextPage == FUNCTION_O2)
+		if (nextPage == FUNCTION_BIO1)
 		{
 			BIO1PWM(WorkMode, BitAppCon.WorkFlag);
 			BIO1Power(WorkIntensity, BitAppCon.WorkFlag);
@@ -72,8 +72,8 @@ void TIM3_IRQHandler(void)   //TIM3ÖÐ¶Ï 1us
 		{
 			Flag1msCnt = 0;
 			BeeFunction();
-			if (nextPage == FUNCTION_O2)
-				O2PWM(WorkMode, BitAppCon.WorkFlag);
+			if (nextPage == FUNCTION_O2 || nextPage == FUNCTION_O2_BIG)
+				O2PWM(WorkSuckTime, WorkReleaseTime, BitAppCon.WorkFlag);
 		}
 
 		if((BitAppCon.WorkSecFlag==1)&&(++Flag1sCnt>=10000))	//1s

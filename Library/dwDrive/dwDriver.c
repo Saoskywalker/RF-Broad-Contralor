@@ -377,7 +377,9 @@ void dwCalibration(void){
 // 最大音量播放音乐
 // param id:  0--120;
 // param num: 1--120;
+extern u8 muteFlag;
 void dwPlayMusic(u8 id, u8 num){
+	if(muteFlag) return; //静音
 	dwSendByte(0xAA);
 	dwSendByte(0x30);
 	dwSendByte(id);
