@@ -1048,29 +1048,40 @@ void O2PWM(u16 suck, u16 release, u8 Work)
 }
 
 //BIO1 PWM
-const u16 BIO1IntensityTable[] = {0, 36, 38, 40, 42, 44, 46, 48, 50};
-const u16 BIO1ModPeriod[] = {0, 11, 330, 400, 500};
-const u16 BIO1ModCompare[] = {0, 3, 2, 240, 100};
+const u16 BIO1IntensityTable[] = {0, 35, 36, 38, 39, 41, 42, 44, 46};
+const u16 BIO1ModPeriod[] = {0, 10000, 9900, 4950, 2640};
+const u16 BIO1ModCompare[] = {0, 10000, 4950, 2640, 1320};
 void BIO1PWM(u8 i, u8 Work)
 {
-	static u16 BIO1TimeCnt = 0;
+	static u16 BIO1TimeCnt = 0, BIO1TimeCnt2 = 0;
 	static u8 BIO1ModRenew = 0;
 
 	if (Work)
 	{
-		if (++BIO1TimeCnt >= BIO1ModPeriod[BIO1ModRenew])
+		if (++BIO1TimeCnt2 >= BIO1ModPeriod[BIO1ModRenew])
 		{
-			BIO1TimeCnt = 0;
+			BIO1TimeCnt2 = 0;
 			BIO1ModRenew = i;
 		}
-		if ((BIO1TimeCnt < BIO1ModCompare[BIO1ModRenew]))
-			BIOS_PIN = 0; //open
+		if (BIO1TimeCnt2 < BIO1ModCompare[BIO1ModRenew])
+		{
+			if (++BIO1TimeCnt >= 330) //BIO1ModPeriod[BIO1ModRenew])
+				BIO1TimeCnt = 0;
+			if (BIO1TimeCnt < 2) //BIO1ModCompare[BIO1ModRenew]))
+				BIOS_PIN = 0;	//open
+			else
+				BIOS_PIN = 1; //close
+		}
 		else
+		{
 			BIOS_PIN = 1; //close
+			BIO1TimeCnt = 0;
+		}
 	}
 	else
 	{
 		BIO1TimeCnt = 0;
+		BIO1TimeCnt2 = 0;
 		BIOS_PIN = 1; //close
 	}
 }

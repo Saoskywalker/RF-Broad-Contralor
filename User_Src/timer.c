@@ -45,7 +45,7 @@ void TIM3_Int_Init(u16 arr,u16 psc)
 	TIM_Cmd(TIM3, ENABLE);  //使能TIMx					 
 }
 //定时器3中断服务程序
-void TIM3_IRQHandler(void)   //TIM3中断 1us
+void TIM3_IRQHandler(void)   //TIM3中断 100us
 {
 	static u16 Flag1sCnt = 0, Flag200msCnt = 0, Flag1msCnt = 0;
 	
