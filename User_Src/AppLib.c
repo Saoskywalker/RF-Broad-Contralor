@@ -898,7 +898,6 @@ void PageO2(void)
 		}
 		else
 		{
-			BACK1_PIN = 0;
 			HEAT_PIN = 0;
 			Valve_PIN = 0;
 			PUMP_PIN = 0;
@@ -914,6 +913,7 @@ void PageO2(void)
 			MainBoardSend();
 		}
 	}
+	BACK1_PIN = 0;
 	dwWaitRelease();
 	dwHandlerButton();
 }
@@ -977,7 +977,6 @@ void PageO2Big(void)
 		}
 		else
 		{
-			BACK1_PIN = 0;
 			HEAT_PIN = 0;
 			Valve_PIN = 0;
 			PUMP_PIN = 0;
@@ -993,6 +992,7 @@ void PageO2Big(void)
 			MainBoardSend();
 		}
 	}
+	BACK1_PIN = 0;
 	dwWaitRelease();
 	dwHandlerButton();
 }

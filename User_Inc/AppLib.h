@@ -20,7 +20,8 @@
 #define BIOS_PIN PBout(7)
 #define BIOA_PIN PBout(6)
 #define HEAT_PIN PBout(9)
-#define RDoDE_PIN PBout(12)
+#define RDorDE_PIN PBout(12)
+#define BIO1or2_PIN PBout(5)
 
 //Picture Code
 #define PIC_LANGUAGE 6

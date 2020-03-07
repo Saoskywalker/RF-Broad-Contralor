@@ -247,15 +247,22 @@ void USART1_IRQHandler(void)                	//串口1中断服务程序
 //			USART_SendData(USART1, ddd[1]);
 //		}
   } 
-} 
-	
-void USART2_IRQHandler(void)  
-{  
-     if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
-        {       
-            dwReceiveByte(USART_ReceiveData(USART2));             
-        }   
+}
+
+void USART2_IRQHandler(void)
+{
+	if (USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
+	{
+		dwReceiveByte(USART_ReceiveData(USART2));
+	}
+}
+
+void USART3_IRQHandler(void)
+{
+	if (USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
+	{
+		USART_ReceiveData(USART3);
+	}
 }
 
 #endif	
-
