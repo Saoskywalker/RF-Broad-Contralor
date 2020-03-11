@@ -36,6 +36,7 @@ void uart2_init(u32 bound);
 void uart3_init(u32 bound);
 void uasrt1SendByte(u8 byte);
 void uasrt2SendByte(u8 byte);
+void uasrt3SendByte(u8 byte);
 
 #endif
 

@@ -228,6 +228,12 @@ void uasrt2SendByte(u8 byte){
 	while(!USART_GetFlagStatus(USART2, USART_FLAG_TC));
 }
 
+void uasrt3SendByte(u8 byte){
+	while(!USART_GetFlagStatus(USART3, USART_FLAG_TXE));
+	USART_SendData(USART3, byte);
+	while(!USART_GetFlagStatus(USART3, USART_FLAG_TC));
+}
+
 void USART1_IRQHandler(void)                	//串口1中断服务程序
 {
 //	static u8 ddd[4], i = 0;
@@ -261,7 +267,7 @@ void USART3_IRQHandler(void)
 {
 	if (USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
 	{
-		USART_ReceiveData(USART3);
+		Rec485(USART_ReceiveData(USART3));
 	}
 }
 

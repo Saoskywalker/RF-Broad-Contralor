@@ -71,6 +71,7 @@ void TIM3_IRQHandler(void)   //TIM3ÖÐ¶Ï 100us
 		if(++Flag1msCnt>=10)
 		{
 			Flag1msCnt = 0;
+			BitAppCon.ms1 = 1;
 			BeeFunction();
 			if (nextPage == FUNCTION_O2 || nextPage == FUNCTION_O2_BIG)
 				O2PWM(WorkSuckTime, WorkReleaseTime, BitAppCon.WorkFlag);

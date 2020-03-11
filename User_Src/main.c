@@ -33,7 +33,7 @@ int main()
 	delay_init();
 	uart_init(9600);			 //Main Board
 	uart2_init(115200);			 //DW Display
-	uart3_init(9600);
+	uart3_init(115200);	//handle
 	TIM4_PWM_Init(7200, 0);		 //10Khz.
 	TIM_SetCompare3(TIM4, 3000); //4.6v
 	screenCheck();

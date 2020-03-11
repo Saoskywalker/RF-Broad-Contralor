@@ -98,7 +98,7 @@ typedef struct
   unsigned char WorkFlag     : 1;
   unsigned char ms200        : 1;
   unsigned char WorkSecFlag  : 1;
-  unsigned char ms7      	 : 1;
+  unsigned char ms1      	 : 1;
   unsigned char ms8       	 : 1;
 }_BitAppCon;
 
@@ -149,6 +149,11 @@ void BeeFunction(void);
 
 void BIO1PWM(u8 i, u8 Work);
 void BIO1Power(u8 i, u8 Work);
+
+/*485*/
+extern u8 data485[4];
+void Rec485(u8 i);
+void Send485(u8 *i);
 
 /* 
 static __inline void dwPlayMusic(u8 id, u8 num)

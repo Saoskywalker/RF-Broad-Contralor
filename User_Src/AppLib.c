@@ -265,32 +265,32 @@ static void IntensityDownPres(void)
 static void SuckTimeUpPres(void)
 {
 	dwPlayMusic(MSC_BUTTON, 1);
-	if (WorkSuckTime < 3000)
-		WorkSuckTime+=100;
+	if (WorkSuckTime < 2000)
+		WorkSuckTime+=200;
 	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
 }
 
 static void SuckTimeDownPres(void)
 {
 	dwPlayMusic(MSC_BUTTON, 1);
-	if (WorkSuckTime > 100)
-		WorkSuckTime-=100;
+	if (WorkSuckTime > 200)
+		WorkSuckTime-=200;
 	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
 }
 
 static void ReleaseTimeUpPres(void)
 {
 	dwPlayMusic(MSC_BUTTON, 1);
-	if (WorkReleaseTime < 3000)
-		WorkReleaseTime+=100;
+	if (WorkReleaseTime < 2000)
+		WorkReleaseTime+=200;
 	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
 }
 
 static void ReleaseTimeDownPres(void)
 {
 	dwPlayMusic(MSC_BUTTON, 1);
-	if (WorkReleaseTime > 100)
-		WorkReleaseTime-=100;
+	if (WorkReleaseTime > 200)
+		WorkReleaseTime-=200;
 	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
 }
 
@@ -918,8 +918,50 @@ void PageO2(void)
 	dwHandlerButton();
 }
 
+//Temperature2 Process for PageO2Big
+static const u16 TemperatureTable2[] = {0, 450, 500, 550, 600,
+								650, 700, 750, 800};
+static u16 Temperature2 = 0;
+static u8 NtcErrorFlag2 = 0;
+static void TemperatureProcess2(void)
+{
+	static u16 i = 0;
+	
+	//NTC ERROR
+	if(Temperature2==0XFFFF)
+	{
+		if(++i>=10000)
+		{
+			i = 10000;
+			if(NtcErrorFlag2==0)
+			{
+				NtcErrorFlag2 = 1;
+				HEAT_PIN = 0;
+				dwPlayMusic(MSC_ALERT, 1);
+			}			
+		}
+	}
+	else
+	{
+		if (i>=25)
+			i -= 25;
+		else
+			i = 0;
+		if(i==0)
+			NtcErrorFlag2 = 0;
+
+		if(Temperature2<=TemperatureTable2[WorkIntensity]-10)
+			HEAT_PIN = 1;
+		if(Temperature2>=TemperatureTable2[WorkIntensity])
+			HEAT_PIN = 0;
+	}
+}
+
 void PageO2Big(void)
 {
+	u8 data[2], cnt = 0, error485 = 0;
+
+	data485[0] = 0;
 	BACK1_PIN = 1; //change channel
 	WorkTime = 1800;
 	WorkIntensity = 1;
@@ -967,12 +1009,15 @@ void PageO2Big(void)
 			BitAppCon.menuExit = 1;
 			BitAppCon.WorkFlag = 0;
 			BitAppCon.WorkSecFlag = 0;
+			delay_ms(100);
+			data[0] = 0;
+			data[1] = 0;
+			Send485(data);
 		}
 		WorkTimeDeal();
 		if (BitAppCon.WorkFlag)
 		{
-			IceTemperature = Get_Adc_Average(ADC_Channel_7,6);	
-			TemperatureProcess();
+			TemperatureProcess2();
 			PUMP_PIN = 1;
 		}
 		else
@@ -980,14 +1025,55 @@ void PageO2Big(void)
 			HEAT_PIN = 0;
 			Valve_PIN = 0;
 			PUMP_PIN = 0;
-			NtcErrorFlag = 0;
+			NtcErrorFlag2 = 0;
+		}
+		if (BitAppCon.ms1&&BitAppCon.menuExit!=1)
+		{
+			BitAppCon.ms1 = 0;
+			if (++cnt >= 100)
+			{
+				cnt = 0;
+				data[0] = WorkSuckTime/200;
+				data[1] = WorkReleaseTime/200;
+				if(++error485<=10)
+				{
+					error485 = 255;
+					Send485(data);
+				}
+			}
+		}
+		if(data485[0]&&BitAppCon.menuExit!=1)
+		{
+			data485[0] = 0;
+			error485 = 0;
+			if(data485[1]==0XA0)
+			{
+				if(data485[2]==3)
+					ReleaseTimeUpPres();
+				else if(data485[2]==4)
+					ReleaseTimeDownPres();
+				else if(data485[2]==1)
+					SuckTimeUpPres();
+				else if(data485[2]==2)
+					SuckTimeDownPres();
+				else if(data485[2]==5)
+				{
+					if(BitAppCon.WorkSecFlag)
+						PausePres();
+					else
+						StartPres();
+				}
+			}
+			else
+			{
+				Temperature2 = ((u16)data485[2]<<8)+data485[3];
+			}
 		}
 
 		//UART1 times send datas to main board
 		if (BitAppCon.ms200)
 		{
 			BitAppCon.ms200 = 0;
-			// printf("T:%d\n", IceTemperature);
 			CommSendFlag = 1;
 			MainBoardSend();
 		}
@@ -1135,6 +1221,82 @@ void commRx1Handler(u8 byte)
 		{
 			BitAppCon.rx1Flag = 1;
 		}
+	}
+}
+
+/*485*/
+void Send485(u8 *i)
+{
+	u8 verify = 0XAA+0X01+0XC0+i[0]+i[1];
+
+	RDorDE_PIN = 1;
+	uasrt3SendByte(0XAA);
+	uasrt3SendByte(0X01);
+	uasrt3SendByte(0XC0);
+	uasrt3SendByte(i[0]);
+	uasrt3SendByte(i[1]);
+	uasrt3SendByte(verify);
+	RDorDE_PIN = 0;
+}
+
+u8 data485[4] = {0};
+void Rec485(u8 i)
+{
+	static u8 cnt = 0;
+	u8 tt = 0;
+
+	switch (cnt)
+	{
+	case 0:
+	{
+		if (i == 0XAA)
+			cnt++;
+		break;
+	}
+	case 1:
+	{
+		if (i == 0X01)
+			cnt++;
+		else
+			cnt = 0;
+		break;
+	}
+	case 2:
+	{
+		cnt++;
+		if (i == 0XA0)
+			data485[1] = i;
+		else if (i == 0XA1)
+			data485[1] = i;
+		else
+			cnt = 0;
+		break;
+	}
+	case 3:
+	{
+		data485[2] = i;
+		cnt++;
+		break;
+	}
+	case 4:
+	{
+		data485[3] = i;
+		cnt++;
+		break;
+	}
+	case 5:
+	{
+		tt = 0XAA + 0X01 + (u16)data485[1] + data485[2] + data485[3];
+		if (tt == i)
+			data485[0] = 1; //success flag
+		else
+			data485[0] = 0;
+		cnt = 0;
+		break;
+	}
+	default:
+		cnt = 0;
+		break;
 	}
 }
 
