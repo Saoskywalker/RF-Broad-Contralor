@@ -166,9 +166,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>1249</LineNumber>
+          <LineNumber>1048</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134226534</Address>
+          <Address>134225450</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -182,9 +182,9 @@
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>1247</LineNumber>
+          <LineNumber>1041</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134226522</Address>
+          <Address>134225420</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -193,7 +193,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>D:\fuqiang\ODM\鑴傜珛鐦︾珛寮?RF_A Program v7.0(v4.0 broad)\User_Src\AppLib.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Demo\User_Src/AppLib.c\1247</Expression>
+          <Expression>\\Demo\User_Src/AppLib.c\1041</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

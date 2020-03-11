@@ -1035,11 +1035,10 @@ void PageO2Big(void)
 				cnt = 0;
 				data[0] = WorkSuckTime/200;
 				data[1] = WorkReleaseTime/200;
-				if(++error485<=10)
-				{
-					error485 = 255;
+				if(++error485<=50)
 					Send485(data);
-				}
+				else
+					error485 = 100;
 			}
 		}
 		if(data485[0]&&BitAppCon.menuExit!=1)
