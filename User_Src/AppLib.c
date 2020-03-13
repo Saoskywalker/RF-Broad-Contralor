@@ -1001,6 +1001,11 @@ void PageO2Big(void)
 	dwListenButton(SuckTimeUpPres, 0, SUCK_UP_KEY);
 	dwListenButton(SuckTimeDownPres, 0, SUCK_DOWN_KEY);
 
+	data[0] = 0; //clear key information
+	data[1] = 0;
+	Send485(data);
+	delay_ms(100);
+	data485[0] = 0;
 	while (!BitAppCon.menuExit)
 	{
 		dwHandlerButton();
