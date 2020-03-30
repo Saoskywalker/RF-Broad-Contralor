@@ -167,12 +167,12 @@ static __inline void dwStopMusic(void)
 	BeeTime = 0;
 }
  */
-//#define INLINE_MUSIC_CANNEL()	{BeeTime = 0;}
-//#define INLINE_MUSIC_BUTTON() {BeeMod = 0; BeeTime = 1;}
-//#define INLINE_MUSIC_START() {BeeMod = 1; BeeTime = 1;}
-//#define INLINE_MUSIC_STOP() {BeeMod = 2; BeeTime = 3;}
-//#define INLINE_MUSIC_ERROR() {BeeMod = 0; BeeTime = 7;}
-//#define INLINE_MUSIC_SCR_ADJ() {BeeMod = 1; BeeTime = 2;}
+#define INLINE_MUSIC_CANNEL()	{BeeTime = 0;}
+#define INLINE_MUSIC_BUTTON() {BeeMod = 0; BeeTime = 1;}
+#define INLINE_MUSIC_START() {BeeMod = 1; BeeTime = 1;}
+#define INLINE_MUSIC_STOP() {BeeMod = 2; BeeTime = 3;}
+#define INLINE_MUSIC_ERROR() {BeeMod = 0; BeeTime = 7;}
+#define INLINE_MUSIC_SCR_ADJ() {BeeMod = 1; BeeTime = 2;}
 //////////////////////////
 
 /*****Display Intensity********/

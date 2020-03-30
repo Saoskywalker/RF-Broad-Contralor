@@ -29,7 +29,7 @@ static void menuChinsePres(void)
 
 	BitAppCon.menuExit = 1;
 	nextPage = FUNCTION_SELECT;
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	dwSetLanguage(LANGUAGE_CHINESE);
 	STMFLASH_Write(FLASH_SAVE_ADDR, &i, 1); //Write language config
 }
@@ -40,7 +40,7 @@ static void menuEnglishPres(void)
 
 	BitAppCon.menuExit = 1;
 	nextPage = FUNCTION_SELECT;
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	dwSetLanguage(LANGUAGE_ENGLISH);
 	STMFLASH_Write(FLASH_SAVE_ADDR, &i, 1); //Write language config
 }
@@ -48,100 +48,51 @@ static void menuEnglishPres(void)
 /*Menu select*/
 static void menuEyeRFPres(void)
 {
-	// if(BitAppCon.WorkFlag)
-	// {
-	// 	dwPlayMusic(MSC_ERROR, 1);
-	// }
-	// else
-	{
-		nextPage = FUNCTION_EYE;
-		dwPlayMusic(MSC_BUTTON, 1);
-	}
+	nextPage = FUNCTION_EYE;
+	INLINE_MUSIC_BUTTON();
 }
 
 static void menuFaceRFPres(void)
 {
-	// if(BitAppCon.WorkFlag)
-	// {
-	// 	dwPlayMusic(MSC_ERROR, 1);
-	// }
-	// else
-	{
-		nextPage = FUNCTION_FACE;
-		dwPlayMusic(MSC_BUTTON, 1);
-	}
+	nextPage = FUNCTION_FACE;
+	INLINE_MUSIC_BUTTON();
 }
 
 static void menuBodyRFPres(void)
 {
-	// if(BitAppCon.WorkFlag)
-	// {
-	// 	dwPlayMusic(MSC_ERROR, 1);
-	// }
-	// else
-	{
-		nextPage = FUNCTION_BODY;
-		dwPlayMusic(MSC_BUTTON, 1);
-	}
+	nextPage = FUNCTION_BODY;
+	INLINE_MUSIC_BUTTON();
 }
 
 static void menuO2Pres(void)
 {
-	// if(BitAppCon.WorkFlag)
-	// {
-	// 	dwPlayMusic(MSC_ERROR, 1);
-	// }
-	// else
-	{
-		nextPage = FUNCTION_O2;
-		dwPlayMusic(MSC_BUTTON, 1);
-	}
+	nextPage = FUNCTION_O2;
+	INLINE_MUSIC_BUTTON();
 }
 
 static void menuO2BigPres(void)
 {
-	// if(BitAppCon.WorkFlag)
-	// {
-	// 	dwPlayMusic(MSC_ERROR, 1);
-	// }
-	// else
-	{
-		nextPage = FUNCTION_O2_BIG;
-		dwPlayMusic(MSC_BUTTON, 1);
-	}
+	nextPage = FUNCTION_O2_BIG;
+	INLINE_MUSIC_BUTTON();
 }
 
 static void menuBIO1Pres(void)
 {
-	// if(BitAppCon.WorkFlag)
-	// {
-	// 	dwPlayMusic(MSC_ERROR, 1);
-	// }
-	// else
-	{
-		nextPage = FUNCTION_BIO1;
-		dwPlayMusic(MSC_BUTTON, 1);
-	}
+	nextPage = FUNCTION_BIO1;
+	INLINE_MUSIC_BUTTON();
 }
 
 /*Back button*/
 static void BackPres(void)
 {
-	// if(BitAppCon.WorkFlag)
-	// {
-	// 	dwPlayMusic(MSC_ERROR, 1);
-	// }
-	// else
-	{
-		dwPlayMusic(MSC_BUTTON, 1);
-		nextPage = FUNCTION_LANGUAGE;
-	}
+	INLINE_MUSIC_BUTTON();
+	nextPage = FUNCTION_LANGUAGE;
 }
 
 /*Start button*/
 static void StartPres(void)
 {
-	dwPlayMusic(MSC_START, 1);
+	INLINE_MUSIC_START();
 	if (nextPage != FUNCTION_FACE && nextPage != FUNCTION_BODY)
 	{
 		BitAppCon.WorkFlag = 1;
@@ -170,7 +121,7 @@ static void StartPres(void)
 /*Pause button*/
 static void PausePres(void)
 {
-	dwPlayMusic(MSC_STOP, 1);
+	INLINE_MUSIC_STOP();
 	if (nextPage != FUNCTION_FACE && nextPage != FUNCTION_BODY)
 	{
 		BitAppCon.WorkFlag = 0;
@@ -192,7 +143,7 @@ static void PausePres(void)
 /*Time button*/
 static void TimeUpPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	if (WorkTime < 3600)
 	{
 		WorkTime += 60;
@@ -202,7 +153,7 @@ static void TimeUpPres(void)
 
 static void TimeDownPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	if (WorkTime > 60)
 	{
 		WorkTime -= 60;
@@ -213,7 +164,7 @@ static void TimeDownPres(void)
 /*Intensity button*/
 static void IntensityUpPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	if (nextPage != FUNCTION_FACE && nextPage != FUNCTION_BODY)
 	{
 		if (WorkIntensity < 8)
@@ -238,7 +189,7 @@ static void IntensityUpPres(void)
 
 static void IntensityDownPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	if (nextPage != FUNCTION_FACE && nextPage != FUNCTION_BODY)
 	{
 		if (WorkIntensity > 1)
@@ -264,7 +215,7 @@ static void IntensityDownPres(void)
 /*SUCK RELEASE TIME BUTTON*/
 static void SuckTimeUpPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	if (WorkSuckTime < 2000)
 		WorkSuckTime+=200;
 	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
@@ -272,7 +223,7 @@ static void SuckTimeUpPres(void)
 
 static void SuckTimeDownPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	if (WorkSuckTime > 200)
 		WorkSuckTime-=200;
 	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
@@ -280,7 +231,7 @@ static void SuckTimeDownPres(void)
 
 static void ReleaseTimeUpPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	if (WorkReleaseTime < 2000)
 		WorkReleaseTime+=200;
 	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
@@ -288,7 +239,7 @@ static void ReleaseTimeUpPres(void)
 
 static void ReleaseTimeDownPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	if (WorkReleaseTime > 200)
 		WorkReleaseTime-=200;
 	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
@@ -297,7 +248,7 @@ static void ReleaseTimeDownPres(void)
 /*mode button*/
 static void ModeUpPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 
 	if (WorkMode < 4)
 	{
@@ -308,7 +259,7 @@ static void ModeUpPres(void)
 
 static void ModeDownPres(void)
 {
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 
 	if (WorkMode > 1)
 	{
@@ -322,13 +273,13 @@ static void EnterPres(void)
 {
 	BitAppCon.menuExit = 1;
 	nextPage = FUNCTION_SELECT;
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 }
 
 static void mutePres(void)
 {
 	u16 i = 0;
-	dwPlayMusic(MSC_BUTTON, 1);
+	INLINE_MUSIC_BUTTON();
 	muteFlag = !muteFlag;
 	i = muteFlag;
 	STMFLASH_Write(FLASH_SAVE_ADDR+2, &i, 1);
@@ -355,29 +306,33 @@ void MainBoardSend(void)
 //Power up 
 void PageRestartAnimation(void)
 {		
-	u8 i = 0;
+	u8 i = 51;
 
 	dwDisPicNoL(0);
 	BitAppCon.menuExit = 0;
-	for(i = 51; i<=67; i++)
-	{
-		dwCutPic(i, 0, 0, 764, 532, 0, 0);
-		delay_ms(100);
-	}
-	dwStopMusic();
-	nextPage = FUNCTION_SELECT;
-	delay_ms(500);
-	dwDisPicWithL(11);
-	// dwCancelKey();
-	// dwListenButton(EnterPres, 0, ENTER_KEY);
 
-	// while (!BitAppCon.menuExit)
-	// {
-	// 	dwHandlerButton();
-	// }
-	
-	// dwWaitRelease();
-	// dwHandlerButton();
+	dwCancelKey();
+	dwListenButton(EnterPres, 0, ENTER_KEY);
+	while (!BitAppCon.menuExit)
+	{
+		dwHandlerButton();
+		if(BitAppCon.menuExit)
+		{
+			delay_ms(250);
+			dwDisPicWithL(11);
+		}
+		else
+		{
+			dwCutPic(i, 0, 0, 764, 532, 0, 0);
+			delay_ms(100);
+			if (i==67)
+				i = 51;
+			else
+				i++;
+		}
+	}
+	dwWaitRelease();
+	dwHandlerButton();
 }
 
 void PageLanguage(void)
@@ -461,7 +416,7 @@ void WorkTimeDeal(void)
 			}
 			else
 			{
-				dwPlayMusic(MSC_STOP, 1);
+				INLINE_MUSIC_STOP();
 				WorkTime = 1800;
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 				dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
@@ -535,7 +490,7 @@ void PageEyeRF(void)
 			BitAppCon.rx1Flag = 0;
 			if (buff1[0] == 0xEE)
 			{
-				dwPlayMusic(MSC_ALERT, 1);
+				INLINE_MUSIC_ERROR();
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 				dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 				Comm.onoff = RF_OFF;
@@ -546,14 +501,14 @@ void PageEyeRF(void)
 			else if((buff1[0] == 0xA0)&&BitAppCon.WorkFlag) //PRESS
 			{
 				BitAppCon.WorkSecFlag = 1;
-				dwPlayMusic(MSC_BUTTON, 1);
+				INLINE_MUSIC_BUTTON();
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
 				if(BitAppCon.WorkSecFlag)
 				{
 					BitAppCon.WorkSecFlag = 0;
-					dwPlayMusic(MSC_BUTTON, 1);
+					INLINE_MUSIC_BUTTON();
 				}
 			}
 		}
@@ -622,7 +577,7 @@ void PageFaceRF(void)
 			BitAppCon.rx1Flag = 0;
 			if (buff1[0] == 0xEE)
 			{
-				dwPlayMusic(MSC_ALERT, 1);
+				INLINE_MUSIC_ERROR();
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 				dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 				Comm.onoff = RF_OFF;
@@ -633,14 +588,14 @@ void PageFaceRF(void)
 			else if((buff1[0] == 0xA0)&&BitAppCon.WorkFlag) //PRESS
 			{
 				BitAppCon.WorkSecFlag = 1;
-				dwPlayMusic(MSC_BUTTON, 1);
+				INLINE_MUSIC_BUTTON();
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
 				if(BitAppCon.WorkSecFlag)
 				{
 					BitAppCon.WorkSecFlag = 0;
-					dwPlayMusic(MSC_BUTTON, 1);
+					INLINE_MUSIC_BUTTON();
 				}
 			}
 		}
@@ -709,7 +664,7 @@ void PageBodyRF(void)
 			BitAppCon.rx1Flag = 0;
 			if (buff1[0] == 0xEE)
 			{
-				dwPlayMusic(MSC_ALERT, 1);
+				INLINE_MUSIC_ERROR();
 				dwDisButton(&btnStart_O, 1, btnStart_O.xs, btnStart_O.ys);
 				dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 				Comm.onoff = RF_OFF;
@@ -720,14 +675,14 @@ void PageBodyRF(void)
 			else if((buff1[0] == 0xA0)&&BitAppCon.WorkFlag) //PRESS
 			{
 				BitAppCon.WorkSecFlag = 1;
-				dwPlayMusic(MSC_BUTTON, 1);
+				INLINE_MUSIC_BUTTON();
 			}
 			else if((buff1[0] == 0xA1)&&BitAppCon.WorkFlag) //RELEASE
 			{
 				if(BitAppCon.WorkSecFlag)
 				{
 					BitAppCon.WorkSecFlag = 0;
-					dwPlayMusic(MSC_BUTTON, 1);
+					INLINE_MUSIC_BUTTON();
 				}
 			}
 		}
@@ -819,7 +774,7 @@ void TemperatureProcess(void)
 			{
 				NtcErrorFlag = 1;
 				HEAT_PIN = 0;
-				dwPlayMusic(MSC_ALERT, 1);
+				INLINE_MUSIC_ERROR();
 			}			
 		}
 	}
@@ -937,7 +892,7 @@ static void TemperatureProcess2(void)
 			{
 				NtcErrorFlag2 = 1;
 				HEAT2_PIN = 0;
-				dwPlayMusic(MSC_ALERT, 1);
+				INLINE_MUSIC_ERROR();
 			}			
 		}
 	}
