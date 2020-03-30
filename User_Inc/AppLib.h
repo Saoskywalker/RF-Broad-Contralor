@@ -12,14 +12,14 @@
 
 //Hardware define
 #define SOUND_PIN PAout(4)
-#define LED_PIN PAout(6)
+#define HEAT2_PIN PBout(9)
 #define COOL_ON_PIN PBout(4)
 #define PUMP_PIN PBout(3)
 #define BACK1_PIN PBout(1)
-#define Valve_PIN PBout(0)
+#define Valve_PIN PAout(6)
 #define BIOS_PIN PBout(7)
 #define BIOA_PIN PBout(6)
-#define HEAT_PIN PBout(9)
+#define HEAT_PIN PBout(0)
 #define RDorDE_PIN PBout(12)
 #define BIO1or2_PIN PBout(5)
 

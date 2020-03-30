@@ -936,7 +936,7 @@ static void TemperatureProcess2(void)
 			if(NtcErrorFlag2==0)
 			{
 				NtcErrorFlag2 = 1;
-				HEAT_PIN = 0;
+				HEAT2_PIN = 0;
 				dwPlayMusic(MSC_ALERT, 1);
 			}			
 		}
@@ -951,9 +951,9 @@ static void TemperatureProcess2(void)
 			NtcErrorFlag2 = 0;
 
 		if(Temperature2<=TemperatureTable2[WorkIntensity]-10)
-			HEAT_PIN = 1;
+			HEAT2_PIN = 1;
 		if(Temperature2>=TemperatureTable2[WorkIntensity])
-			HEAT_PIN = 0;
+			HEAT2_PIN = 0;
 	}
 }
 
@@ -1027,7 +1027,7 @@ void PageO2Big(void)
 		}
 		else
 		{
-			HEAT_PIN = 0;
+			HEAT2_PIN = 0;
 			Valve_PIN = 0;
 			PUMP_PIN = 0;
 			NtcErrorFlag2 = 0;

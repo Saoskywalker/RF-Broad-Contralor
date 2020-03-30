@@ -24,9 +24,9 @@ void LED_Init(void)
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 		 //ÍÆÍìÊä³ö
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;		
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;	 // SOUND		 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4|GPIO_Pin_6;	 // SOUND		 
 	GPIO_Init(GPIOA, &GPIO_InitStructure);	  				
-	GPIO_ResetBits(GPIOA,GPIO_Pin_4); 						  
+	GPIO_ResetBits(GPIOA,GPIO_Pin_4|GPIO_Pin_6); 						  
 
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE); 
 	//GPIO_Pin_0: BACK2; GPIO_Pin_2: BACK1; GPIO_Pin_3; PUMP; GPIO_Pin_4: COOL-ON
