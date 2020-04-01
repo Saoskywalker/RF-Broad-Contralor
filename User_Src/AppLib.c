@@ -165,7 +165,14 @@ static void TimeDownPres(void)
 static void IntensityUpPres(void)
 {
 	INLINE_MUSIC_BUTTON();
-	if (nextPage != FUNCTION_FACE && nextPage != FUNCTION_BODY)
+	if (nextPage == FUNCTION_BIO1)
+	{
+		if (WorkIntensity < 15)
+		{
+			WorkIntensity++;
+		}
+	}
+	else if (nextPage != FUNCTION_FACE && nextPage != FUNCTION_BODY)
 	{
 		if (WorkIntensity < 8)
 		{
@@ -306,7 +313,7 @@ void MainBoardSend(void)
 //Power up 
 void PageRestartAnimation(void)
 {		
-	u8 i = 51;
+	u8 i = 51, j = 0, t = 100;
 
 	dwDisPicNoL(0);
 	BitAppCon.menuExit = 0;
@@ -323,12 +330,28 @@ void PageRestartAnimation(void)
 		}
 		else
 		{
-			dwCutPic(i, 0, 0, 764, 532, 0, 0);
-			delay_ms(100);
-			if (i==67)
-				i = 51;
+			if(i>=60)
+				dwCutPic(i, 250, 67, 540, 520, 250, 67);
 			else
-				i++;
+				dwCutPic(i, 0, 0, 764, 532, 0, 0);
+			delay_ms(t);
+			if(j==1)
+			{
+				if(i==60)
+					j = 0;
+				else
+					i--;
+			}
+			else
+			{
+				if (i == 67)
+				{
+					t = 200;
+					j = 1;
+				}
+				else
+					i++;
+			}
 		}
 	}
 	dwWaitRelease();
@@ -996,9 +1019,15 @@ void PageO2Big(void)
 				data[0] = WorkSuckTime/200;
 				data[1] = WorkReleaseTime/200;
 				if(++error485<=50)
+				{
 					Send485(data);
+				}
 				else
+				{
+					if(error485==51)
+						INLINE_MUSIC_ERROR();
 					error485 = 100;
+				}
 			}
 		}
 		if(data485[0]&&BitAppCon.menuExit!=1)
@@ -1093,7 +1122,7 @@ void O2PWM(u16 suck, u16 release, u8 Work)
 }
 
 //BIO1 PWM
-const u16 BIO1IntensityTable[] = {0, 35, 36, 38, 39, 41, 42, 44, 46};
+const u16 BIO1IntensityTable[] = {0, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 44, 45, 46, 46};
 const u16 BIO1ModPeriod[] = {0, 10000, 9900, 4950, 2640};
 const u16 BIO1ModCompare[] = {0, 10000, 4950, 2640, 1320};
 void BIO1PWM(u8 i, u8 Work)
