@@ -26,6 +26,7 @@
 ".\objects\adc.o"
 ".\objects\stmflash.o"
 ".\objects\dwdriver.o"
+".\objects\nrk10.o"
 --strict --scatter ".\Objects\Demo.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

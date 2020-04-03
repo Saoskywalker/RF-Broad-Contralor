@@ -38,13 +38,14 @@ int main()
 	TIM_SetCompare3(TIM4, 3000); //4.6v
 	screenCheck();
 	// dwPlayVol(0xFF);
+	dwStopMusic();
 	TIM3_Int_Init(99, 70); //100us
 	Adc_Init();
 	nextPage = FUNCTION_RESTART;
 	dwSetColor(DW_COL_GREEN, DW_COL_WHITE);
 
-	STMFLASH_Read(FLASH_SAVE_ADDR+2, &j, 1); //mute state
-	muteFlag = j;
+	// STMFLASH_Read(FLASH_SAVE_ADDR+2, &j, 1); //mute state
+	// muteFlag = j;
 	STMFLASH_Read(FLASH_SAVE_ADDR, &i, 1); //read language config ago
 	if (i)
 		dwSetLanguage(LANGUAGE_ENGLISH);

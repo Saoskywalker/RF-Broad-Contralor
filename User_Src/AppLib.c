@@ -296,6 +296,15 @@ static void mutePres(void)
 		dwDisButton(&btnMute, 0, btnMute.xs, btnMute.ys);
 }
 
+void ModeForNRK(void)
+{
+	if (WorkMode < 4)
+		WorkMode++;
+	else if (WorkMode > 1)
+		WorkMode--;
+	DisplayMode(WorkMode, ModeX, ModeY);
+}
+
 /*uart1 send to main board*/
 void MainBoardSend(void)
 {
@@ -571,8 +580,17 @@ void PageFaceRF(void)
 	dwListenButton(IntensityUpPres, 0, INT_UP_KEY);
 	dwListenButton(IntensityDownPres, 0, INT_DOWN_KEY);
 
+	NRK10_Cancel();
+	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
+	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
+	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
+	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
+	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
+	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
+
 	while (!BitAppCon.menuExit)
 	{
+		NRK10_Handler();
 		dwHandlerButton();
 
 		if (nextPage != FUNCTION_FACE)
@@ -657,9 +675,18 @@ void PageBodyRF(void)
 	dwListenButton(TimeDownPres, 0, TIME_DOWN_KEY);
 	dwListenButton(IntensityUpPres, 0, INT_UP_KEY);
 	dwListenButton(IntensityDownPres, 0, INT_DOWN_KEY);
+
+	NRK10_Cancel();
+	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
+	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
+	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
+	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
+	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
+	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
 	
 	while (!BitAppCon.menuExit)
 	{
+		NRK10_Handler();
 		dwHandlerButton();
 
 		if (nextPage != FUNCTION_BODY)
@@ -747,8 +774,18 @@ void PageBIO1(void)
 	dwListenButton(ModeUpPres, 0, MODE_UP_KEY);
 	dwListenButton(ModeDownPres, 0, MODE_DOWN_KEY);
 
+	NRK10_Cancel();
+	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
+	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
+	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
+	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
+	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
+	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
+	NRK10_Listen(ModeForNRK, 11, &NRK10_command.mode_become[0]);
+
 	while (!BitAppCon.menuExit)
 	{
+		NRK10_Handler();
 		dwHandlerButton();
 		if (nextPage != FUNCTION_BIO1)
 		{
@@ -858,8 +895,17 @@ void PageO2(void)
 	dwListenButton(SuckTimeUpPres, 0, SUCK_UP_KEY);
 	dwListenButton(SuckTimeDownPres, 0, SUCK_DOWN_KEY);
 
+	NRK10_Cancel();
+	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
+	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
+	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
+	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
+	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
+	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
+
 	while (!BitAppCon.menuExit)
 	{
+		NRK10_Handler();
 		dwHandlerButton();
 		if (nextPage != FUNCTION_O2)
 		{
@@ -897,8 +943,8 @@ void PageO2(void)
 }
 
 //Temperature2 Process for PageO2Big
-static const u16 TemperatureTable2[] = {0, 450, 500, 550, 600,
-								650, 700, 750, 800};
+static const u16 TemperatureTable2[] = {0, 600, 625, 650, 675,
+								700, 725, 750, 795};
 static u16 Temperature2 = 0;
 static u8 NtcErrorFlag2 = 0;
 static void TemperatureProcess2(void)
@@ -915,7 +961,7 @@ static void TemperatureProcess2(void)
 			{
 				NtcErrorFlag2 = 1;
 				HEAT2_PIN = 0;
-				INLINE_MUSIC_ERROR();
+				// INLINE_MUSIC_ERROR();
 			}			
 		}
 	}
@@ -979,6 +1025,14 @@ void PageO2Big(void)
 	dwListenButton(SuckTimeUpPres, 0, SUCK_UP_KEY);
 	dwListenButton(SuckTimeDownPres, 0, SUCK_DOWN_KEY);
 
+	NRK10_Cancel();
+	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
+	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
+	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
+	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
+	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
+	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
+
 	data[0] = 0; //clear key information
 	data[1] = 0;
 	Send485(data);
@@ -986,6 +1040,7 @@ void PageO2Big(void)
 	data485[0] = 0;
 	while (!BitAppCon.menuExit)
 	{
+		NRK10_Handler();
 		dwHandlerButton();
 		if (nextPage != FUNCTION_O2_BIG)
 		{

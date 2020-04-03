@@ -8,6 +8,7 @@
     },
     "files.associations": {
         "applib.h": "c",
-        "dwdriver.h": "c"
+        "dwdriver.h": "c",
+        "nrk10.h": "c"
     }
 }

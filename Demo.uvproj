@@ -367,7 +367,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\ST_Inc;.\User_Inc;.\Library\dwDrive</IncludePath>
+              <IncludePath>.\ST_Inc;.\User_Inc;.\Library\dwDrive;.\Library\NRK10</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -554,6 +554,11 @@
               <FileName>dwDriver.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Library\dwDrive\dwDriver.c</FilePath>
+            </File>
+            <File>
+              <FileName>NRK10.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Library\NRK10\NRK10.c</FilePath>
             </File>
           </Files>
         </Group>
