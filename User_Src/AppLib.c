@@ -296,15 +296,6 @@ static void mutePres(void)
 		dwDisButton(&btnMute, 0, btnMute.xs, btnMute.ys);
 }
 
-void ModeForNRK(void)
-{
-	if (WorkMode < 4)
-		WorkMode++;
-	else if (WorkMode > 1)
-		WorkMode--;
-	DisplayMode(WorkMode, ModeX, ModeY);
-}
-
 /*uart1 send to main board*/
 void MainBoardSend(void)
 {
@@ -322,7 +313,7 @@ void MainBoardSend(void)
 //Power up 
 void PageRestartAnimation(void)
 {		
-	u8 i = 51, j = 0, t = 100;
+	u8 i = 51, t = 120;
 
 	dwDisPicNoL(0);
 	BitAppCon.menuExit = 0;
@@ -339,28 +330,16 @@ void PageRestartAnimation(void)
 		}
 		else
 		{
-			if(i>=60)
+			if(i>=58)
 				dwCutPic(i, 250, 67, 540, 520, 250, 67);
 			else
-				dwCutPic(i, 0, 0, 764, 532, 0, 0);
+				dwCutPic(i, 0, 54, 755, 537, 0, 54);
 			delay_ms(t);
-			if(j==1)
-			{
-				if(i==60)
-					j = 0;
-				else
-					i--;
-			}
-			else
-			{
-				if (i == 67)
-				{
-					t = 200;
-					j = 1;
-				}
-				else
-					i++;
-			}
+			if(i==72)
+			 	i = 58;
+			if (i == 65)
+				t = 200;
+			i++;
 		}
 	}
 	dwWaitRelease();
@@ -580,17 +559,8 @@ void PageFaceRF(void)
 	dwListenButton(IntensityUpPres, 0, INT_UP_KEY);
 	dwListenButton(IntensityDownPres, 0, INT_DOWN_KEY);
 
-	NRK10_Cancel();
-	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
-	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
-	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
-	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
-	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
-	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
-
 	while (!BitAppCon.menuExit)
 	{
-		NRK10_Handler();
 		dwHandlerButton();
 
 		if (nextPage != FUNCTION_FACE)
@@ -675,18 +645,9 @@ void PageBodyRF(void)
 	dwListenButton(TimeDownPres, 0, TIME_DOWN_KEY);
 	dwListenButton(IntensityUpPres, 0, INT_UP_KEY);
 	dwListenButton(IntensityDownPres, 0, INT_DOWN_KEY);
-
-	NRK10_Cancel();
-	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
-	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
-	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
-	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
-	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
-	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
 	
 	while (!BitAppCon.menuExit)
 	{
-		NRK10_Handler();
 		dwHandlerButton();
 
 		if (nextPage != FUNCTION_BODY)
@@ -774,18 +735,8 @@ void PageBIO1(void)
 	dwListenButton(ModeUpPres, 0, MODE_UP_KEY);
 	dwListenButton(ModeDownPres, 0, MODE_DOWN_KEY);
 
-	NRK10_Cancel();
-	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
-	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
-	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
-	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
-	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
-	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
-	NRK10_Listen(ModeForNRK, 11, &NRK10_command.mode_become[0]);
-
 	while (!BitAppCon.menuExit)
 	{
-		NRK10_Handler();
 		dwHandlerButton();
 		if (nextPage != FUNCTION_BIO1)
 		{
@@ -895,17 +846,8 @@ void PageO2(void)
 	dwListenButton(SuckTimeUpPres, 0, SUCK_UP_KEY);
 	dwListenButton(SuckTimeDownPres, 0, SUCK_DOWN_KEY);
 
-	NRK10_Cancel();
-	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
-	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
-	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
-	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
-	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
-	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
-
 	while (!BitAppCon.menuExit)
 	{
-		NRK10_Handler();
 		dwHandlerButton();
 		if (nextPage != FUNCTION_O2)
 		{
@@ -1025,14 +967,6 @@ void PageO2Big(void)
 	dwListenButton(SuckTimeUpPres, 0, SUCK_UP_KEY);
 	dwListenButton(SuckTimeDownPres, 0, SUCK_DOWN_KEY);
 
-	NRK10_Cancel();
-	NRK10_Listen(TimeUpPres, 9, &NRK10_command.time_up[0]);
-	NRK10_Listen(TimeDownPres, 10, &NRK10_command.time_down[0]);
-	NRK10_Listen(IntensityUpPres, 7, &NRK10_command.intensity_up[0]);
-	NRK10_Listen(IntensityDownPres, 8, &NRK10_command.intensity_down[0]);
-	NRK10_Listen(StartPres, 12, &NRK10_command.start[0]);
-	NRK10_Listen(PausePres, 13, &NRK10_command.pause[0]);
-
 	data[0] = 0; //clear key information
 	data[1] = 0;
 	Send485(data);
@@ -1040,7 +974,6 @@ void PageO2Big(void)
 	data485[0] = 0;
 	while (!BitAppCon.menuExit)
 	{
-		NRK10_Handler();
 		dwHandlerButton();
 		if (nextPage != FUNCTION_O2_BIG)
 		{

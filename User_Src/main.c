@@ -44,8 +44,8 @@ int main()
 	nextPage = FUNCTION_RESTART;
 	dwSetColor(DW_COL_GREEN, DW_COL_WHITE);
 
-	// STMFLASH_Read(FLASH_SAVE_ADDR+2, &j, 1); //mute state
-	// muteFlag = j;
+	STMFLASH_Read(FLASH_SAVE_ADDR+2, &j, 1); //mute state
+	muteFlag = j;
 	STMFLASH_Read(FLASH_SAVE_ADDR, &i, 1); //read language config ago
 	if (i)
 		dwSetLanguage(LANGUAGE_ENGLISH);
