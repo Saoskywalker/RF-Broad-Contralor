@@ -29,15 +29,11 @@
 #define PIC_MENUS 12
 #define PIC_MENUS_P 22
 #define PIC_FACE_RF 12
-#define PIC_BODY_RF 13
+#define PIC_BODY_RF 14
 #define PIC_EYE_RF 11
-#define PIC_O2 14
-#define PIC_COOL 6
-#define PIC_FUN_BUT_P 9
-#define PIC_FUN_BUT 10
-#define PIC_FUN_BUT_P_Cool 12
-#define PIC_FUN_BUT_Cool 5
-#define PIC_INTENSITY 30
+#define PIC_O2 13
+#define PIC_O2_BIG 15
+#define PIC_BIO1 16
 
 extern u8 nextPage;
 extern u8 requestPage;
@@ -192,10 +188,8 @@ static __inline void DisplayMode(u8 i, u16 x, u16 y)
 /*****Display suck or release time********/
 static __inline void DisplayO2Time(u16 j, u16 x, u16 y)
 {
-	u8 i = j/100;
-	dwDisNum(DW_SIZE_48, x, y, i / 10);
-	dwDisChar(DW_SIZE_48, x + 24, y, '.');
-	dwDisNum(DW_SIZE_48, x + 48, y, i % 10);
+	dwDisNum(DW_SIZE_48, x, y, j / 10);
+	dwDisNum(DW_SIZE_48, x + 24, y, j % 10);
 }
 ///////////////////////////////
 

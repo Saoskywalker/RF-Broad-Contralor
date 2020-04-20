@@ -73,14 +73,17 @@ void TIM3_IRQHandler(void)   //TIM3ÖÐ¶Ï 100us
 			Flag1msCnt = 0;
 			BitAppCon.ms1 = 1;
 			BeeFunction();
-			if (nextPage == FUNCTION_O2 || nextPage == FUNCTION_O2_BIG)
-				O2PWM(WorkSuckTime, WorkReleaseTime, BitAppCon.WorkFlag);
 		}
 
-		if((BitAppCon.WorkSecFlag==1)&&(++Flag1sCnt>=10000))	//1s
+		if(++Flag1sCnt>=10000) //1s
 		{
-			Flag1sCnt = 0;
-			BitAppCon.Flag1s = 1;
+			if (nextPage == FUNCTION_O2 || nextPage == FUNCTION_O2_BIG)
+				O2PWM(WorkSuckTime, WorkReleaseTime, BitAppCon.WorkFlag);
+			if ((BitAppCon.WorkSecFlag == 1))
+			{
+				Flag1sCnt = 0;
+				BitAppCon.Flag1s = 1;
+			}
 		}
 			
 	}

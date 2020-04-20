@@ -48,38 +48,74 @@ static void menuEnglishPres(void)
 /*Menu select*/
 static void menuEyeRFPres(void)
 {
-	nextPage = FUNCTION_EYE;
-	INLINE_MUSIC_BUTTON();
+	if (BitAppCon.WorkFlag)
+	{
+	}
+	else
+	{
+		nextPage = FUNCTION_EYE;
+		INLINE_MUSIC_BUTTON();
+	}
 }
 
 static void menuFaceRFPres(void)
 {
-	nextPage = FUNCTION_FACE;
-	INLINE_MUSIC_BUTTON();
+	if (BitAppCon.WorkFlag)
+	{
+	}
+	else
+	{
+		nextPage = FUNCTION_FACE;
+		INLINE_MUSIC_BUTTON();
+	}
 }
 
 static void menuBodyRFPres(void)
 {
-	nextPage = FUNCTION_BODY;
-	INLINE_MUSIC_BUTTON();
+	if (BitAppCon.WorkFlag)
+	{
+	}
+	else
+	{
+		nextPage = FUNCTION_BODY;
+		INLINE_MUSIC_BUTTON();
+	}
 }
 
 static void menuO2Pres(void)
 {
-	nextPage = FUNCTION_O2;
-	INLINE_MUSIC_BUTTON();
+	if (BitAppCon.WorkFlag)
+	{
+	}
+	else
+	{
+		nextPage = FUNCTION_O2;
+		INLINE_MUSIC_BUTTON();
+	}
 }
 
 static void menuO2BigPres(void)
 {
-	nextPage = FUNCTION_O2_BIG;
-	INLINE_MUSIC_BUTTON();
+	if (BitAppCon.WorkFlag)
+	{
+	}
+	else
+	{
+		nextPage = FUNCTION_O2_BIG;
+		INLINE_MUSIC_BUTTON();
+	}
 }
 
 static void menuBIO1Pres(void)
 {
-	nextPage = FUNCTION_BIO1;
-	INLINE_MUSIC_BUTTON();
+	if (BitAppCon.WorkFlag)
+	{
+	}
+	else
+	{
+		nextPage = FUNCTION_BIO1;
+		INLINE_MUSIC_BUTTON();
+	}
 }
 
 /*Back button*/
@@ -223,32 +259,32 @@ static void IntensityDownPres(void)
 static void SuckTimeUpPres(void)
 {
 	INLINE_MUSIC_BUTTON();
-	if (WorkSuckTime < 2000)
-		WorkSuckTime+=200;
+	if (WorkSuckTime < 10)
+		WorkSuckTime+=1;
 	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
 }
 
 static void SuckTimeDownPres(void)
 {
 	INLINE_MUSIC_BUTTON();
-	if (WorkSuckTime > 200)
-		WorkSuckTime-=200;
+	if (WorkSuckTime > 0)
+		WorkSuckTime-=1;
 	DisplayO2Time(WorkSuckTime, SuckX, SuckY);
 }
 
 static void ReleaseTimeUpPres(void)
 {
 	INLINE_MUSIC_BUTTON();
-	if (WorkReleaseTime < 2000)
-		WorkReleaseTime+=200;
+	if (WorkReleaseTime < 10)
+		WorkReleaseTime+=1;
 	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
 }
 
 static void ReleaseTimeDownPres(void)
 {
 	INLINE_MUSIC_BUTTON();
-	if (WorkReleaseTime > 200)
-		WorkReleaseTime-=200;
+	if (WorkReleaseTime > 0)
+		WorkReleaseTime-=1;
 	DisplayO2Time(WorkReleaseTime, ReleaseX, ReleaseY);
 }
 
@@ -257,7 +293,7 @@ static void ModeUpPres(void)
 {
 	INLINE_MUSIC_BUTTON();
 
-	if (WorkMode < 4)
+	if (WorkMode < 6)
 	{
 		WorkMode++;
 	}
@@ -542,6 +578,7 @@ void PageFaceRF(void)
 	IntensityX = 300;
 	IntensityY = 187;
 
+	dwDisPicWithL(PIC_FACE_RF);
 	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 	funDisTime(WorkTime, TimeX, TimeY);
 	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
@@ -629,6 +666,7 @@ void PageBodyRF(void)
 	IntensityX = 300;
 	IntensityY = 187;
 
+	dwDisPicWithL(PIC_BODY_RF);
 	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 	funDisTime(WorkTime, TimeX, TimeY);
 	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
@@ -715,6 +753,7 @@ void PageBIO1(void)
 	ModeX = 319;
 	ModeY = 211;
 
+	dwDisPicWithL(PIC_BIO1);
 	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 	funDisTime(WorkTime, TimeX, TimeY);
 	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
@@ -811,18 +850,19 @@ void PageO2(void)
 	WorkTime = 1800;
 	WorkIntensity = 1;
 	WorkMode = 1;
-	WorkReleaseTime = 1000;
-	WorkSuckTime = 1000;
+	WorkReleaseTime = 5;
+	WorkSuckTime = 5;
 	BitAppCon.menuExit = 0;
 	TimeX = 272; 
 	TimeY = 309;
 	IntensityX = 300;
 	IntensityY = 234;
-	ReleaseX = 293;
+	ReleaseX = 300;
 	ReleaseY = 165;
 	SuckX = 293;
 	SuckY = 93;
 
+	dwDisPicWithL(PIC_O2);
 	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 	funDisTime(WorkTime, TimeX, TimeY);
 	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
@@ -932,18 +972,19 @@ void PageO2Big(void)
 	WorkTime = 1800;
 	WorkIntensity = 1;
 	WorkMode = 1;
-	WorkReleaseTime = 1000;
-	WorkSuckTime = 1000;
+	WorkReleaseTime = 5;
+	WorkSuckTime = 5;
 	BitAppCon.menuExit = 0;
 	TimeX = 272; 
 	TimeY = 309;
 	IntensityX = 300;
 	IntensityY = 234;
-	ReleaseX = 293;
+	ReleaseX = 300;
 	ReleaseY = 165;
 	SuckX = 293;
 	SuckY = 93;
 
+	dwDisPicWithL(PIC_O2_BIG);
 	dwDisButton(&btnPause, 1, btnPause.xs, btnPause.ys);
 	funDisTime(WorkTime, TimeX, TimeY);
 	DisplayIntensity(WorkIntensity, IntensityX, IntensityY);
@@ -1004,8 +1045,8 @@ void PageO2Big(void)
 			if (++cnt >= 100)
 			{
 				cnt = 0;
-				data[0] = WorkSuckTime/200;
-				data[1] = WorkReleaseTime/200;
+				data[0] = WorkSuckTime;
+				data[1] = WorkReleaseTime;
 				if(++error485<=50)
 				{
 					Send485(data);
@@ -1110,9 +1151,9 @@ void O2PWM(u16 suck, u16 release, u8 Work)
 }
 
 //BIO1 PWM
-const u16 BIO1IntensityTable[] = {0, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 44, 45, 46, 46};
-const u16 BIO1ModPeriod[] = {0, 10000, 9900, 4950, 2640};
-const u16 BIO1ModCompare[] = {0, 10000, 4950, 2640, 1320};
+const u16 BIO1IntensityTable[] = {0, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 44, 45, 46, 46, 47, 47, 48, 48};
+const u16 BIO1ModPeriod[] = {0, 10000, 9900, 2640, 4950, 4950, 4950}; //5 and 6 relate to intensity
+const u16 BIO1ModCompare[] = {0, 10000, 4950, 1320, 2640, 2640, 4950};
 void BIO1PWM(u8 i, u8 Work)
 {
 	static u16 BIO1TimeCnt = 0, BIO1TimeCnt2 = 0;
@@ -1155,6 +1196,10 @@ void BIO1Power(u8 i, u8 Work)
 
 	if (Work)
 	{
+		if (WorkMode == 5) //bio mode 5/6 is power up
+			i += 2;
+		else if (WorkMode == 6)
+			i += 4;
 		if (++BIO1TimeCnt >= 75)
 		{
 			BIO1TimeCnt = 0;

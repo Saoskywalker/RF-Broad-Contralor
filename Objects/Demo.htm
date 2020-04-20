@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Demo.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Demo.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Apr 07 16:50:03 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon Apr 20 16:21:13 2020
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -528,7 +528,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 </UL>
 
-<P><STRONG><a name="[ac]"></a>BIO1Power</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, applib.o(i.BIO1Power))
+<P><STRONG><a name="[ac]"></a>BIO1Power</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, applib.o(i.BIO1Power))
 <BR><BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 </UL>
 
@@ -671,7 +671,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Adc
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 </UL>
-<BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
 </UL>
 
 <P><STRONG><a name="[5]"></a>HardFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.HardFault_Handler))
@@ -694,13 +694,13 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uasrt1SendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
@@ -737,16 +737,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 </UL>
 
-<P><STRONG><a name="[8a]"></a>PageBIO1</STRONG> (Thumb, 392 bytes, Stack size 8 bytes, applib.o(i.PageBIO1))
+<P><STRONG><a name="[8a]"></a>PageBIO1</STRONG> (Thumb, 398 bytes, Stack size 8 bytes, applib.o(i.PageBIO1))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageBIO1 &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
@@ -755,92 +756,95 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[92]"></a>PageBodyRF</STRONG> (Thumb, 562 bytes, Stack size 8 bytes, applib.o(i.PageBodyRF))
+<P><STRONG><a name="[93]"></a>PageBodyRF</STRONG> (Thumb, 568 bytes, Stack size 8 bytes, applib.o(i.PageBodyRF))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageBodyRF &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[93]"></a>PageEyeRF</STRONG> (Thumb, 560 bytes, Stack size 8 bytes, applib.o(i.PageEyeRF))
+<P><STRONG><a name="[94]"></a>PageEyeRF</STRONG> (Thumb, 560 bytes, Stack size 8 bytes, applib.o(i.PageEyeRF))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageEyeRF &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[94]"></a>PageFaceRF</STRONG> (Thumb, 560 bytes, Stack size 8 bytes, applib.o(i.PageFaceRF))
+<P><STRONG><a name="[95]"></a>PageFaceRF</STRONG> (Thumb, 566 bytes, Stack size 8 bytes, applib.o(i.PageFaceRF))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageFaceRF &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[95]"></a>PageLanguage</STRONG> (Thumb, 196 bytes, Stack size 8 bytes, applib.o(i.PageLanguage))
+<P><STRONG><a name="[96]"></a>PageLanguage</STRONG> (Thumb, 196 bytes, Stack size 8 bytes, applib.o(i.PageLanguage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = PageLanguage &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisChar
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[96]"></a>PageMenu</STRONG> (Thumb, 160 bytes, Stack size 8 bytes, applib.o(i.PageMenu))
+<P><STRONG><a name="[97]"></a>PageMenu</STRONG> (Thumb, 160 bytes, Stack size 8 bytes, applib.o(i.PageMenu))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = PageMenu &rArr; MainBoardSend &rArr; uasrt1SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[97]"></a>PageO2</STRONG> (Thumb, 510 bytes, Stack size 8 bytes, applib.o(i.PageO2))
+<P><STRONG><a name="[98]"></a>PageO2</STRONG> (Thumb, 514 bytes, Stack size 8 bytes, applib.o(i.PageO2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = PageO2 &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Adc_Average
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
-<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TemperatureProcess
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TemperatureProcess
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayO2Time
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
@@ -848,19 +852,20 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[99]"></a>PageO2Big</STRONG> (Thumb, 806 bytes, Stack size 16 bytes, applib.o(i.PageO2Big))
+<P><STRONG><a name="[9a]"></a>PageO2Big</STRONG> (Thumb, 796 bytes, Stack size 16 bytes, applib.o(i.PageO2Big))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = PageO2Big &rArr; WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
-<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
-<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Send485
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Send485
 <LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MainBoardSend
-<LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TemperatureProcess2
+<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TemperatureProcess2
 <LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SuckTimeUpPres
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SuckTimeDownPres
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartPres
@@ -874,16 +879,16 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[9c]"></a>PageRestartAnimation</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, applib.o(i.PageRestartAnimation))
+<P><STRONG><a name="[9d]"></a>PageRestartAnimation</STRONG> (Thumb, 170 bytes, Stack size 24 bytes, applib.o(i.PageRestartAnimation))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = PageRestartAnimation &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
-<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
-<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwWaitRelease
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwListenButton
+<LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
-<LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCancelKey
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -969,12 +974,12 @@ Global Symbols
 <P><STRONG><a name="[9]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f10x_it.o(i.SVC_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[9a]"></a>Send485</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, applib.o(i.Send485))
+<P><STRONG><a name="[9b]"></a>Send485</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, applib.o(i.Send485))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Send485 &rArr; uasrt3SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uasrt3SendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 </UL>
 
 <P><STRONG><a name="[c3]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, misc.o(i.SysTick_CLKSourceConfig))
@@ -1072,8 +1077,8 @@ Global Symbols
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Int_Init
 </UL>
 
-<P><STRONG><a name="[98]"></a>TemperatureProcess</STRONG> (Thumb, 166 bytes, Stack size 0 bytes, applib.o(i.TemperatureProcess))
-<BR><BR>[Called By]<UL><LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<P><STRONG><a name="[99]"></a>TemperatureProcess</STRONG> (Thumb, 166 bytes, Stack size 0 bytes, applib.o(i.TemperatureProcess))
+<BR><BR>[Called By]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
 </UL>
 
 <P><STRONG><a name="[32]"></a>USART1_IRQHandler</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, usart.o(i.USART1_IRQHandler))
@@ -1167,17 +1172,17 @@ Global Symbols
 <P><STRONG><a name="[8]"></a>UsageFault_Handler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_it.o(i.UsageFault_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[90]"></a>WorkTimeDeal</STRONG> (Thumb, 154 bytes, Stack size 8 bytes, applib.o(i.WorkTimeDeal))
+<P><STRONG><a name="[91]"></a>WorkTimeDeal</STRONG> (Thumb, 154 bytes, Stack size 8 bytes, applib.o(i.WorkTimeDeal))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = WorkTimeDeal &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
@@ -1198,8 +1203,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[74]"></a>delay_ms</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, delay.o(i.delay_ms))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;screenCheck
 <LI><a href="#[17]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI4_IRQHandler
@@ -1212,15 +1217,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_Adc_Average
 </UL>
 
-<P><STRONG><a name="[8d]"></a>dwCancelKey</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, dwdriver.o(i.dwCancelKey))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<P><STRONG><a name="[8e]"></a>dwCancelKey</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, dwdriver.o(i.dwCancelKey))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
@@ -1230,8 +1235,8 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendOver
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPicL
 </UL>
 
@@ -1240,25 +1245,25 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
 </UL>
 
-<P><STRONG><a name="[8b]"></a>dwDisButton</STRONG> (Thumb, 52 bytes, Stack size 32 bytes, dwdriver.o(i.dwDisButton))
+<P><STRONG><a name="[8c]"></a>dwDisButton</STRONG> (Thumb, 52 bytes, Stack size 32 bytes, dwdriver.o(i.dwDisButton))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
 <LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPicL
 </UL>
-<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mutePres
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartPres
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PausePres
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
@@ -1267,9 +1272,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayO2Time
-<LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<BR>[Called By]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayMode
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
 </UL>
 
 <P><STRONG><a name="[70]"></a>dwDisNum</STRONG> (Thumb, 44 bytes, Stack size 24 bytes, dwdriver.o(i.dwDisNum))
@@ -1277,27 +1281,32 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisString
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<BR>[Called By]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayO2Time
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayIntensity
 </UL>
 
-<P><STRONG><a name="[9d]"></a>dwDisPicNoL</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dwdriver.o(i.dwDisPicNoL))
+<P><STRONG><a name="[9e]"></a>dwDisPicNoL</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, dwdriver.o(i.dwDisPicNoL))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = dwDisPicNoL &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendOver
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicWithL
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
 </UL>
 
-<P><STRONG><a name="[9e]"></a>dwDisPicWithL</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, dwdriver.o(i.dwDisPicWithL))
+<P><STRONG><a name="[8b]"></a>dwDisPicWithL</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, dwdriver.o(i.dwDisPicWithL))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = dwDisPicWithL &rArr; dwDisPicNoL &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
 <P><STRONG><a name="[c7]"></a>dwDisString</STRONG> (Thumb, 202 bytes, Stack size 24 bytes, dwdriver.o(i.dwDisString))
@@ -1310,38 +1319,38 @@ Global Symbols
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisChar
 </UL>
 
-<P><STRONG><a name="[8f]"></a>dwHandlerButton</STRONG> (Thumb, 192 bytes, Stack size 8 bytes, dwdriver.o(i.dwHandlerButton))
+<P><STRONG><a name="[90]"></a>dwHandlerButton</STRONG> (Thumb, 192 bytes, Stack size 8 bytes, dwdriver.o(i.dwHandlerButton))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = dwHandlerButton
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwQueryCmd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
-<P><STRONG><a name="[8e]"></a>dwListenButton</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, dwdriver.o(i.dwListenButton))
+<P><STRONG><a name="[8f]"></a>dwListenButton</STRONG> (Thumb, 58 bytes, Stack size 8 bytes, dwdriver.o(i.dwListenButton))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = dwListenButton
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
 <P><STRONG><a name="[c8]"></a>dwQueryCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dwdriver.o(i.dwQueryCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
+<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwHandlerButton
 <LI><a href="#[d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;screenCheck
 </UL>
 
@@ -1354,7 +1363,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uasrt2SendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwStopMusic
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetColor
@@ -1368,7 +1377,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSendByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
+<BR>[Called By]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisPicNoL
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwCutPic
 <LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwStopMusic
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwSetColor
@@ -1400,31 +1409,31 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[91]"></a>dwWaitRelease</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, dwdriver.o(i.dwWaitRelease))
-<BR><BR>[Called By]<UL><LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<P><STRONG><a name="[92]"></a>dwWaitRelease</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, dwdriver.o(i.dwWaitRelease))
+<BR><BR>[Called By]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
-<P><STRONG><a name="[8c]"></a>funDisTime</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, dwdriver.o(i.funDisTime))
+<P><STRONG><a name="[8d]"></a>funDisTime</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, dwdriver.o(i.funDisTime))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = funDisTime &rArr; dwDisNum &rArr; dwDisString &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisNum
 </UL>
-<BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
+<BR>[Called By]<UL><LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;WorkTimeDeal
 <LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimeUpPres
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimeDownPres
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
@@ -1440,14 +1449,14 @@ Global Symbols
 <LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM4_PWM_Init
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Int_Init
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_Read
-<LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
-<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageRestartAnimation
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageMenu
+<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageLanguage
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Configuration
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adc_Init
@@ -1538,7 +1547,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_SendData
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_GetFlagStatus
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Send485
+<BR>[Called By]<UL><LI><a href="#[9b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Send485
 </UL>
 <P>
 <H3>
@@ -1568,11 +1577,11 @@ Local Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntensityUpPres
 <LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IntensityDownPres
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
-<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
-<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
-<LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageFaceRF
+<LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageEyeRF
+<LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBodyRF
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
@@ -1586,18 +1595,17 @@ Local Symbols
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageBIO1
 </UL>
 
-<P><STRONG><a name="[73]"></a>DisplayO2Time</STRONG> (Thumb, 90 bytes, Stack size 24 bytes, applib.o(i.DisplayO2Time))
+<P><STRONG><a name="[73]"></a>DisplayO2Time</STRONG> (Thumb, 62 bytes, Stack size 24 bytes, applib.o(i.DisplayO2Time))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = DisplayO2Time &rArr; dwDisNum &rArr; dwDisString &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisNum
-<LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SuckTimeUpPres
 <LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SuckTimeDownPres
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReleaseTimeUpPres
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReleaseTimeDownPres
-<LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
-<LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
+<LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2
 </UL>
 
 <P><STRONG><a name="[4f]"></a>EnterPres</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, applib.o(i.EnterPres))
@@ -1644,9 +1652,9 @@ Local Symbols
 <P><STRONG><a name="[40]"></a>PausePres</STRONG> (Thumb, 138 bytes, Stack size 8 bytes, applib.o(i.PausePres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = PausePres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 </UL>
 <BR>[Address Reference Count : 6]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
@@ -1660,17 +1668,17 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayO2Time
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 </UL>
 <BR>[Address Reference Count : 2]<UL><LI> applib.o(i.PageO2)
 <LI> applib.o(i.PageO2Big)
 </UL>
-<P><STRONG><a name="[4b]"></a>ReleaseTimeUpPres</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, applib.o(i.ReleaseTimeUpPres))
+<P><STRONG><a name="[4b]"></a>ReleaseTimeUpPres</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, applib.o(i.ReleaseTimeUpPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = ReleaseTimeUpPres &rArr; DisplayO2Time &rArr; dwDisNum &rArr; dwDisString &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayO2Time
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 </UL>
 <BR>[Address Reference Count : 2]<UL><LI> applib.o(i.PageO2)
 <LI> applib.o(i.PageO2Big)
@@ -1678,9 +1686,9 @@ Local Symbols
 <P><STRONG><a name="[3f]"></a>StartPres</STRONG> (Thumb, 158 bytes, Stack size 8 bytes, applib.o(i.StartPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = StartPres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 </UL>
 <BR>[Address Reference Count : 6]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
@@ -1694,29 +1702,29 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayO2Time
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 </UL>
 <BR>[Address Reference Count : 2]<UL><LI> applib.o(i.PageO2)
 <LI> applib.o(i.PageO2Big)
 </UL>
-<P><STRONG><a name="[4d]"></a>SuckTimeUpPres</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, applib.o(i.SuckTimeUpPres))
+<P><STRONG><a name="[4d]"></a>SuckTimeUpPres</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, applib.o(i.SuckTimeUpPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = SuckTimeUpPres &rArr; DisplayO2Time &rArr; dwDisNum &rArr; dwDisString &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
 <BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisplayO2Time
 </UL>
-<BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 </UL>
 <BR>[Address Reference Count : 2]<UL><LI> applib.o(i.PageO2)
 <LI> applib.o(i.PageO2Big)
 </UL>
-<P><STRONG><a name="[9b]"></a>TemperatureProcess2</STRONG> (Thumb, 148 bytes, Stack size 0 bytes, applib.o(i.TemperatureProcess2))
-<BR><BR>[Called By]<UL><LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
+<P><STRONG><a name="[9c]"></a>TemperatureProcess2</STRONG> (Thumb, 148 bytes, Stack size 0 bytes, applib.o(i.TemperatureProcess2))
+<BR><BR>[Called By]<UL><LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PageO2Big
 </UL>
 
 <P><STRONG><a name="[42]"></a>TimeDownPres</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, applib.o(i.TimeDownPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = TimeDownPres &rArr; funDisTime &rArr; dwDisNum &rArr; dwDisString &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 </UL>
 <BR>[Address Reference Count : 6]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
@@ -1728,7 +1736,7 @@ Local Symbols
 <P><STRONG><a name="[41]"></a>TimeUpPres</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, applib.o(i.TimeUpPres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = TimeUpPres &rArr; funDisTime &rArr; dwDisNum &rArr; dwDisString &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
+<BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;funDisTime
 </UL>
 <BR>[Address Reference Count : 6]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
@@ -1737,7 +1745,7 @@ Local Symbols
 <LI> applib.o(i.PageO2)
 <LI> applib.o(i.PageO2Big)
 </UL>
-<P><STRONG><a name="[3e]"></a>menuBIO1Pres</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, applib.o(i.menuBIO1Pres))
+<P><STRONG><a name="[3e]"></a>menuBIO1Pres</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, applib.o(i.menuBIO1Pres))
 <BR>[Address Reference Count : 7]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
 <LI> applib.o(i.PageEyeRF)
@@ -1746,7 +1754,7 @@ Local Symbols
 <LI> applib.o(i.PageO2)
 <LI> applib.o(i.PageO2Big)
 </UL>
-<P><STRONG><a name="[3b]"></a>menuBodyRFPres</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, applib.o(i.menuBodyRFPres))
+<P><STRONG><a name="[3b]"></a>menuBodyRFPres</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, applib.o(i.menuBodyRFPres))
 <BR>[Address Reference Count : 7]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
 <LI> applib.o(i.PageEyeRF)
@@ -1771,7 +1779,7 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> applib.o(i.PageLanguage)
 </UL>
-<P><STRONG><a name="[3a]"></a>menuFaceRFPres</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, applib.o(i.menuFaceRFPres))
+<P><STRONG><a name="[3a]"></a>menuFaceRFPres</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, applib.o(i.menuFaceRFPres))
 <BR>[Address Reference Count : 7]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
 <LI> applib.o(i.PageEyeRF)
@@ -1780,7 +1788,7 @@ Local Symbols
 <LI> applib.o(i.PageO2)
 <LI> applib.o(i.PageO2Big)
 </UL>
-<P><STRONG><a name="[3d]"></a>menuO2BigPres</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, applib.o(i.menuO2BigPres))
+<P><STRONG><a name="[3d]"></a>menuO2BigPres</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, applib.o(i.menuO2BigPres))
 <BR>[Address Reference Count : 7]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
 <LI> applib.o(i.PageEyeRF)
@@ -1789,7 +1797,7 @@ Local Symbols
 <LI> applib.o(i.PageO2)
 <LI> applib.o(i.PageO2Big)
 </UL>
-<P><STRONG><a name="[3c]"></a>menuO2Pres</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, applib.o(i.menuO2Pres))
+<P><STRONG><a name="[3c]"></a>menuO2Pres</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, applib.o(i.menuO2Pres))
 <BR>[Address Reference Count : 7]<UL><LI> applib.o(i.PageBIO1)
 <LI> applib.o(i.PageBodyRF)
 <LI> applib.o(i.PageEyeRF)
@@ -1801,7 +1809,7 @@ Local Symbols
 <P><STRONG><a name="[49]"></a>mutePres</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, applib.o(i.mutePres))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = mutePres &rArr; dwDisButton &rArr; dwCutPicL &rArr; dwCutPic &rArr; dwSendOver &rArr; dwSendByte &rArr; uasrt2SendByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
+<BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dwDisButton
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;STMFLASH_Write
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> applib.o(i.PageLanguage)
