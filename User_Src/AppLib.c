@@ -233,7 +233,12 @@ static void IntensityUpPres(void)
 static void IntensityDownPres(void)
 {
 	INLINE_MUSIC_BUTTON();
-	if (nextPage != FUNCTION_FACE && nextPage != FUNCTION_BODY)
+	if (nextPage == FUNCTION_O2 || nextPage == FUNCTION_O2_BIG)
+	{
+		if (WorkIntensity > 0)
+			WorkIntensity--;
+	}
+	else if (nextPage != FUNCTION_FACE && nextPage != FUNCTION_BODY)
 	{
 		if (WorkIntensity > 1)
 		{
@@ -806,7 +811,7 @@ void PageBIO1(void)
 }
 
 //Temperature Process
-const u16 TemperatureTable[] = {0, 1396, 1296, 1196, 1096,
+const u16 TemperatureTable[] = {4095, 1396, 1296, 1196, 1096,
 								996, 796, 596, 498};
 u16 IceTemperature = 0;
 static u8 NtcErrorFlag = 0;
@@ -848,7 +853,7 @@ void PageO2(void)
 {
 	BACK1_PIN = 0; //change channel
 	WorkTime = 1800;
-	WorkIntensity = 1;
+	WorkIntensity = 0;
 	WorkMode = 1;
 	WorkReleaseTime = 5;
 	WorkSuckTime = 5;
@@ -970,7 +975,7 @@ void PageO2Big(void)
 	data485[0] = 0;
 	BACK1_PIN = 1; //change channel
 	WorkTime = 1800;
-	WorkIntensity = 1;
+	WorkIntensity = 0;
 	WorkMode = 1;
 	WorkReleaseTime = 5;
 	WorkSuckTime = 5;
