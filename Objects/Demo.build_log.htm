@@ -28,13 +28,15 @@ Project File Date:  04/03/2020
 *** Using Compiler 'V5.05 update 1 (build 106)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target 1'
 compiling AppLib.c...
+User_Src\AppLib.c(1166): warning:  #550-D: variable "BIO1TimeCnt2" was set but never used
+        static u16 BIO1TimeCnt = 0, BIO1TimeCnt2 = 0;
 User_Src\AppLib.c(49): warning:  #177-D: function "menuEyeRFPres" was declared but never referenced
   static void menuEyeRFPres(void)
-User_Src\AppLib.c: 1 warning, 0 errors
+User_Src\AppLib.c: 2 warnings, 0 errors
 linking...
-Program Size: Code=16024 RO-data=476 RW-data=152 ZI-data=3152  
+Program Size: Code=15964 RO-data=476 RW-data=152 ZI-data=3152  
 FromELF: creating hex file...
-".\Objects\Demo.axf" - 0 Error(s), 1 Warning(s).
+".\Objects\Demo.axf" - 0 Error(s), 2 Warning(s).
 </pre>
 </body>
 </html>

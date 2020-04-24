@@ -864,7 +864,7 @@ void PageO2(void)
 	IntensityY = 234;
 	ReleaseX = 300;
 	ReleaseY = 165;
-	SuckX = 293;
+	SuckX = 300;
 	SuckY = 93;
 
 	dwDisPicWithL(PIC_O2);
@@ -986,7 +986,7 @@ void PageO2Big(void)
 	IntensityY = 234;
 	ReleaseX = 300;
 	ReleaseY = 165;
-	SuckX = 293;
+	SuckX = 300;
 	SuckY = 93;
 
 	dwDisPicWithL(PIC_O2_BIG);
@@ -1157,7 +1157,9 @@ void O2PWM(u16 suck, u16 release, u8 Work)
 
 //BIO1 PWM
 const u16 BIO1IntensityTable[] = {0, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 44, 45, 46, 46, 47, 47, 48, 48};
-const u16 BIO1ModPeriod[] = {0, 10000, 9900, 2640, 4950, 4950, 4950}; //5 and 6 relate to intensity
+// const u16 BIO1ModPeriod[] = {0, 10000, 9900, 2640, 4950, 4950, 4950}; //5 and 6 relate to intensity
+// const u16 BIO1ModCompare[] = {0, 10000, 4950, 1320, 2640, 2640, 4950};
+const u16 BIO1ModPeriod[] = {0, 330, 190, 180, 190, 330, 190}; //5 and 6 relate to intensity
 const u16 BIO1ModCompare[] = {0, 10000, 4950, 1320, 2640, 2640, 4950};
 void BIO1PWM(u8 i, u8 Work)
 {
@@ -1166,25 +1168,34 @@ void BIO1PWM(u8 i, u8 Work)
 
 	if (Work)
 	{
-		if (++BIO1TimeCnt2 >= BIO1ModPeriod[BIO1ModRenew])
+		// if (++BIO1TimeCnt2 >= BIO1ModPeriod[BIO1ModRenew])
+		// {
+		// 	BIO1TimeCnt2 = 0;
+		// 	BIO1ModRenew = i;
+		// }
+		// if (BIO1TimeCnt2 < BIO1ModCompare[BIO1ModRenew])
+		// {
+		// 	if (++BIO1TimeCnt >= 330) //BIO1ModPeriod[BIO1ModRenew])
+		// 		BIO1TimeCnt = 0;
+		// 	if (BIO1TimeCnt < 2) //BIO1ModCompare[BIO1ModRenew]))
+		// 		BIOS_PIN = 0;	//open
+		// 	else
+		// 		BIOS_PIN = 1; //close
+		// }
+		// else
+		// {
+		// 	BIOS_PIN = 1; //close
+		// 	BIO1TimeCnt = 0;
+		// }
+		if (++BIO1TimeCnt >= BIO1ModPeriod[BIO1ModRenew]) //BIO1ModPeriod[BIO1ModRenew])
 		{
-			BIO1TimeCnt2 = 0;
+			BIO1TimeCnt = 0;
 			BIO1ModRenew = i;
 		}
-		if (BIO1TimeCnt2 < BIO1ModCompare[BIO1ModRenew])
-		{
-			if (++BIO1TimeCnt >= 330) //BIO1ModPeriod[BIO1ModRenew])
-				BIO1TimeCnt = 0;
-			if (BIO1TimeCnt < 2) //BIO1ModCompare[BIO1ModRenew]))
-				BIOS_PIN = 0;	//open
-			else
-				BIOS_PIN = 1; //close
-		}
+		if (BIO1TimeCnt < 2)
+			BIOS_PIN = 0;	 //open
 		else
-		{
 			BIOS_PIN = 1; //close
-			BIO1TimeCnt = 0;
-		}
 	}
 	else
 	{
