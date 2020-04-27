@@ -298,7 +298,7 @@ static void ModeUpPres(void)
 {
 	INLINE_MUSIC_BUTTON();
 
-	if (WorkMode < 6)
+	if (WorkMode < 4)
 	{
 		WorkMode++;
 	}
@@ -1156,10 +1156,10 @@ void O2PWM(u16 suck, u16 release, u8 Work)
 }
 
 //BIO1 PWM
-const u16 BIO1IntensityTable[] = {0, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 44, 45, 46, 46, 47, 47, 48, 48};
-// const u16 BIO1ModPeriod[] = {0, 10000, 9900, 2640, 4950, 4950, 4950}; //5 and 6 relate to intensity
+const u16 BIO1IntensityTable[] = {0, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 44, 45, 46, 47, 47, 48, 48};
+// const u16 BIO1ModPeriod[] = {0, 10000, 9900, 2640, 4950, 4950, 4950}; 
 // const u16 BIO1ModCompare[] = {0, 10000, 4950, 1320, 2640, 2640, 4950};
-const u16 BIO1ModPeriod[] = {0, 330, 190, 180, 190, 330, 190}; //5 and 6 relate to intensity
+const u16 BIO1ModPeriod[] = {0, 500, 400, 300, 180, 330, 190}; 
 const u16 BIO1ModCompare[] = {0, 10000, 4950, 1320, 2640, 2640, 4950};
 void BIO1PWM(u8 i, u8 Work)
 {
@@ -1212,10 +1212,6 @@ void BIO1Power(u8 i, u8 Work)
 
 	if (Work)
 	{
-		if (WorkMode == 5) //bio mode 5/6 is power up
-			i += 2;
-		else if (WorkMode == 6)
-			i += 4;
 		if (++BIO1TimeCnt >= 75)
 		{
 			BIO1TimeCnt = 0;
